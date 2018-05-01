@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package VillaRafinha;
+import java.time.Instant;
+import java.time.LocalDate;
 
 
 
@@ -94,7 +96,14 @@ public class GestorPisosHabitaciones {
         }
         
     }
+    /*public boolean verificarDisp(Habitacion habitacion){
+        for(Hospedaje f : habitacion.hospedajesHabitacion){
+            if(f.getFechaLlegada())
+        }
+        
+    }*/
     public Habitacion getHabitacion(Tipo tipo)throws Exception{
+        
         for(Piso p: this.pisos){
             for(Habitacion h: p.getHabitaciones()){
                 
@@ -103,6 +112,7 @@ public class GestorPisosHabitaciones {
         }
         throw new Exception ("No hay habitaciones de tipo "+tipo.toString()+"disponibles");
     }
+    
     
     
 }

@@ -5,6 +5,7 @@
  */
 package VillaRafinha;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -17,6 +18,7 @@ public class Habitacion extends Producto{
     Piso piso;
     int numero;
     boolean habilitada;
+    ArrayList <Hospedaje> hospedajesHabitacion = new ArrayList();
 
     
 
