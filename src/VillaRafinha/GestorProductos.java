@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author raul
+ * @author Raul GRanados 00138816
  */
 public class GestorProductos {
     private static GestorProductos gestorProductos;
@@ -61,7 +61,7 @@ public class GestorProductos {
     }
     
     public void modificarPrecioPaquete(Paquete paquete,float precio){
-        paquete.precio=precio;
+       // paquete.setPrecio(precio);
     }
     
     

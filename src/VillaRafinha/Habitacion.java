@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author raul
+ * @author Raul Granados 00138816
  */
 public class Habitacion extends Producto{
     

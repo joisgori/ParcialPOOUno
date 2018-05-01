@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 /**
  *
- * @author raul
+ * @author Raul Granados 00138816
  */
 public class GestorPisosHabitaciones {
     private static GestorPisosHabitaciones gestor;
@@ -60,7 +60,7 @@ public class GestorPisosHabitaciones {
         }
 
     }
-    public void habilitarPiso(Nivel nivel) throws Exception {
+    /*public void habilitarPiso(Nivel nivel) throws Exception {
         for (Piso p : this.pisos) {
             if (p.getNivel() == nivel) {
                 if (!p.isEstado()) {
@@ -75,7 +75,7 @@ public class GestorPisosHabitaciones {
 
         }
 
-    }
+    }*/
     public void habilitarHabitacion(Habitacion habitacion) throws Exception{
         if(!habitacion.estado){
             habitacion.estado=true;
@@ -105,9 +105,9 @@ public class GestorPisosHabitaciones {
     public Habitacion getHabitacion(Tipo tipo)throws Exception{
         
         for(Piso p: this.pisos){
-            for(Habitacion h: p.getHabitaciones()){
+            /*for(Habitacion h: p.getHabitaciones()){
                 
-            }
+            }*/
             
         }
         throw new Exception ("No hay habitaciones de tipo "+tipo.toString()+"disponibles");
