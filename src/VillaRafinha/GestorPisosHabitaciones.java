@@ -10,5 +10,6 @@ package VillaRafinha;
  * @author daniel
  */
 public class GestorPisosHabitaciones {
+    Piso pisos;
     
 }
