@@ -13,9 +13,9 @@ import java.util.ArrayList;
  */
 public class GestorProductos {
     private static GestorProductos gestorProductos;
-    ArrayList<Paquete> paquetes;
-    ArrayList<Servicio> servicios;
-    ArrayList<Admin> administradores;
+    private ArrayList<Paquete> paquetes;
+    private ArrayList<Servicio> servicios;
+    private ArrayList<Admin> administradores;
 
     private GestorProductos() {
         paquetes = new ArrayList<>();

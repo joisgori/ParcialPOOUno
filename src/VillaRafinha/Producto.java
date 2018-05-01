@@ -12,10 +12,10 @@ import java.util.Objects;
  * @author Raul Granados 00138816
  */
 public class Producto {
-    String nombre;
-    float precio;
-    String descripcion;
-    boolean estado;
+    private String nombre;
+    private float precio;
+    private String descripcion;
+    private boolean estado;
 
     public Producto(String nombre, float precio, String descripcion, boolean estado) {
         this.nombre = nombre;

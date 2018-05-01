@@ -14,11 +14,11 @@ import java.util.Objects;
  */
 public class Habitacion extends Producto{
     
-    Tipo tipo;
-    Piso piso;
-    int numero;
-    boolean habilitada;
-    ArrayList <Hospedaje> hospedajesHabitacion = new ArrayList();
+    private Tipo tipo;
+    private Piso piso;
+    private int numero;
+    private boolean estado;
+    private ArrayList <Hospedaje> hospedajesHabitacion = new ArrayList();
 
     
 
@@ -54,13 +54,24 @@ public class Habitacion extends Producto{
         this.numero = numero;
     }
 
-    public boolean isHabilitada() {
-        return habilitada;
+
+    public ArrayList<Hospedaje> getHospedajesHabitacion() {
+        return hospedajesHabitacion;
     }
 
-    public void setHabilitada(boolean habilitada) {
-        this.habilitada = habilitada;
+    public void setHospedajesHabitacion(ArrayList<Hospedaje> hospedajesHabitacion) {
+        this.hospedajesHabitacion = hospedajesHabitacion;
     }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    
+    
 
 
     @Override
@@ -78,7 +89,7 @@ public class Habitacion extends Producto{
         if (this.numero != other.numero) {
             return false;
         }
-        if (this.habilitada != other.habilitada) {
+        if (this.estado != other.estado) {
             return false;
         }
         if (this.tipo != other.tipo) {

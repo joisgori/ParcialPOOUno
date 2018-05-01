@@ -15,7 +15,7 @@ import java.time.LocalDate;
  */
 public class GestorPisosHabitaciones {
     private static GestorPisosHabitaciones gestor;
-    Piso[] pisos = new Piso[6];
+    private Piso[] pisos = new Piso[6];
 
     
     private GestorPisosHabitaciones(){
@@ -77,8 +77,8 @@ public class GestorPisosHabitaciones {
 
     }*/
     public void habilitarHabitacion(Habitacion habitacion) throws Exception{
-        if(!habitacion.estado){
-            habitacion.estado=true;
+        if(!habitacion.isEstado()){
+            habitacion.setEstado(true);
         }
         else{
             throw new Exception("La habitacion ya esta habilitada");
@@ -88,17 +88,24 @@ public class GestorPisosHabitaciones {
         
     }
     public void deshabilitarHabitacion(Habitacion habitacion) throws Exception{
-        if(habitacion.estado){
-            habitacion.estado=false;
+        if(habitacion.isEstado()){
+            habitacion.setEstado(false);
         }
         else{
             throw new Exception("La habitacion ya estaba deshabilitada");
         }
         
     }
-    /*public boolean verificarDisp(Habitacion habitacion){
-        for(Hospedaje f : habitacion.hospedajesHabitacion){
-            if(f.getFechaLlegada())
+    /*public boolean verificarDisp(Habitacion habitacion, Hospedaje hospedaje){
+        Hospedaje f;
+        if(habitacion.getHospedajesHabitacion()==null){
+            return true;
+        }
+        for(int i=0;i<habitacion.getHospedajesHabitacion().size();i++){
+            f=habitacion.getHospedajesHabitacion().get(i);
+            if(f.getFechaLlegada().isBefore(hospedaje.getFechaLlegada())||f.getFechaLlegada().equals(hospedaje.getFechaLlegada())){
+                
+            }
         }
         
     }*/
