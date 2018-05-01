@@ -20,7 +20,7 @@ public class Reservacion {
     private Hospedaje estancia;
     private Paquete paquete;
     private Float total;
-    private boolean disponible;
+    private boolean activa;
     private TarjetaCredito garantia;
 
     public void setSencilla(boolean sencilla) {
@@ -43,8 +43,8 @@ public class Reservacion {
         this.total = total;
     }
 
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
+    public void setActiva(boolean activa) {
+        this.activa = activa;
     }
 
     public boolean isSencilla() {
@@ -67,8 +67,8 @@ public class Reservacion {
         return total;
     }
 
-    public boolean isDisponible() {
-        return disponible;
+    public boolean isActiva() {
+        return activa;
     }
 
     @Override
@@ -101,7 +101,7 @@ public class Reservacion {
     }
     
     public void cancelarReservacion(){
-        this.setDisponible(false);
+        this.setActiva(false);
     }
     
     public void procesarREservacion(TarjetaCredito t){
