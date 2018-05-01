@@ -12,6 +12,10 @@ import java.util.Objects;
  * @author raul
  */
 public class Habitacion {
+    public enum Tipo{
+        DOBLE,
+        SENCILLA
+    }
     Tipo tipo;
     Piso piso;
     int numero;
