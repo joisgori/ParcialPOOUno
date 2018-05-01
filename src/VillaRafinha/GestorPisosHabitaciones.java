@@ -104,6 +104,7 @@ public class GestorPisosHabitaciones {
         for(int i=0;i<habitacion.getHospedajesHabitacion().size();i++){
             f=habitacion.getHospedajesHabitacion().get(i);
             if(f.getFechaLlegada().isBefore(hospedaje.getFechaLlegada())||f.getFechaLlegada().equals(hospedaje.getFechaLlegada())){
+                if(hospedaje.getFechaSalida().isAfter())
                 
             }
         }
