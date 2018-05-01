@@ -22,7 +22,12 @@ public class Reservacion {
     private Float total;
     private boolean activa;
     private TarjetaCredito garantia;
-
+    
+    
+    public Reservacion(){
+        
+    }
+    
     public void setSencilla(boolean sencilla) {
         this.sencilla = sencilla;
     }
