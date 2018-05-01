@@ -7,8 +7,25 @@ package VillaRafinha;
 
 /**
  *
- * @author daniel
+ * @author Josué González <00034715@uca.edu.sv>
  */
-public class Huesped {
+public class Huesped extends Persona {
+
+    TarjetaCredito[] tarjetaCredito = new TarjetaCredito[8];
+//constructores
+
+    public Huesped() {
+    }
     
+//métodos getter
+
+    public TarjetaCredito[] getTarjetaCredito() {
+        return tarjetaCredito;
+    }
+//métodos setter
+
+    public void setTarjetaCredito(TarjetaCredito[] tarjetaCredito) {
+        this.tarjetaCredito = tarjetaCredito;
+    }
+
 }
