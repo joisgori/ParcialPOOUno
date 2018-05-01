@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  *
- * @author daniel
+ * @author raul
  */
 public class Habitacion {
     Tipo tipo;

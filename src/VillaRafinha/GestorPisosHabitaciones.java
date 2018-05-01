@@ -5,11 +5,42 @@
  */
 package VillaRafinha;
 
+
+
 /**
  *
- * @author daniel
+ * @author raul
  */
 public class GestorPisosHabitaciones {
-    Piso pisos;
+    private static GestorPisosHabitaciones gestor;
+    Piso[] pisos = new Piso[6];
+
+    
+    private GestorPisosHabitaciones(){
+        
+    }
+    
+    public static GestorPisosHabitaciones getInstance(){
+        if(gestor==null){
+            gestor = new GestorPisosHabitaciones();
+        }
+        return gestor;
+    }
+
+    public static GestorPisosHabitaciones getGestor() {
+        return gestor;
+    }
+
+    public Piso[] getPisos() {
+        return pisos;
+    }
+
+    public static void setGestor(GestorPisosHabitaciones gestor) {
+        GestorPisosHabitaciones.gestor = gestor;
+    }
+
+    public void setPisos(Piso[] pisos) {
+        this.pisos = pisos;
+    }
     
 }

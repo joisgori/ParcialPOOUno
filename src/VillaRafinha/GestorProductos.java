@@ -5,10 +5,66 @@
  */
 package VillaRafinha;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author daniel
+ * @author raul
  */
 public class GestorProductos {
+    GestorProductos gestorProductos;
+    ArrayList<Paquete> paquetes;
+    ArrayList<Servicio> servicios;
+    ArrayList<Admin> administradores;
+
+    private GestorProductos() {
+        paquetes = new ArrayList<>();
+        servicios = new ArrayList<>();
+        administradores = new ArrayList<>();
+        
+    }
+    
+    public GestorProductos getInstance(){
+        if(gestorProductos == null){
+            gestorProductos = new GestorProductos();
+        }
+        
+        return gestorProductos;
+    }
+
+    public GestorProductos getGestorProductos() {
+        return gestorProductos;
+    }
+
+    public void setGestorProductos(GestorProductos gestorProductos) {
+        this.gestorProductos = gestorProductos;
+    }
+
+    public ArrayList<Paquete> getPaquetes() {
+        return paquetes;
+    }
+
+    public void setPaquetes(ArrayList<Paquete> paquetes) {
+        this.paquetes = paquetes;
+    }
+
+    public ArrayList<Servicio> getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(ArrayList<Servicio> servicios) {
+        this.servicios = servicios;
+    }
+
+    public ArrayList<Admin> getAdministradores() {
+        return administradores;
+    }
+
+    public void setAdministradores(ArrayList<Admin> administradores) {
+        this.administradores = administradores;
+    }
+    
+    
+    
     
 }
