@@ -7,7 +7,7 @@ package VillaRafinha;
 
 /**
  *
- * @author daniel
+ * @author Josué González <00034715@uca.edu.sv>
  */
 public class Huesped extends Persona {
 
