@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author raul
  */
-public class Habitacion {
+public class Habitacion extends Producto{
     public enum Tipo{
         DOBLE,
         SENCILLA
@@ -20,11 +20,14 @@ public class Habitacion {
     Piso piso;
     int numero;
 
-    public Habitacion(Tipo tipo, Piso piso, int numero) {
+    public Habitacion(Tipo tipo, Piso piso, int numero, String nombre, float precio, String descripcion, boolean estado) {
+        super(nombre, precio, descripcion, estado);
         this.tipo = tipo;
         this.piso = piso;
         this.numero = numero;
     }
+
+    
 
     public Tipo getTipo() {
         return tipo;

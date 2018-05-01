@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author raul
  */
 public class GestorProductos {
-    GestorProductos gestorProductos;
+    private static GestorProductos gestorProductos;
     ArrayList<Paquete> paquetes;
     ArrayList<Servicio> servicios;
     ArrayList<Admin> administradores;
