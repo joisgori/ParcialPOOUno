@@ -43,7 +43,7 @@ public class GestorPisosHabitaciones {
      * @throws Exception en caso de que ya esten todos deshabilitados 
      */
     
-    public void deshabilitarPiso(Nivel nivel) throws Exception {
+    /*public void deshabilitarPiso(Nivel nivel) throws Exception {
         for (Piso p : this.pisos) {
             if (p.getNivel() == nivel) {
                 if (p.isEstado()) {
@@ -59,7 +59,7 @@ public class GestorPisosHabitaciones {
 
         }
 
-    }
+    }*/
     /*public void habilitarPiso(Nivel nivel) throws Exception {
         for (Piso p : this.pisos) {
             if (p.getNivel() == nivel) {
