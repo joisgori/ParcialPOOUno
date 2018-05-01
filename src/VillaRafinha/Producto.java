@@ -89,6 +89,23 @@ public class Producto {
         return true;
     }
     
+    public void hablitarProducto()throws Exception{
+        if(!this.estado){
+            this.estado=true;
+        }
+        else{
+            throw new Exception("La habitacion ya esta habilitada");
+        }
+    }
+    public void deshablitarProducto()throws Exception{
+        if(this.estado){
+            this.estado=false;
+        }
+        else{
+            throw new Exception("La habitacion ya esta deshabilitada");
+        }
+    }
+    
     
     
     

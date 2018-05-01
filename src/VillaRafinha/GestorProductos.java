@@ -32,14 +32,6 @@ public class GestorProductos {
         return gestorProductos;
     }
 
-    public GestorProductos getGestorProductos() {
-        return gestorProductos;
-    }
-
-    public void setGestorProductos(GestorProductos gestorProductos) {
-        this.gestorProductos = gestorProductos;
-    }
-
     public ArrayList<Paquete> getPaquetes() {
         return paquetes;
     }
@@ -64,6 +56,18 @@ public class GestorProductos {
         this.administradores = administradores;
     }
     
+    public void modificarPaquete(){
+        
+    }
+    
+    public void modificarPrecioPaquete(Paquete paquete,float precio){
+        paquete.precio=precio;
+    }
+    
+    
+
+    
+
     
     
     

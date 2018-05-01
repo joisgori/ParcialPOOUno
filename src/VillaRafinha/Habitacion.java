@@ -12,54 +12,54 @@ import java.util.Objects;
  * @author raul
  */
 public class Habitacion extends Producto{
-    public enum Tipo{
-        DOBLE,
-        SENCILLA
-    }
+    
     Tipo tipo;
     Piso piso;
     int numero;
+    boolean habilitada;
 
-    public Habitacion(Tipo tipo, Piso piso, int numero, String nombre, float precio, String descripcion, boolean estado) {
+    
+
+    public Habitacion(Tipo tipo, Piso piso, int numero, boolean habilitacion, String nombre, float precio, String descripcion, boolean estado) {
         super(nombre, precio, descripcion, estado);
         this.tipo = tipo;
         this.piso = piso;
         this.numero = numero;
+      
     }
-
-    
 
     public Tipo getTipo() {
         return tipo;
-    }
-
-    public Piso getPiso() {
-        return piso;
-    }
-
-    public int getNumero() {
-        return numero;
     }
 
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;
     }
 
+    public Piso getPiso() {
+        return piso;
+    }
+
     public void setPiso(Piso piso) {
         this.piso = piso;
+    }
+
+    public int getNumero() {
+        return numero;
     }
 
     public void setNumero(int numero) {
         this.numero = numero;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.piso);
-        hash = 59 * hash + this.numero;
-        return hash;
+    public boolean isHabilitada() {
+        return habilitada;
     }
+
+    public void setHabilitada(boolean habilitada) {
+        this.habilitada = habilitada;
+    }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -76,11 +76,19 @@ public class Habitacion extends Producto{
         if (this.numero != other.numero) {
             return false;
         }
+        if (this.habilitada != other.habilitada) {
+            return false;
+        }
+        if (this.tipo != other.tipo) {
+            return false;
+        }
         if (!Objects.equals(this.piso, other.piso)) {
             return false;
         }
         return true;
     }
+    
+    
     
     
     
