@@ -10,5 +10,45 @@ package VillaRafinha;
  * @author daniel
  */
 public class Persona {
-    
+
+    String nombre;
+    DUI dui;
+    int telefono;
+//constructores
+
+    public Persona() {
+    }
+
+    public Persona(String nombre, DUI dui, int telefono) {
+        this.nombre = nombre;
+        this.dui = dui;
+        this.telefono = telefono;
+    }
+//métodos getter
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public DUI getDui() {
+        return dui;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+//métodos setter
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDui(DUI dui) {
+        this.dui = dui;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
 }
