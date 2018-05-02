@@ -15,7 +15,8 @@ public class VillaRafinha {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        GestorPisosHabitaciones gestor = GestorPisosHabitaciones.getInstance();
+        Hospedaje hos1 = new Hospedaje();
     }
     
 }
