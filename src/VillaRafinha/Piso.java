@@ -12,26 +12,26 @@ import java.util.*;
  */
 public class Piso {
     private Nivel nivel;
-    private ArrayList<Habitacion> habitacion;
+    private ArrayList<Habitacion> habitaciones;
 
     public Piso() {
     }
 
-    public Piso(Nivel nivel, ArrayList<Habitacion> habitacion) {
+    public Piso(Nivel nivel, ArrayList<Habitacion> habitaciones) {
         this.nivel = nivel;
-        this.habitacion = habitacion;
+        this.habitaciones = habitaciones;
     }
 
-    public ArrayList<Habitacion> getHabitacion() {
-        return habitacion;
+    public ArrayList<Habitacion> getHabitaciones() {
+        return habitaciones;
     }
 
     public Nivel getNivel() {
         return nivel;
     }
 
-    public void setHabitacion(ArrayList<Habitacion> habitacion) {
-        this.habitacion = habitacion;
+    public void setHabitaciones(ArrayList<Habitacion> habitaciones) {
+        this.habitaciones = habitaciones;
     }
 
     public void setNivel(Nivel nivel) {
