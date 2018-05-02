@@ -17,7 +17,7 @@ import java.util.Iterator;
 public class GestorPisosHabitaciones {
     //private GestorPisosHabitaciones gestor;
     //private Piso[] pisos = new Piso[6];
-    private ArrayList<Piso> pisos;
+    private ArrayList<Piso> pisos = new ArrayList();
     
 
     
@@ -28,10 +28,7 @@ public class GestorPisosHabitaciones {
         this.pisos.add(new Piso("D"));
         this.pisos.add(new Piso("E"));
         this.pisos.add(new Piso("F"));
-        
-        
-        
-        
+
         
         /*int cont=1;
         for(Piso p: this.pisos){
@@ -192,6 +189,7 @@ public class GestorPisosHabitaciones {
         throw new Exception("No hay habitaciones de tipo " + tipo.toString() + "disponibles");
 
     }
+    
     /*public Habitacion getHabitacion(Nivel nivel, int numero){
         for(Piso p :this.pisos ){
             
