@@ -15,19 +15,15 @@ import java.util.Objects;
 public class Habitacion extends Producto{
     
     private Tipo tipo;
-    private Piso piso;
+    private Nivel nivel;
     private int numero;
-    private boolean estado;
     private ArrayList <Hospedaje> hospedajesHabitacion = new ArrayList();
 
-    
-
-    public Habitacion(Tipo tipo, Piso piso, int numero, boolean habilitacion, String nombre, float precio, String descripcion, boolean estado) {
+    public Habitacion(Tipo tipo, Nivel nivel, int numero, String nombre, float precio, String descripcion, boolean estado) {
         super(nombre, precio, descripcion, estado);
         this.tipo = tipo;
-        this.piso = piso;
+        this.nivel = nivel;
         this.numero = numero;
-      
     }
 
     public Tipo getTipo() {
@@ -38,12 +34,12 @@ public class Habitacion extends Producto{
         this.tipo = tipo;
     }
 
-    public Piso getPiso() {
-        return piso;
+    public Nivel getNivel() {
+        return nivel;
     }
 
-    public void setPiso(Piso piso) {
-        this.piso = piso;
+    public void setNivel(Nivel nivel) {
+        this.nivel = nivel;
     }
 
     public int getNumero() {
@@ -54,7 +50,6 @@ public class Habitacion extends Producto{
         this.numero = numero;
     }
 
-
     public ArrayList<Hospedaje> getHospedajesHabitacion() {
         return hospedajesHabitacion;
     }
@@ -63,26 +58,13 @@ public class Habitacion extends Producto{
         this.hospedajesHabitacion = hospedajesHabitacion;
     }
 
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 53 * hash + Objects.hashCode(this.tipo);
-        hash = 53 * hash + Objects.hashCode(this.piso);
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.nivel);
         hash = 53 * hash + this.numero;
-        hash = 53 * hash + (this.estado ? 1 : 0);
         return hash;
     }
-    
-    
-
 
     @Override
     public boolean equals(Object obj) {
@@ -99,17 +81,17 @@ public class Habitacion extends Producto{
         if (this.numero != other.numero) {
             return false;
         }
-        if (this.estado != other.estado) {
-            return false;
-        }
-        if (this.tipo != other.tipo) {
-            return false;
-        }
-        if (!Objects.equals(this.piso, other.piso)) {
+        if (this.nivel != other.nivel) {
             return false;
         }
         return true;
     }
+
+    
+
+    
+
+    
     
     
     

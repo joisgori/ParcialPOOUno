@@ -14,18 +14,13 @@ import java.util.Iterator;
  * @author Raul Granados 00138816
  */
 public class GestorPisosHabitaciones {
-    private static GestorPisosHabitaciones gestor;
+    //private GestorPisosHabitaciones gestor;
     private Piso[] pisos = new Piso[6];
     
 
     
     private GestorPisosHabitaciones(){
-        pisos[0].setNivel(Nivel.A);
-        pisos[1].setNivel(Nivel.B);
-        pisos[2].setNivel(Nivel.C);
-        pisos[3].setNivel(Nivel.D);
-        pisos[4].setNivel(Nivel.E);
-        pisos[5].setNivel(Nivel.F);
+        pisos[0];
         
         int cont=1;
         for(Piso p: this.pisos){
