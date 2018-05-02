@@ -150,7 +150,7 @@ public class GestorPisosHabitaciones {
             return false;
         }
     }
-    /*public Habitacion getHabitacion(Tipo tipo, Habitacion habitacion, Hospedaje hospedaje) throws Exception {
+    public Habitacion getHabitacion(Tipo tipo, Habitacion habitacion, Hospedaje hospedaje) throws Exception {
 
         for (Piso p : this.pisos) {
             for (Habitacion h : p.getHabitaciones()) {
@@ -163,7 +163,7 @@ public class GestorPisosHabitaciones {
 
         }
         throw new Exception("No hay habitaciones de tipo " + tipo.toString() + "disponibles");
-    }*/
+    }
     
     
     

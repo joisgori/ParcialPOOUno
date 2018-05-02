@@ -70,6 +70,16 @@ public class Habitacion extends Producto{
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.tipo);
+        hash = 53 * hash + Objects.hashCode(this.piso);
+        hash = 53 * hash + this.numero;
+        hash = 53 * hash + (this.estado ? 1 : 0);
+        return hash;
+    }
     
     
 

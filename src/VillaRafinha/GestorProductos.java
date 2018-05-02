@@ -6,6 +6,7 @@
 package VillaRafinha;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -56,7 +57,22 @@ public class GestorProductos {
         this.administradores = administradores;
     }
     
-    public void modificarPaquete(){
+    public void modificarPaquete(Paquete paquete){
+        Scanner scanner = new Scanner(System.in);
+        
+        int opc=0;
+        while(opc!=3){
+            System.out.println("1. Agregar servicio\n2.Remover servicio\n");
+            
+            switch (opc){
+                case 1:
+                    break;
+                case 2: 
+                    break;
+                case 3:
+                    
+            }
+        }
         
     }
     
