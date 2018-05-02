@@ -15,13 +15,13 @@ import java.util.Objects;
 public class Habitacion extends Producto{
     
     private Tipo tipo;
-    private Nivel nivel;
+    private String nivel;
     private int numero;
     private ArrayList <Hospedaje> hospedajesHabitacion = new ArrayList();
 
     
 
-    public Habitacion(Tipo tipo, Nivel nivel, int numero, String nombre, float precio, String descripcion, boolean estado) {
+    public Habitacion(Tipo tipo, String nivel, int numero, String nombre, float precio, String descripcion, boolean estado) {
         super(nombre, precio, descripcion, estado);
         this.tipo = tipo;
         this.nivel = nivel;
@@ -36,11 +36,11 @@ public class Habitacion extends Producto{
         this.tipo = tipo;
     }
 
-    public Nivel getNivel() {
+    public String getNivel() {
         return nivel;
     }
 
-    public void setNivel(Nivel nivel) {
+    public void setNivel(String nivel) {
         this.nivel = nivel;
     }
 
@@ -63,8 +63,8 @@ public class Habitacion extends Producto{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.nivel);
-        hash = 53 * hash + this.numero;
+        hash = 73 * hash + Objects.hashCode(this.nivel);
+        hash = 73 * hash + this.numero;
         return hash;
     }
 
@@ -83,20 +83,10 @@ public class Habitacion extends Producto{
         if (this.numero != other.numero) {
             return false;
         }
-        if (this.nivel != other.nivel) {
+        if (!Objects.equals(this.nivel, other.nivel)) {
             return false;
         }
         return true;
     }
-
-    
-
-    
-
-    
-    
-    
-    
-    
     
 }

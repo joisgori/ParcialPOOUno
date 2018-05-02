@@ -5,6 +5,7 @@
  */
 package VillaRafinha;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 
@@ -15,27 +16,28 @@ import java.util.Iterator;
  */
 public class GestorPisosHabitaciones {
     //private GestorPisosHabitaciones gestor;
-    private Piso[] pisos = new Piso[6];
+    //private Piso[] pisos = new Piso[6];
+    private ArrayList<Piso> pisos;
     
 
     
     public GestorPisosHabitaciones(){
-        pisos[0] = new Piso(Nivel.A);
-        pisos[1] = new Piso(Nivel.B);
-        pisos[2] = new Piso(Nivel.C);
-        pisos[3] = new Piso(Nivel.D);
-        pisos[4] = new Piso(Nivel.E);
-        pisos[5] = new Piso(Nivel.F);
+        this.pisos.add(new Piso("A"));
+        this.pisos.add(new Piso("B"));
+        this.pisos.add(new Piso("C"));
+        this.pisos.add(new Piso("D"));
+        this.pisos.add(new Piso("E"));
+        this.pisos.add(new Piso("F"));
         
         
         
-        int cont=1;
+        
+        
+        /*int cont=1;
         for(Piso p: this.pisos){
-            for(Habitacion h: p.getHabitaciones()){
-                h.setNumero(cont);
-                cont+=1;
-            }
-        }
+            
+                                
+            }*/
         
         
     }
@@ -47,24 +49,25 @@ public class GestorPisosHabitaciones {
         return gestor;
     }*/
 
-    public Piso[] getPisos() {
+    public ArrayList<Piso> getPisos() {
         return pisos;
     }
 
-    
-    public void setPisos(Piso[] pisos) {
+    public void setPisos(ArrayList<Piso> pisos) {
         this.pisos = pisos;
     }
+
+    
     /**
      * Este metodo deshabilita todas las habitaciones de un piso.
      * @param nivel el nivel en el que se ecuentra 
      * @throws Exception en caso de que ya esten todos deshabilitados 
      */
     
-    public void deshabilitarPiso(Nivel nivel) throws Exception {
+    public void deshabilitarPiso(String nivel) throws Exception {
         for (Piso p : this.pisos) {
             
-            if (p.getNivel() == nivel) {
+            if (p.getNivel().equals(nivel)) {
                 if (p.isEstado()) {
                     for (Habitacion h : p.getHabitaciones()) {
                         h.setEstado(false);
@@ -79,9 +82,9 @@ public class GestorPisosHabitaciones {
         }
 
     }
-    public void habilitarPiso(Nivel nivel) throws Exception {
+    public void habilitarPiso(String nivel) throws Exception {
         for (Piso p : this.pisos) {
-            if (p.getNivel() == nivel) {
+            if (p.getNivel().equals(nivel)) {
                 if (!p.isEstado()) {
                     for (Habitacion h : p.getHabitaciones()) {
                         h.setEstado(true);

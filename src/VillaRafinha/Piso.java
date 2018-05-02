@@ -11,29 +11,29 @@ import java.util.*;
  * @author aacm13
  */
 public class Piso {
-    private Nivel nivel;
+    private String nivel;
     private Habitacion [] habitaciones = new Habitacion[10]; ;
     private boolean estado;
 
-    public Piso(Nivel nivel) {
+    public Piso(String nivel) {
         this.nivel=nivel;
         for(int i=1;i<=10;i++){
             if(i%2==0){
-                this.habitaciones[i-1]= new Habitacion(Tipo.DOBLE,nivel,i,nivel.toString()+i,(float) 5.0,"bla bla",true);
+                this.habitaciones[i-1]= new Habitacion(Tipo.DOBLE,nivel,i,nivel+i,(float) 5.0,"bla bla",true);
                 
             }
             else{
-                this.habitaciones[i-1]= new Habitacion(Tipo.SENCILLA,nivel,i,nivel.toString()+i,(float) 5.0,"bla bla",true);
+                this.habitaciones[i-1]= new Habitacion(Tipo.SENCILLA,nivel,i,nivel+i,(float) 5.0,"bla bla",true);
             }
             
         }
     }
 
-    public Nivel getNivel() {
+    public String getNivel() {
         return nivel;
     }
 
-    public void setNivel(Nivel nivel) {
+    public void setNivel(String nivel) {
         this.nivel = nivel;
     }
 
@@ -55,8 +55,8 @@ public class Piso {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 23 * hash + Objects.hashCode(this.nivel);
+        int hash = 3;
+        hash = 71 * hash + Objects.hashCode(this.nivel);
         return hash;
     }
 
@@ -72,15 +72,12 @@ public class Piso {
             return false;
         }
         final Piso other = (Piso) obj;
-        if (this.nivel != other.nivel) {
+        if (!Objects.equals(this.nivel, other.nivel)) {
             return false;
         }
         return true;
     }
 
-    
-    
-    
     
     
 }

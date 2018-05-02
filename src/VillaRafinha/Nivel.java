@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VillaRafinha;
+//package VillaRafinha;
 
 /**
  *
  * @author aacm12
  */
+/*
 public enum Nivel {
     A,
     B,
@@ -18,4 +19,4 @@ public enum Nivel {
     F
     
     
-}
+}*/
