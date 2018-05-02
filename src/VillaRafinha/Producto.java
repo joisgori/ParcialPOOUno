@@ -89,7 +89,7 @@ public class Producto {
         return true;
     }
     
-    public void hablitarProducto()throws Exception{
+    public void hablitar()throws Exception{
         if(!this.estado){
             this.estado=true;
         }
@@ -97,7 +97,7 @@ public class Producto {
             throw new Exception("La habitacion ya esta habilitada");
         }
     }
-    public void deshablitarProducto()throws Exception{
+    public void deshablitar()throws Exception{
         if(this.estado){
             this.estado=false;
         }
