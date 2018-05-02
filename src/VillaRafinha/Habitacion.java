@@ -19,6 +19,8 @@ public class Habitacion extends Producto{
     private int numero;
     private ArrayList <Hospedaje> hospedajesHabitacion = new ArrayList();
 
+    
+
     public Habitacion(Tipo tipo, Nivel nivel, int numero, String nombre, float precio, String descripcion, boolean estado) {
         super(nombre, precio, descripcion, estado);
         this.tipo = tipo;

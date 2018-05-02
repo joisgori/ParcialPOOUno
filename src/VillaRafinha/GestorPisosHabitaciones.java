@@ -19,7 +19,7 @@ public class GestorPisosHabitaciones {
     
 
     
-    private GestorPisosHabitaciones(){
+    public GestorPisosHabitaciones(){
         pisos[0] = new Piso(Nivel.A);
         pisos[1] = new Piso(Nivel.B);
         pisos[2] = new Piso(Nivel.C);
