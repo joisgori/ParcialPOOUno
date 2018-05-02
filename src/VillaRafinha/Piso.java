@@ -15,8 +15,16 @@ public class Piso {
     private Habitacion [] habitaciones = new Habitacion[10]; ;
     private boolean estado;
 
-    public Piso() {
+    public Piso(Nivel nivel) {
+        this.nivel=nivel;
         for(int i=1;i<=10;i++){
+            if(i%2==0){
+                this.habitaciones[i-1]= new Habitacion(Tipo.DOBLE,nivel,i,nivel.toString()+i,(float) 5.0,"bla bla",true);
+                
+            }
+            else{
+                this.habitaciones[i-1]= new Habitacion(Tipo.SENCILLA,nivel,i,nivel.toString()+i,(float) 5.0,"bla bla",true);
+            }
             
         }
     }

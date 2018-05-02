@@ -20,7 +20,14 @@ public class GestorPisosHabitaciones {
 
     
     private GestorPisosHabitaciones(){
-        pisos[0];
+        pisos[0] = new Piso(Nivel.A);
+        pisos[1] = new Piso(Nivel.B);
+        pisos[2] = new Piso(Nivel.C);
+        pisos[3] = new Piso(Nivel.D);
+        pisos[4] = new Piso(Nivel.E);
+        pisos[5] = new Piso(Nivel.F);
+        
+        
         
         int cont=1;
         for(Piso p: this.pisos){
@@ -33,12 +40,12 @@ public class GestorPisosHabitaciones {
         
     }
     
-    public static GestorPisosHabitaciones getInstance(){
+    /*public static GestorPisosHabitaciones getInstance(){
         if(gestor==null){
             gestor = new GestorPisosHabitaciones();
         }
         return gestor;
-    }
+    }*/
 
     public Piso[] getPisos() {
         return pisos;
