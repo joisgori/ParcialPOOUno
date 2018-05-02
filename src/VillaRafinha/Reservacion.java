@@ -22,7 +22,7 @@ public class Reservacion {
     private Float total;
     private boolean activa;
     private TarjetaCredito garantia;
-    
+    private Habitacion habitacion;
     
     public Reservacion(){
         
@@ -38,6 +38,10 @@ public class Reservacion {
 
     public void setEstancia(Hospedaje estancia) {
         this.estancia = estancia;
+    }
+
+    public void setHabitacion(Habitacion habitacion) {
+        this.habitacion = habitacion;
     }
 
     public void setPaquete(Paquete paquete) {

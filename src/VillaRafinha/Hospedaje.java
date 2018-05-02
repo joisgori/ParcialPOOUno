@@ -17,7 +17,7 @@ public class Hospedaje {
     private LocalDate fechaLlegada;
     private LocalDate fechaSalida;
     private int numDias;
-    private Habitacion habitacion;
+    
 
     public LocalDate getFechaLlegada() {
         return fechaLlegada;
@@ -31,9 +31,6 @@ public class Hospedaje {
         return numDias;
     }
 
-    public Habitacion getHabitacion() {
-        return habitacion;
-    }
 
     public void setFechaLlegada(LocalDate fechaLlegada) {
         this.fechaLlegada = fechaLlegada;
@@ -47,9 +44,6 @@ public class Hospedaje {
         this.numDias = numDias;
     }
 
-    public void setHabitacion(Habitacion habitacion) {
-        this.habitacion = habitacion;
-    }
 
     @Override
     public int hashCode() {
@@ -73,9 +67,6 @@ public class Hospedaje {
             return false;
         }
         if (!Objects.equals(this.fechaSalida, other.fechaSalida)) {
-            return false;
-        }
-        if (!Objects.equals(this.habitacion, other.habitacion)) {
             return false;
         }
         return true;
