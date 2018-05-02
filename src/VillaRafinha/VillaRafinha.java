@@ -20,7 +20,7 @@ public class VillaRafinha {
     public static void main(String[] args) {
         GestorPisosHabitaciones gestor = new GestorPisosHabitaciones();
         LocalDate fecha1 = LocalDate.of(2018, 03, 15);
-        LocalDate fecha2 = LocalDate.of(2018, 03, 21);
+        LocalDate fecha2 = LocalDate.of(2018, 03, 20);
         LocalDate fecha3 = LocalDate.of(2018, 03, 10);
         LocalDate fecha4 = LocalDate.of(2018, 03, 15);
         LocalDate fecha5 = LocalDate.of(2018, 03, 20);
