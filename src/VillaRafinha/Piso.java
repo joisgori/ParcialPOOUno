@@ -13,6 +13,7 @@ import java.util.*;
 public class Piso {
     private Nivel nivel;
     private ArrayList<Habitacion> habitaciones;
+    private boolean estado;
 
     public Piso() {
     }
@@ -37,6 +38,16 @@ public class Piso {
     public void setNivel(Nivel nivel) {
         this.nivel = nivel;
     }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    
+    
     
     
 }

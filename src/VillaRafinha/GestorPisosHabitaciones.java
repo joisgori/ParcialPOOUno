@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package VillaRafinha;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Iterator;
 
@@ -17,9 +16,25 @@ import java.util.Iterator;
 public class GestorPisosHabitaciones {
     private static GestorPisosHabitaciones gestor;
     private Piso[] pisos = new Piso[6];
+    
 
     
     private GestorPisosHabitaciones(){
+        pisos[0].setNivel(Nivel.A);
+        pisos[1].setNivel(Nivel.B);
+        pisos[2].setNivel(Nivel.C);
+        pisos[3].setNivel(Nivel.D);
+        pisos[4].setNivel(Nivel.E);
+        pisos[5].setNivel(Nivel.F);
+        
+        int cont=1;
+        for(Piso p: this.pisos){
+            for(Habitacion h: p.getHabitaciones()){
+                h.setNumero(cont);
+                cont+=1;
+            }
+        }
+        
         
     }
     
@@ -44,13 +59,13 @@ public class GestorPisosHabitaciones {
      * @throws Exception en caso de que ya esten todos deshabilitados 
      */
     
-    /*public void deshabilitarPiso(Nivel nivel) throws Exception {
+    public void deshabilitarPiso(Nivel nivel) throws Exception {
         for (Piso p : this.pisos) {
             
             if (p.getNivel() == nivel) {
                 if (p.isEstado()) {
                     for (Habitacion h : p.getHabitaciones()) {
-                        h.estado = false;
+                        h.setEstado(false);
                     }
                 }
                 else{
@@ -61,13 +76,13 @@ public class GestorPisosHabitaciones {
 
         }
 
-    }*/
-    /*public void habilitarPiso(Nivel nivel) throws Exception {
+    }
+    public void habilitarPiso(Nivel nivel) throws Exception {
         for (Piso p : this.pisos) {
             if (p.getNivel() == nivel) {
                 if (!p.isEstado()) {
                     for (Habitacion h : p.getHabitaciones()) {
-                        h.estado = true;
+                        h.setEstado(true);
                     }
                 }
                 else{
@@ -77,7 +92,7 @@ public class GestorPisosHabitaciones {
 
         }
 
-    }*/
+    }
     /**
      * Este metodo desabilita la habitacion.
      * @param habitacion 
@@ -113,57 +128,71 @@ public class GestorPisosHabitaciones {
      */
 
     public boolean verificarDisp(Habitacion habitacion, Hospedaje hospedaje) {
-        Iterator<Hospedaje> it = habitacion.getHospedajesHabitacion().iterator();
 
-        if (!it.hasNext()) {
-            return true;
-        }
-        Hospedaje hos2 = it.next();
-        Hospedaje hos1;
-        if (!it.hasNext()) {
+        if (habitacion.isEstado()) {
+            Iterator<Hospedaje> it = habitacion.getHospedajesHabitacion().iterator();
+
+            if (!it.hasNext()) {
+                return true;
+            }
+            Hospedaje hos2 = it.next();
+            Hospedaje hos1;
+            if (!it.hasNext()) {
+                if (hos2.getFechaLlegada().isAfter(hospedaje.getFechaSalida())) {
+                    return true;
+                } else if (hos2.getFechaSalida().isBefore(hospedaje.getFechaLlegada())) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
             if (hos2.getFechaLlegada().isAfter(hospedaje.getFechaSalida())) {
                 return true;
-            } else if (hos2.getFechaSalida().isBefore(hospedaje.getFechaLlegada())) {
+            }
+
+            while (it.hasNext()) {
+                hos1 = hos2;
+                hos2 = it.next();
+                if (hos1.getFechaSalida().isBefore(hospedaje.getFechaLlegada()) || hos1.getFechaSalida().equals(hospedaje.getFechaLlegada())) {
+                    if (hos2.getFechaLlegada().isAfter(hospedaje.getFechaSalida()) || hos2.getFechaLlegada().equals(hospedaje.getFechaSalida())) {
+                        return true;
+                    }
+
+                }
+
+            }
+            if (hos2.getFechaSalida().isBefore(hospedaje.getFechaLlegada())) {
                 return true;
             } else {
                 return false;
             }
-        }
-        if (hos2.getFechaLlegada().isAfter(hospedaje.getFechaSalida())) {
-            return true;
-        }
-
-        while (it.hasNext()) {
-            hos1 = hos2;
-            hos2 = it.next();
-            if (hos1.getFechaSalida().isBefore(hospedaje.getFechaLlegada()) || hos1.getFechaSalida().equals(hospedaje.getFechaLlegada())) {
-                if (hos2.getFechaLlegada().isAfter(hospedaje.getFechaSalida()) || hos2.getFechaLlegada().equals(hospedaje.getFechaSalida())) {
-                    return true;
-                }
-
-            }
-
-        }
-        if (hos2.getFechaSalida().isBefore(hospedaje.getFechaLlegada())) {
-            return true;
         } else {
             return false;
         }
     }
-    public Habitacion getHabitacion(Tipo tipo, Habitacion habitacion, Hospedaje hospedaje) throws Exception {
+    public Habitacion getHabitacion(Tipo tipo, Hospedaje hospedaje) throws Exception {
 
         for (Piso p : this.pisos) {
-            for (Habitacion h : p.getHabitaciones()) {
-                if (h.getTipo()==tipo) {
-                    if (this.verificarDisp(habitacion, hospedaje)) {
-                        return h;
+            if (p.isEstado()) {
+                for (Habitacion h : p.getHabitaciones()) {
+                    if (h.getTipo() == tipo) {
+                        if (this.verificarDisp(h, hospedaje)) {
+                            return h;
+                        }
                     }
                 }
             }
 
         }
         throw new Exception("No hay habitaciones de tipo " + tipo.toString() + "disponibles");
+
     }
+    /*public Habitacion getHabitacion(Nivel nivel, int numero){
+        for(Piso p :this.pisos ){
+            
+        }
+        
+    }*/
     
     
     
