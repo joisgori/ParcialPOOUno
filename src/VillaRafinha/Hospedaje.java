@@ -6,6 +6,7 @@
 package VillaRafinha;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.Objects;
 
 /**
@@ -18,6 +19,13 @@ public class Hospedaje {
     private LocalDate fechaSalida;
     private int numDias;
     
+    
+    public Hospedaje(LocalDate fLlegada, LocalDate fSalida){
+        this.fechaLlegada=fLlegada;
+        this.fechaSalida=fSalida;
+        Period periodo = Period.between(fLlegada, fSalida);
+        this.numDias=periodo.getDays();
+    }
 
     public LocalDate getFechaLlegada() {
         return fechaLlegada;
