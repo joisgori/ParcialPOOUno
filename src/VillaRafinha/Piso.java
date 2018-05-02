@@ -11,11 +11,12 @@ import java.util.*;
  * @author aacm13
  */
 public class Piso {
-    private Nivel nivel;
+    private final Nivel nivel;
     private ArrayList<Habitacion> habitaciones;
     private boolean estado;
 
-    public Piso() {
+    public Piso(Nivel nivel) {
+        this.nivel=nivel;
     }
 
     public Piso(Nivel nivel, ArrayList<Habitacion> habitaciones) {
@@ -35,9 +36,7 @@ public class Piso {
         this.habitaciones = habitaciones;
     }
 
-    public void setNivel(Nivel nivel) {
-        this.nivel = nivel;
-    }
+    
 
     public boolean isEstado() {
         return estado;
