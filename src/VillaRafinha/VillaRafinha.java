@@ -6,6 +6,8 @@
 package VillaRafinha;
 
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,9 +26,20 @@ public class VillaRafinha {
         LocalDate fecha4 = LocalDate.of(2018, 03, 15);
         LocalDate fecha5 = LocalDate.of(2018, 03, 20);
         LocalDate fecha6 = LocalDate.of(2018, 03, 25);
-        Hospedaje hos1 = new Hospedaje(fecha1,fecha2);
-        Hospedaje hos2 = new Hospedaje(fecha3,fecha4);
-        Hospedaje hos3 = new Hospedaje(fecha5,fecha6);
+        
+        
+        try {
+        
+            Hospedaje hos1 = new Hospedaje(fecha1,fecha2, Tipo.DOBLE);
+            Hospedaje hos2 = new Hospedaje(fecha3,fecha4, Tipo.SENCILLA);
+            Hospedaje hos3 = new Hospedaje(fecha5,fecha6, Tipo.DOBLE);
+            Huesped huesped1= new Huesped("Raul");
+            Reservacion reservacion = new Reservacion(hos1,huesped1);
+            System.out.println(reservacion.toString());
+        
+        } catch (Exception ex) {
+            Logger.getLogger(VillaRafinha.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         Habitacion hab= new Habitacion(Tipo.DOBLE, "A", 9,"A9", (float) 5.0,"bla bla",true);
         

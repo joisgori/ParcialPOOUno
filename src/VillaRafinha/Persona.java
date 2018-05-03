@@ -16,14 +16,10 @@ public class Persona {
     int telefono;
 //constructores
 
-    public Persona() {
-    }
 
-    public Persona(String nombre, DUI dui, int telefono) {
+    public Persona(String nombre) {
         this.nombre = nombre;
-        this.dui = dui;
-        this.telefono = telefono;
-    }
+        }
 //métodos getter
 
     public String getNombre() {

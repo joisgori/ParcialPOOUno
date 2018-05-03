@@ -7,7 +7,6 @@ package VillaRafinha;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Objects;
 
 /**
  *
@@ -18,15 +17,23 @@ public class Hospedaje {
     private LocalDate fechaLlegada;
     private LocalDate fechaSalida;
     private int numDias;
+    private Tipo tipo;
     
     
-    
-    public Hospedaje(LocalDate fLlegada, LocalDate fSalida){
-        this.fechaLlegada=fLlegada;
-        this.fechaSalida=fSalida;
+    public Hospedaje(LocalDate fLlegada, LocalDate fSalida, Tipo tipo) throws Exception {
+
         Period periodo = Period.between(fLlegada, fSalida);
-        this.numDias=periodo.getDays();
+        if (periodo.getDays()<7 && !fLlegada.equals(fSalida)){
+            this.fechaLlegada = fLlegada;
+            this.fechaSalida = fSalida;
+            this.numDias = periodo.getDays();
+            this.tipo = tipo;
+        }else {
+            throw new Exception ("Entrada de datos invalida");
+        }
     }
+    
+  
 
     
     
@@ -47,6 +54,14 @@ public class Hospedaje {
         return numDias;
     }
 
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
+
 
     public void setFechaLlegada(LocalDate fechaLlegada) {
         this.fechaLlegada = fechaLlegada;
@@ -60,33 +75,6 @@ public class Hospedaje {
         this.numDias = numDias;
     }
 
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Hospedaje other = (Hospedaje) obj;
-        if (!Objects.equals(this.fechaLlegada, other.fechaLlegada)) {
-            return false;
-        }
-        if (!Objects.equals(this.fechaSalida, other.fechaSalida)) {
-            return false;
-        }
-        return true;
-    }
     
     
     
