@@ -6,6 +6,7 @@
 package VillaRafinha;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 /**
@@ -22,73 +23,29 @@ public class GestorReservaciones {
     }
     
     public int getReservacionesDisp(Hospedaje hospedaje, int disponibilidad){
-        Iterator<Reservacion> it = this.reservaciones.iterator();
-        int contador = 0;
-        Hospedaje hos1;
         
-        if (!it.hasNext()){
+        if (this.reservaciones.isEmpty()){
            return disponibilidad;
-        }else{
-        
-        hos1 = it.next().getEstancia();
-        
-        
-        /*if (!it.hasNext()){
-            
-            return disponibilidad;
-        }*/
-        
-                
-            while (it.hasNext()){
-                if (hos1.getTipo() == hospedaje.getTipo()) {
-                    if (hospedaje.getFechaLlegada().getMonthValue()== hos1.getFechaLlegada().getMonthValue()) {
-                        if (hospedaje.getFechaLlegada().isAfter(hos1.getFechaLlegada()) && hospedaje.getFechaLlegada().isBefore(hos1.getFechaSalida())) {
-                            contador++;
+        }else
+        {
+            for (Reservacion reserv : reservaciones) {
+                if (hospedaje.seIntercecta(reserv.getEstancia()) || hospedaje.contiene(reserv.getEstancia())||hospedaje.equals(reserv.getEstancia())) {
+                    disponibilidad--;
+                }
+            }
 
-                        } else if (hospedaje.getFechaSalida().isBefore(hos1.getFechaSalida()) && hospedaje.getFechaSalida().isAfter(hos1.getFechaLlegada())) {
-                            contador++;
-                        }else if (hospedaje.getFechaLlegada().isBefore(hos1.getFechaLlegada())&& (hospedaje.getFechaSalida().isAfter(hos1.getFechaLlegada())||hospedaje.getFechaSalida().equals(hos1.getFechaLlegada()))){
-                            contador++;   
-                        }
-                    } else if (hospedaje.getFechaLlegada().getMonthValue() < hos1.getFechaLlegada().getMonthValue()) {
-                        break;
-                    }
-                }
-                hos1 = it.next().getEstancia();
-            }
+        }
+
+         return disponibilidad;
         
-        }
-        return disponibilidad-contador;
     }
-    
-    public boolean agregarReservacion(Reservacion reservacion){
-        Iterator<Reservacion> it = this.reservaciones.iterator();
-        Hospedaje hos1;
-        if(!it.hasNext()){
-            this.reservaciones.add(reservacion);
-            return true;
-        }
-        hos1=it.next().getEstancia();
-        if(!it.hasNext()){
-            if(hos1.getFechaLlegada().isBefore(reservacion.getEstancia().getFechaLlegada())){
-                reservaciones.add(reservacion);
-                return true;
-            }else{
-                reservaciones.add(0, reservacion);
-                return true;
-            }
-        }else{
-            
-            while(it.hasNext()){
-                if(hos1.getFechaLlegada().isBefore(reservacion.getEstancia().getFechaLlegada())){
-                    hos1=it.next().getEstancia();
-                }else{
-                    reservaciones.add(reservaciones.indexOf(hos1),reservacion);
-                    return true;
-                }
-            }
-        }
-        return true;
+
+    public void agregarReservacion(Reservacion reservacion) {
+        
+        reservaciones.add(reservacion);
+        Collections.sort(this.reservaciones);
+        
+
     }
     
     public void verReservaciones(){
@@ -97,7 +54,7 @@ public class GestorReservaciones {
         }
             
           
-        }
+    }
         
         
     
