@@ -46,9 +46,9 @@ public class VillaRafinha {
             //System.out.println(reservacion1.toString());
             //System.out.println(gestorReserv.getReservacionesDisp(hos1, gestor.calcularNumHabitacionesHabilitadas()));
             gestorReserv.agregarReservacion(reservacion1);
-            System.out.println(gestorReserv.getReservacionesDisp(hos2, gestor.calcularNumHabitacionesHabilitadas()));            
+            System.out.println(gestorReserv.getReservacionesDisp(hos2, gestor.calcularNumHabitacionesHabilitadas(true,hos2)));            
             //gestorReserv.agregarReservacion(reservacion2);
-            System.out.println(gestorReserv.getReservacionesDisp(hos3, gestor.calcularNumHabitacionesHabilitadas()));            
+            System.out.println(gestorReserv.getReservacionesDisp(hos3, gestor.calcularNumHabitacionesHabilitadas(true, hos3)));            
             gestorReserv.agregarReservacion(reservacion3);
             //System.out.println(gestorReserv.getReservacionesDisp(hos4, gestor.calcularNumHabitacionesHabilitadas()));
             gestorReserv.verReservaciones();

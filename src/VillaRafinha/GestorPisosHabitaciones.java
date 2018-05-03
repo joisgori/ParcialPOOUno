@@ -192,15 +192,45 @@ public class GestorPisosHabitaciones {
         throw new Exception("No hay habitaciones de tipo " + tipo.toString() + "disponibles");
 
     }
-    public int calcularNumHabitacionesHabilitadas(){
-        int cont=0;
-        for(Piso p: this.pisos){
-            for(Habitacion h: p.getHabitaciones()){
-                if(h.isEstado()){
-                cont+=1;
+    public int calcularNumHabitacionesHabilitadas(boolean isSuperior, Hospedaje hospedaje) {
+        int cont = 0, validador1, validador2;
+        int tamanio = this.pisos.size() - 1;
+        Piso p;
+        //Habitacion h;
+        if (isSuperior) {
+            validador2 = tamanio - 1;
+            validador1 = tamanio;
+
+        } else {
+            validador1 = tamanio - 2;
+            validador2 = 0;
+        }
+        for (int i = validador1; i >= validador2; i--) {
+            p = this.pisos.get(i);
+            for (Habitacion h : p.getHabitaciones()) {
+                if (h.getTipo() == hospedaje.getTipo()) {
+                    cont++;
+
                 }
             }
+
         }
+        /*for (Piso p : this.pisos) {
+                for (Habitacion h : p.getHabitaciones()) {
+                    if (h.isEstado()) {
+                        if(h.getTipo()==tipo){
+                            if(isSuperior){
+                                if(h.getNivel()=="A"){
+                                    
+                                }
+                            }
+                            
+                        }
+                        
+                    }
+                }
+            
+        }*/
         return cont;
     }
     
