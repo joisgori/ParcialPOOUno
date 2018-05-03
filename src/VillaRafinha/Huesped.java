@@ -14,8 +14,11 @@ public class Huesped extends Persona {
     TarjetaCredito[] tarjetaCredito = new TarjetaCredito[8];
 //constructores
 
-    public Huesped() {
+    public Huesped(String nombre) {
+        super(nombre);
     }
+
+    
     
 //métodos getter
 

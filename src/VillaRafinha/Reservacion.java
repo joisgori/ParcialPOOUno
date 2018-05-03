@@ -24,8 +24,9 @@ public class Reservacion {
     private TarjetaCredito garantia;
     private Habitacion habitacion;
     
-    public Reservacion(){
-        
+    public Reservacion(Hospedaje hospedaje, Huesped huesped){
+        this.estancia=hospedaje;
+        this.huesped=huesped;
     }
     
     public void setSencilla(boolean sencilla) {
@@ -116,5 +117,11 @@ public class Reservacion {
     public void procesarREservacion(TarjetaCredito t){
         this.garantia=t;
     }
+
+    @Override
+    public String toString() {
+        return "Reservacion:\n"+"Huesped: "+huesped.getNombre() +"\nFecha de Llegada: "+estancia.getFechaLlegada()+"\nFecha de Salida: "+estancia.getFechaSalida()+ "\nhabitacion: " + estancia.getTipo() + "\ntotal=" + total;
+    }
     
 }
+

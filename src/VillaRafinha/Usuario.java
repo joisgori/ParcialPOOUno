@@ -12,17 +12,17 @@ package VillaRafinha;
  */
 public class Usuario extends Persona {
 
-    String usuario;
-    String constraseña;
+    private final String usuario;
+    private String constraseña;
 //constructores
 
-    public Usuario() {
-    }
-
-    public Usuario(String usuario, String constraseña) {
+    public Usuario(String usuario, String constraseña, String nombre) {
+        super(nombre);
         this.usuario = usuario;
         this.constraseña = constraseña;
     }
+
+
 //métodos getter
 
     public String getUsuario() {
@@ -33,10 +33,6 @@ public class Usuario extends Persona {
         return constraseña;
     }
 //métodos setter
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
 
     public void setConstraseña(String constraseña) {
         this.constraseña = constraseña;
