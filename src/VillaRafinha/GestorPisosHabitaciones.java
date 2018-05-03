@@ -209,7 +209,9 @@ public class GestorPisosHabitaciones {
             p = this.pisos.get(i);
             for (Habitacion h : p.getHabitaciones()) {
                 if (h.getTipo() == hospedaje.getTipo()) {
-                    cont++;
+                    if (this.verificarDisp(h, hospedaje)) {
+                        cont++;
+                    }
 
                 }
             }

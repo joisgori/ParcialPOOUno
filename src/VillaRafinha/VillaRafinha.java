@@ -39,7 +39,7 @@ public class VillaRafinha {
         LocalDate fecha2 = LocalDate.of(2018, 05, 8);
         LocalDate fecha3 = LocalDate.of(2018, 05, 3);
         LocalDate fecha4 = LocalDate.of(2018, 05, 5);
-        LocalDate fecha5 = LocalDate.of(2018, 05, 6);
+        LocalDate fecha5 = LocalDate.of(2018, 05, 8);
         LocalDate fecha6 = LocalDate.of(2018, 05, 10);
         LocalDate fecha7 = LocalDate.of(2018, 06, 16);
         LocalDate fecha8 = LocalDate.of(2018, 06, 20);
@@ -69,6 +69,11 @@ public class VillaRafinha {
         Reservacion reservacion10 = new Reservacion(hos2, huesped3);
         Reservacion reservacion11 = new Reservacion(hos5, huesped3);
         Reservacion reservacion12 = new Reservacion(hos1, huesped3);
+        
+        System.out.println(gestorPisos.calcularNumHabitacionesHabilitadas(true, hos1));
+        gestorPisos.getPisos().get(5).getHabitaciones()[9].agregarHospedaje(hos2);
+        System.out.println(gestorPisos.calcularNumHabitacionesHabilitadas(true, hos3));
+        
        
  /*
         //Probando la disponibilidad cuando el hotel no tiene reservaciones
