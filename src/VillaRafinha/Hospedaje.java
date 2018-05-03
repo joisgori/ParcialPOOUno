@@ -38,42 +38,18 @@ public class Hospedaje {
 
     
     
-    public Hospedaje(LocalDate fLlegada, int numDias){
-        this.fechaLlegada=fLlegada;
-        this.fechaSalida=fechaLlegada.plusDays(numDias);
+    public Hospedaje(LocalDate fLlegada, int numDias) throws Exception{
+        if (numDias<=7){
+            this.fechaLlegada = fLlegada;
+            this.fechaSalida = fechaLlegada.plusDays(numDias);
+        }else{
+            throw new Exception("Entrada de datos invalida");
+        }
     }
 
+    
     public LocalDate getFechaLlegada() {
         return fechaLlegada;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 41 * hash + Objects.hashCode(this.fechaLlegada);
-        hash = 41 * hash + Objects.hashCode(this.fechaSalida);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Hospedaje other = (Hospedaje) obj;
-        if (!Objects.equals(this.fechaLlegada, other.fechaLlegada)) {
-            return false;
-        }
-        if (!Objects.equals(this.fechaSalida, other.fechaSalida)) {
-            return false;
-        }
-        return true;
     }
 
     public LocalDate getFechaSalida() {
@@ -105,6 +81,36 @@ public class Hospedaje {
         this.numDias = numDias;
     }
     
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 41 * hash + Objects.hashCode(this.fechaLlegada);
+        hash = 41 * hash + Objects.hashCode(this.fechaSalida);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Hospedaje other = (Hospedaje) obj;
+        if (!Objects.equals(this.fechaLlegada, other.fechaLlegada)) {
+            return false;
+        }
+        if (!Objects.equals(this.fechaSalida, other.fechaSalida)) {
+            return false;
+        }
+        return true;
+    }
+    
     public boolean seIntercecta(Hospedaje hospedaje){
         if(this.fechaLlegada.isAfter(hospedaje.fechaLlegada)&&this.fechaLlegada.isBefore(hospedaje.fechaSalida)){
             return true; 
@@ -120,13 +126,7 @@ public class Hospedaje {
         }
         return false;
     }
-    
-    public boolean llegaAntes(Hospedaje hospedaje){
-        if(hospedaje.fechaLlegada.isBefore(this.fechaLlegada)){
-            return true;
-        }
-        return false;
-    }
+   
 
     
     

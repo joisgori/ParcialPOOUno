@@ -120,7 +120,7 @@ public class Reservacion implements Comparable<Reservacion>{
 
     @Override
     public String toString() {
-        return "Reservacion:\n"+"Huesped: "+huesped.getNombre() +"\nFecha de Llegada: "+estancia.getFechaLlegada()+"\nFecha de Salida: "+estancia.getFechaSalida()+ "\nhabitacion: " + estancia.getTipo() + "\ntotal=" + total;
+        return "Reservacion:\n"+"Huesped: "+huesped.getNombre() +"\nFecha de Llegada: "+estancia.getFechaLlegada()+"\nFecha de Salida: "+estancia.getFechaSalida()+ "\nhabitacion: " + estancia.getTipo() + "\ntotal=" + total+"\n";
     }
 
     @Override

@@ -5,6 +5,7 @@
  */
 package VillaRafinha;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -49,8 +50,17 @@ public class GestorReservaciones {
     }
     
     public void verReservaciones(){
-        for (Reservacion reserva: reservaciones){
-            System.out.println(reserva.toString());
+        Iterator<Reservacion> it= reservaciones.iterator();
+        Reservacion reserv = it.next();
+        LocalDate semana= LocalDate.now().plusDays(7);
+        
+        while(reserv.getEstancia().getFechaLlegada().isBefore(semana)){
+            System.out.println(reserv.toString());
+            if (it.hasNext()){
+                reserv=it.next();
+            }else{
+                break;
+            }
         }
             
           

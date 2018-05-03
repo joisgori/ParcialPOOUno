@@ -25,15 +25,15 @@ public class VillaRafinha {
         LocalDate fecha2 = LocalDate.of(2018, 03, 20);
         LocalDate fecha3 = LocalDate.of(2018, 03, 16);
         LocalDate fecha4 = LocalDate.of(2018, 03, 17);
-        LocalDate fecha5 = LocalDate.of(2018, 03, 13);
-        LocalDate fecha6 = LocalDate.of(2018, 03, 18);
+        LocalDate fecha5 = LocalDate.of(2018, 03, 23);
+        LocalDate fecha6 = LocalDate.of(2018, 03, 25);
         
         
         try {
-        
+            gestor.deshabilitarPiso("A");
             Hospedaje hos1 = new Hospedaje(fecha1,fecha2, Tipo.DOBLE);
             Hospedaje hos2 = new Hospedaje(fecha3,fecha4, Tipo.DOBLE);
-            Hospedaje hos3 = new Hospedaje(fecha5,fecha6, Tipo.DOBLE);
+            Hospedaje hos3 = new Hospedaje(fecha5,fecha6, Tipo.SENCILLA);
             Hospedaje hos4 = new Hospedaje(fecha5,fecha6, Tipo.DOBLE);
             Huesped huesped1= new Huesped("Raul");
             Huesped huesped2= new Huesped("Jorge");
@@ -46,12 +46,12 @@ public class VillaRafinha {
             //System.out.println(reservacion1.toString());
             //System.out.println(gestorReserv.getReservacionesDisp(hos1, gestor.calcularNumHabitacionesHabilitadas()));
             gestorReserv.agregarReservacion(reservacion1);
-            //System.out.println(gestorReserv.getReservacionesDisp(hos2, gestor.calcularNumHabitacionesHabilitadas()));            
-            gestorReserv.agregarReservacion(reservacion2);
-            //System.out.println(gestorReserv.getReservacionesDisp(hos3, gestor.calcularNumHabitacionesHabilitadas()));            
+            System.out.println(gestorReserv.getReservacionesDisp(hos2, gestor.calcularNumHabitacionesHabilitadas()));            
+            //gestorReserv.agregarReservacion(reservacion2);
+            System.out.println(gestorReserv.getReservacionesDisp(hos3, gestor.calcularNumHabitacionesHabilitadas()));            
             gestorReserv.agregarReservacion(reservacion3);
-            System.out.println(gestorReserv.getReservacionesDisp(hos4, gestor.calcularNumHabitacionesHabilitadas()));
-            //gestorReserv.verReservaciones();
+            //System.out.println(gestorReserv.getReservacionesDisp(hos4, gestor.calcularNumHabitacionesHabilitadas()));
+            gestorReserv.verReservaciones();
             
             Habitacion hab= new Habitacion(Tipo.DOBLE, "A", 9,"A9", (float) 5.0,"bla bla",true);
         
