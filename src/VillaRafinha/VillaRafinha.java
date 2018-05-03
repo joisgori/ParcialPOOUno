@@ -28,7 +28,9 @@ public class VillaRafinha {
         Hospedaje hos2 = new Hospedaje(fecha3,fecha4);
         Hospedaje hos3 = new Hospedaje(fecha5,fecha6);
         
+        Habitacion hab= new Habitacion(Tipo.DOBLE, "A", 9,"A9", (float) 5.0,"bla bla",true);
         
+        System.out.println(gestor.verificarDisp(hab, hos3));
     }
     
 }

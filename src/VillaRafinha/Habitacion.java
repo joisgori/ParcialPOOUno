@@ -6,6 +6,7 @@
 package VillaRafinha;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Objects;
 
 /**
@@ -85,6 +86,38 @@ public class Habitacion extends Producto{
         }
         if (!Objects.equals(this.nivel, other.nivel)) {
             return false;
+        }
+        return true;
+    }
+    public boolean agregarHospedaje(Hospedaje hosp){
+        Iterator<Hospedaje> it = this.hospedajesHabitacion.iterator();
+        Hospedaje hos1;
+        //Hospedaje hos2;
+        
+        if(!it.hasNext()){
+            this.hospedajesHabitacion.add(hosp);
+            return true;
+        }
+        hos1 = it.next();
+        if(!it.hasNext()){
+            if(hos1.getFechaLlegada().isAfter(hosp.getFechaSalida())){
+                this.hospedajesHabitacion.add(0, hosp);
+                return true;
+            }
+            if(hos1.getFechaSalida().isBefore(hosp.getFechaLlegada())||hos1.getFechaSalida().equals(hosp.getFechaLlegada())){
+                this.hospedajesHabitacion.add(hosp);
+                
+            }
+            
+        }
+        
+        while(it.hasNext()){
+            
+            hos1=it.next();
+            if(hos1.getFechaSalida().isBefore(hosp.getFechaLlegada())||hos1.getFechaSalida().equals(hosp.getFechaLlegada())){
+                this.hospedajesHabitacion.add(this.hospedajesHabitacion.indexOf(hos1)+1, hosp);
+                return true;
+            }
         }
         return true;
     }

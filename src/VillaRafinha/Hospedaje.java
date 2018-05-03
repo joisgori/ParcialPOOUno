@@ -20,11 +20,19 @@ public class Hospedaje {
     private int numDias;
     
     
+    
     public Hospedaje(LocalDate fLlegada, LocalDate fSalida){
         this.fechaLlegada=fLlegada;
         this.fechaSalida=fSalida;
         Period periodo = Period.between(fLlegada, fSalida);
         this.numDias=periodo.getDays();
+    }
+
+    
+    
+    public Hospedaje(LocalDate fLlegada, int numDias){
+        this.fechaLlegada=fLlegada;
+        this.fechaSalida=fechaLlegada.plusDays(numDias);
     }
 
     public LocalDate getFechaLlegada() {

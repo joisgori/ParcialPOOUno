@@ -159,6 +159,9 @@ public class GestorPisosHabitaciones {
                     if (hos2.getFechaLlegada().isAfter(hospedaje.getFechaSalida()) || hos2.getFechaLlegada().equals(hospedaje.getFechaSalida())) {
                         return true;
                     }
+                    else{
+                        return false;
+                    }
 
                 }
 
@@ -192,6 +195,7 @@ public class GestorPisosHabitaciones {
     
     /*public Habitacion getHabitacion(Nivel nivel, int numero){
         for(Piso p :this.pisos ){
+            
             
         }
         
