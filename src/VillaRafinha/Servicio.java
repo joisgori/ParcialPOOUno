@@ -9,6 +9,10 @@ package VillaRafinha;
  *
  * @author daniel
  */
-public class Servicio extends Product{
+public class Servicio extends Producto{
+    
+    public Servicio(String nombre, float precio, String descripcion, boolean estado) {
+        super(nombre, precio, descripcion, estado);
+    }
     
 }

@@ -58,7 +58,7 @@ public class GestorReservaciones {
         Reservacion reserv = it.next();
         LocalDate inicio= LocalDate.now();
         LocalDate fin= LocalDate.now().plusDays(7);
-        System.out.println("Mostrando desde: "+inicio.toString()+" hasta "+fin.toString());
+        System.out.println("Mostrando desde: "+inicio.toString()+" hasta "+fin.toString()+"\n");
         while(reserv.getEstancia().getFechaLlegada().isBefore(fin)){
             System.out.println(reserv.toString());
             if (it.hasNext()){
