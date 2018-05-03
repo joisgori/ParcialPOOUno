@@ -192,6 +192,17 @@ public class GestorPisosHabitaciones {
         throw new Exception("No hay habitaciones de tipo " + tipo.toString() + "disponibles");
 
     }
+    public int calcularNumHabitacionesHabilitadas(){
+        int cont=0;
+        for(Piso p: this.pisos){
+            for(Habitacion h: p.getHabitaciones()){
+                if(h.isEstado()){
+                cont+=1;
+                }
+            }
+        }
+        return cont;
+    }
     
     /*public Habitacion getHabitacion(Nivel nivel, int numero){
         for(Piso p :this.pisos ){
