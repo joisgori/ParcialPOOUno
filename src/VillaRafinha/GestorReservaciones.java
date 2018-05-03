@@ -15,27 +15,29 @@ import java.util.Iterator;
 public class GestorReservaciones {
     
     private ArrayList<Reservacion> reservaciones;
-    private Iterator<Reservacion> it; 
+     
         
     public GestorReservaciones(){
         reservaciones= new ArrayList<>();
     }
     
-    public boolean getReservacionesDisp(Hospedaje hospedaje, int disponibilidad){
-        
+    public int getReservacionesDisp(Hospedaje hospedaje, int disponibilidad){
+        Iterator<Reservacion> it = this.reservaciones.iterator();
         int contador = 0;
+        Hospedaje hos1;
         
         if (!it.hasNext()){
-           return true;
-        }
-        it = this.reservaciones.iterator();
-        Hospedaje hos1 = it.next().getEstancia();
-        Hospedaje hos2;
+           return disponibilidad;
+        }else{
         
-        if (!it.hasNext()){
-            return true;
-        }
-        else{
+        hos1 = it.next().getEstancia();
+        
+        
+        /*if (!it.hasNext()){
+            
+            return disponibilidad;
+        }*/
+        
                 
             while (it.hasNext()){
                 if (hos1.getTipo() == hospedaje.getTipo()) {
@@ -56,25 +58,24 @@ public class GestorReservaciones {
             }
         
         }
-        if (contador!=disponibilidad){
-            return true;
-        }else{
-            return false;
-        }
+        return disponibilidad-contador;
     }
     
-    public void agregarReservacion(Reservacion reservacion){
-        it = this.reservaciones.iterator();
-        
+    public boolean agregarReservacion(Reservacion reservacion){
+        Iterator<Reservacion> it = this.reservaciones.iterator();
+        Hospedaje hos1;
         if(!it.hasNext()){
-            reservaciones.add(reservacion);
+            this.reservaciones.add(reservacion);
+            return true;
         }
-        Hospedaje hos1=it.next().getEstancia();
+        hos1=it.next().getEstancia();
         if(!it.hasNext()){
             if(hos1.getFechaLlegada().isBefore(reservacion.getEstancia().getFechaLlegada())){
                 reservaciones.add(reservacion);
+                return true;
             }else{
                 reservaciones.add(0, reservacion);
+                return true;
             }
         }else{
             
@@ -83,20 +84,23 @@ public class GestorReservaciones {
                     hos1=it.next().getEstancia();
                 }else{
                     reservaciones.add(reservaciones.indexOf(hos1),reservacion);
+                    return true;
                 }
             }
         }
+        return true;
     }
     
     public void verReservaciones(){
-        Iterator<Reservacion> it = this.reservaciones.iterator();
-        while(it.hasNext()){
+        for (Reservacion reserva: reservaciones){
+            System.out.println(reserva.toString());
+        }
             
           
         }
         
         
-    }
+    
 
    
 }
