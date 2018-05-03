@@ -5,10 +5,36 @@
  */
 package VillaRafinha;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author daniel
  */
 public class GestorHuespedes {
+    
+    private ArrayList<Huesped> huespedes;
+
+    public GestorHuespedes() {
+        huespedes= new ArrayList<>();
+    }
+    
+    public void agregarHuesped(Huesped huesped) throws Exception{
+        if (!huespedes.contains(huesped)){
+            huespedes.add(huesped);
+            System.out.println("Huesped agregado exitosamente");
+        }else {
+            throw new Exception("Huesped ya esta registrado");
+        }
+    }
+    
+    public void verHuespedes(){
+        for (Huesped huesped: huespedes){
+            System.out.println(huesped.toString());
+            System.out.println();
+        }
+    }
+    
+    
     
 }

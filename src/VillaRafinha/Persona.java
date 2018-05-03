@@ -5,20 +5,31 @@
  */
 package VillaRafinha;
 
+import java.util.Objects;
+
 /**
  *
  * @author Josué González <00034715@uca.edu.sv>
  */
 public class Persona {
 
-    String nombre;
-    DUI dui;
-    int telefono;
+    private String nombre;
+    private final String iD;
+    private String telefono="";
+
 //constructores
 
 
-    public Persona(String nombre) {
+    public Persona(String nombre, String iD, String telefono){
         this.nombre = nombre;
+        this.telefono=telefono;
+        this.iD=iD;
+        }
+    
+    public Persona(String nombre,String iD){
+        this.nombre = nombre;
+        this.iD=iD;
+        
         }
 //métodos getter
 
@@ -26,11 +37,11 @@ public class Persona {
         return nombre;
     }
 
-    public DUI getDui() {
-        return dui;
+    public String getId() {
+        return iD;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 //métodos setter
@@ -39,12 +50,35 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public void setDui(DUI dui) {
-        this.dui = dui;
-    }
-
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
+        @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 83 * hash + Objects.hashCode(this.iD);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Persona other = (Persona) obj;
+        if (!Objects.equals(this.iD, other.iD)) {
+            return false;
+        }
+        return true;
+    }
+
+
 
 }

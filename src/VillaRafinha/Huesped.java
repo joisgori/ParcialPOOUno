@@ -14,8 +14,11 @@ public class Huesped extends Persona {
     TarjetaCredito[] tarjetaCredito = new TarjetaCredito[8];
 //constructores
 
-    public Huesped(String nombre) {
-        super(nombre);
+    public Huesped(String nombre, String iD) {
+        super(nombre, iD);
+    }
+    public Huesped(String nombre,String iD, String telefono) {
+        super(nombre, telefono);
     }
 
     
@@ -25,10 +28,17 @@ public class Huesped extends Persona {
     public TarjetaCredito[] getTarjetaCredito() {
         return tarjetaCredito;
     }
+    
 //métodos setter
 
     public void setTarjetaCredito(TarjetaCredito[] tarjetaCredito) {
         this.tarjetaCredito = tarjetaCredito;
     }
 
+    @Override
+    public String toString() {
+        return "Huesped: " +this.getNombre()+"\nCodigo: "+this.getId()+"\nTelefono: "+this.getTelefono();
+    }
+
+    
 }

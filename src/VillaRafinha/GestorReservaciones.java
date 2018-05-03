@@ -44,6 +44,7 @@ public class GestorReservaciones {
     public void agregarReservacion(Reservacion reservacion) {
         
         reservaciones.add(reservacion);
+        System.out.println("Reservacion agregada exitosamente");
         Collections.sort(this.reservaciones);
         
 
@@ -52,9 +53,10 @@ public class GestorReservaciones {
     public void verReservaciones(){
         Iterator<Reservacion> it= reservaciones.iterator();
         Reservacion reserv = it.next();
-        LocalDate semana= LocalDate.now().plusDays(7);
-        
-        while(reserv.getEstancia().getFechaLlegada().isBefore(semana)){
+        LocalDate inicio= LocalDate.now();
+        LocalDate fin= LocalDate.now().plusDays(7);
+        System.out.println("Mostrando desde: "+inicio.toString()+" hasta "+fin.toString());
+        while(reserv.getEstancia().getFechaLlegada().isBefore(fin)){
             System.out.println(reserv.toString());
             if (it.hasNext()){
                 reserv=it.next();
