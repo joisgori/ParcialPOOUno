@@ -21,7 +21,7 @@ public class GestorReservaciones {
         reservaciones= new ArrayList<>();
     }
     
-    public boolean getReservacionesDisp(Hospedaje hospedaje){
+    public boolean getReservacionesDisp(Hospedaje hospedaje, int disponibilidad){
         
         int contador = 0;
         
@@ -56,7 +56,7 @@ public class GestorReservaciones {
             }
         
         }
-        if (contador!=20){
+        if (contador!=disponibilidad){
             return true;
         }else{
             return false;
