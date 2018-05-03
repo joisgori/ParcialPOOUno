@@ -36,14 +36,15 @@ public class VillaRafinha {
             Huesped huesped1= new Huesped("Raul");
             Reservacion reservacion = new Reservacion(hos1,huesped1);
             System.out.println(reservacion.toString());
+            Habitacion hab= new Habitacion(Tipo.DOBLE, "A", 9,"A9", (float) 5.0,"bla bla",true);
+        
+        System.out.println(gestor.verificarDisp(hab, hos3));
         
         } catch (Exception ex) {
             Logger.getLogger(VillaRafinha.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        Habitacion hab= new Habitacion(Tipo.DOBLE, "A", 9,"A9", (float) 5.0,"bla bla",true);
         
-        System.out.println(gestor.verificarDisp(hab, hos3));
     }
     
 }
