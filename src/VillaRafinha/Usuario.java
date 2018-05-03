@@ -16,8 +16,8 @@ public class Usuario extends Persona {
     private String constraseña;
 //constructores
 
-    public Usuario(String usuario, String constraseña, String nombre) {
-        super(nombre);
+    public Usuario(String usuario, String constraseña, String nombre, String iD) {
+        super(nombre, iD);
         this.usuario = usuario;
         this.constraseña = constraseña;
     }

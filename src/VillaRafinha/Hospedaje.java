@@ -126,6 +126,45 @@ public class Hospedaje {
         }
         return false;
     }
+    
+ 
+    public boolean llegaAntes(Hospedaje hospedaje){
+        if (hospedaje.fechaLlegada.isBefore(this.fechaLlegada)){
+            return true;
+        }
+        return false;
+    }
+    public boolean llegaDespues(Hospedaje hospedaje){
+        if (hospedaje.fechaLlegada.isAfter(this.fechaSalida)){
+            return true;
+        }
+        return false;
+    }
+    public boolean llegaDurante(Hospedaje hospedaje){
+        if (hospedaje.fechaLlegada.isAfter(this.fechaLlegada)&&hospedaje.fechaLlegada.isBefore(this.fechaSalida)){
+            return true;
+        }
+        return false;
+    }
+   
+    public boolean saleAntes(Hospedaje hospedaje){
+        if (hospedaje.fechaSalida.isBefore(this.fechaLlegada)){
+            return true;
+        }
+        return false;
+    }
+    public boolean saleDespues(Hospedaje hospedaje){
+        if (hospedaje.fechaSalida.isAfter(this.fechaSalida)){
+            return true;
+        }
+        return false;
+    }
+    public boolean saleDurante(Hospedaje hospedaje){
+        if (hospedaje.fechaSalida.isAfter(this.fechaLlegada)&&hospedaje.fechaSalida.isBefore(this.fechaSalida)){
+            return true;
+        }
+        return false;
+    }
    
 
     
