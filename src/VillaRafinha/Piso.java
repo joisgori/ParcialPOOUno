@@ -11,6 +11,7 @@ import java.util.*;
  * @author aacm13
  */
 public class Piso {
+    
     private String nivel;
     private Habitacion [] habitaciones = new Habitacion[10]; ;
     private boolean estado;
