@@ -16,6 +16,7 @@ public class Piso {
     private boolean estado;
 
     public Piso(String nivel) {
+        this.estado=true;
         this.nivel=nivel;
         for(int i=1;i<=10;i++){
             if(i%2==0){
@@ -55,8 +56,8 @@ public class Piso {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 71 * hash + Objects.hashCode(this.nivel);
+        int hash = 7;
+        hash = 83 * hash + Objects.hashCode(this.nivel);
         return hash;
     }
 
@@ -77,6 +78,8 @@ public class Piso {
         }
         return true;
     }
+
+    
 
     
     

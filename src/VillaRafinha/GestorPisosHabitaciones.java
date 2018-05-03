@@ -23,12 +23,12 @@ public class GestorPisosHabitaciones {
     
     public GestorPisosHabitaciones(){
         this.pisos.add(new Piso("A"));
-        /*this.pisos.add(new Piso("B"));
+        this.pisos.add(new Piso("B"));
         this.pisos.add(new Piso("C"));
         this.pisos.add(new Piso("D"));
         this.pisos.add(new Piso("E"));
         this.pisos.add(new Piso("F"));
-        */
+        
         
         /*int cont=1;
         for(Piso p: this.pisos){
@@ -88,7 +88,7 @@ public class GestorPisosHabitaciones {
                     }
                 }
                 else{
-                    throw new Exception("El pso ya esta habilitdo");
+                    throw new Exception("El piso ya esta habilitdo");
                 }
             }
 
