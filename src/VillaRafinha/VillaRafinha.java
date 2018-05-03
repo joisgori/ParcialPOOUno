@@ -37,6 +37,7 @@ public class VillaRafinha {
             Reservacion reservacion = new Reservacion(hos1,huesped1);
             System.out.println(reservacion.toString());
             Habitacion hab= new Habitacion(Tipo.DOBLE, "A", 9,"A9", (float) 5.0,"bla bla",true);
+            hab.agregarHospedaje(hos3);
         
         System.out.println(gestor.verificarDisp(hab, hos3));
         
