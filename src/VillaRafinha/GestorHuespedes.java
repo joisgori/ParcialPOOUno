@@ -30,8 +30,7 @@ public class GestorHuespedes {
     
     public void verHuespedes(){
         for (Huesped huesped: huespedes){
-            System.out.println(huesped.toString());
-            System.out.println();
+            System.out.println(huesped.toString()+"\n");
         }
     }
     
