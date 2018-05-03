@@ -17,7 +17,6 @@ public class Piso {
 
     public Piso(String nivel) {
         this.estado=true;
-        this.estado=true;
         this.nivel=nivel;
         for(int i=1;i<=10;i++){
             if(i%2==0){
