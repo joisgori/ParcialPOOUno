@@ -88,7 +88,7 @@ public class GestorPisosHabitaciones {
                     }
                 }
                 else{
-                    throw new Exception("El pso ya esta habilitdo");
+                    throw new Exception("El piso ya esta habilitdo");
                 }
             }
 
