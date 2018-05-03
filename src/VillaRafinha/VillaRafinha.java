@@ -6,8 +6,8 @@
 package VillaRafinha;
 
 import java.time.LocalDate;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 
 /**
  *
@@ -17,6 +17,7 @@ public class VillaRafinha {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
         /* Estan son las pruebas del codigo que tenemos trabajando ya
@@ -58,14 +59,18 @@ public class VillaRafinha {
         //Creando Reservaciones para testeo
         Reservacion reservacion1 = new Reservacion(hos1, huesped1);
         Reservacion reservacion2 = new Reservacion(hos2, huesped2);
-        Reservacion reservacion3 = new Reservacion(hos3, huesped3);
-        Reservacion reservacion4 = new Reservacion(hos4, huesped3);
-        Reservacion reservacion5 = new Reservacion(hos5, huesped3);
+        Reservacion reservacion3 = new Reservacion(hos1, huesped3);
+        Reservacion reservacion4 = new Reservacion(hos2, huesped3);
+        Reservacion reservacion5 = new Reservacion(hos1, huesped3);
+        Reservacion reservacion6 = new Reservacion(hos2, huesped3);
+        Reservacion reservacion7 = new Reservacion(hos1, huesped3);
+        Reservacion reservacion8 = new Reservacion(hos2, huesped3);
+        Reservacion reservacion9 = new Reservacion(hos1, huesped3);
+        Reservacion reservacion10 = new Reservacion(hos2, huesped3);
+        Reservacion reservacion11 = new Reservacion(hos5, huesped3);
+        Reservacion reservacion12 = new Reservacion(hos1, huesped3);
        
-        //System.out.println(hos1.seIntercecta(hos2));
-        //System.out.println(hos1.contiene(hos2));
-        //System.out.println(reservacion1.toString());
- 
+ /*
         //Probando la disponibilidad cuando el hotel no tiene reservaciones
         System.out.println(gestorReserv.getReservacionesDisp(hos1, gestorPisos.calcularNumHabitacionesHabilitadas()));
         
@@ -88,19 +93,61 @@ public class VillaRafinha {
         
         //Viendo reservaciones de los siguientes 7 dias
         gestorReserv.verReservaciones();
-
-        Habitacion hab = new Habitacion(Tipo.DOBLE, "A", 9, "A9", (float) 5.0, "bla bla", true);
+*/
+        
+/*SIMULANDO UN HOTEL LLENO DESHABILITANDO 5 PISOS PARA TRABAJAR CON 10 HABITACIONES
+    Aun necesita probarse bien, he hecho pruebas basicas y parece funcionar, creo que si hay errores que quitarle aun pruebenlo 
+ 
+        gestorPisos.deshabilitarPiso("B");
+        gestorPisos.deshabilitarPiso("C");
+        gestorPisos.deshabilitarPiso("D");
+        gestorPisos.deshabilitarPiso("E");
+        gestorPisos.deshabilitarPiso("F");
+        System.out.println(gestorPisos.calcularNumHabitacionesHabilitadas());
+        
+        System.out.println(gestorReserv.getReservacionesDisp(hos1, gestorPisos.calcularNumHabitacionesHabilitadas()));
+        gestorReserv.agregarReservacion(reservacion1);
+        System.out.println(gestorReserv.getReservacionesDisp(hos2, gestorPisos.calcularNumHabitacionesHabilitadas()));
+        gestorReserv.agregarReservacion(reservacion2);
+        System.out.println(gestorReserv.getReservacionesDisp(hos1, gestorPisos.calcularNumHabitacionesHabilitadas()));
+        gestorReserv.agregarReservacion(reservacion3);
+        System.out.println(gestorReserv.getReservacionesDisp(hos2, gestorPisos.calcularNumHabitacionesHabilitadas()));
+        gestorReserv.agregarReservacion(reservacion4);
+        System.out.println(gestorReserv.getReservacionesDisp(hos1, gestorPisos.calcularNumHabitacionesHabilitadas()));
+        gestorReserv.agregarReservacion(reservacion5);
+        System.out.println(gestorReserv.getReservacionesDisp(hos2, gestorPisos.calcularNumHabitacionesHabilitadas()));
+        gestorReserv.agregarReservacion(reservacion6);
+        System.out.println(gestorReserv.getReservacionesDisp(hos1, gestorPisos.calcularNumHabitacionesHabilitadas()));
+        gestorReserv.agregarReservacion(reservacion7);
+        System.out.println(gestorReserv.getReservacionesDisp(hos2, gestorPisos.calcularNumHabitacionesHabilitadas()));
+        gestorReserv.agregarReservacion(reservacion8);
+        System.out.println(gestorReserv.getReservacionesDisp(hos1, gestorPisos.calcularNumHabitacionesHabilitadas()));
+        gestorReserv.agregarReservacion(reservacion9);
+        System.out.println(gestorReserv.getReservacionesDisp(hos2, gestorPisos.calcularNumHabitacionesHabilitadas()));
+        gestorReserv.agregarReservacion(reservacion10);
+        System.out.println(gestorReserv.getReservacionesDisp(hos5, gestorPisos.calcularNumHabitacionesHabilitadas()));
+        gestorReserv.agregarReservacion(reservacion11);
+        System.out.println(gestorReserv.getReservacionesDisp(hos2, gestorPisos.calcularNumHabitacionesHabilitadas()));
+        //gestorReserv.agregarReservacion(reservacion12);
+        
+        
+        */
+        
+        
+        //ESTO ES DE RAUL 
+        
+        //Habitacion hab = new Habitacion(Tipo.DOBLE, "A", 9, "A9", (float) 5.0, "bla bla", true);
 
         //System.out.println(gestor.verificarDisp(hab, hos3));
         //System.out.println(gestor.calcularNumHabitacionesHabilitadas());
         //System.out.println(gestor.calcularNumHabitacionesHabilitadas());
         
         //gestorHuespedes.agregarHuesped(huesped2);
-        /*gestorHuespedes.agregarHuesped(huesped2);
-        gestorHuespedes.agregarHuesped(huesped1);
-        gestorHuespedes.agregarHuesped(huesped3);
-        gestorHuespedes.verHuespedes();
-    */
+        //gestorHuespedes.agregarHuesped(huesped2);
+        //gestorHuespedes.agregarHuesped(huesped1);
+        //gestorHuespedes.agregarHuesped(huesped3);
+        //gestorHuespedes.verHuespedes();
+    
     
     }
     

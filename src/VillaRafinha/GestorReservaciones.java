@@ -23,7 +23,7 @@ public class GestorReservaciones {
         reservaciones= new ArrayList<>();
     }
     
-    public int getReservacionesDisp(Hospedaje hospedaje, int disponibilidad){
+    public int getReservacionesDisp(Hospedaje hospedaje, int disponibilidad) throws Exception{
         
         if (this.reservaciones.isEmpty()){
            return disponibilidad;
@@ -36,8 +36,11 @@ public class GestorReservaciones {
             }
 
         }
-
-         return disponibilidad;
+        if (disponibilidad!=0){
+             return disponibilidad;
+        }else{
+            throw new Exception("No hay disponibilidad");
+        }
         
     }
 
