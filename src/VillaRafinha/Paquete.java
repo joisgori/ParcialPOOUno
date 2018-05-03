@@ -38,11 +38,35 @@ public class Paquete {
     }
     
     
-    public void agregarServicio(){
+    public void agregarServicio(String nombre, float precio, String descripcion, boolean estado){
+        Scanner input= new Scanner(System.in);
+        nombre = input.nextLine();
+        precio = input.nextFloat();
+        descripcion = input.nextLine();
+        String e = input.next();
+        if (e == "t" || e == "T"){
+            estado = true;
+        }else if (e == "f"|| e=="F"){
+            estado = false;
+        }
+        servicio.add(new Servicio(nombre, precio, descripcion, estado));
         
     }
-    public void removerServicio(){
+    public void removerServicio(String nombre, float precio, String descripcion, boolean estado){
+        Scanner input= new Scanner(System.in);
+        nombre = input.nextLine();
+        precio = input.nextFloat();
         
+        for (int i = 0; i<servicio.size();i++){
+            if ((servicio.get(i).getNombre()==nombre)&& (servicio.get(i).getPrecio()==precio)){
+                servicio.remove(i);
+                System.out.println("El servicio: ");
+                System.out.println(servicio.get(i).getNombre() + " | "
+                        + servicio.get(i).getPrecio() + " | " 
+                        + servicio.get(i).getDescripcion()+" | ");
+                System.out.println("A sido removido");
+            }
+        }
     }
     
 }

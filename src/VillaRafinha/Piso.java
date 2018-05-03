@@ -54,7 +54,6 @@ public class Piso {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-
     @Override
     public int hashCode() {
         int hash = 7;
@@ -79,9 +78,5 @@ public class Piso {
         }
         return true;
     }
-
-    
-
-    
     
 }
