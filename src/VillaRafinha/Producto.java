@@ -12,6 +12,7 @@ import java.util.Objects;
  * @author Raul Granados 00138816
  */
 public class Producto {
+    
     private String nombre;
     private float precio;
     private String descripcion;
