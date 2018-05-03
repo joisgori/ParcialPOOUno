@@ -13,7 +13,7 @@ import java.util.Objects;
  */
 
 
-public class Reservacion {
+public class Reservacion implements Comparable<Reservacion>{
     
     private boolean sencilla;
     private Huesped huesped;
@@ -120,7 +120,12 @@ public class Reservacion {
 
     @Override
     public String toString() {
-        return "Reservacion:\n"+"Huesped: "+huesped.getNombre() +"\nFecha de Llegada: "+estancia.getFechaLlegada()+"\nFecha de Salida: "+estancia.getFechaSalida()+ "\nhabitacion: " + estancia.getTipo() + "\ntotal=" + total;
+        return "Reservacion:\n"+"Huesped: "+huesped.getNombre() +"\nFecha de Llegada: "+estancia.getFechaLlegada()+"\nFecha de Salida: "+estancia.getFechaSalida()+ "\nhabitacion: " + estancia.getTipo() + "\ntotal=" + total+"\n";
+    }
+
+    @Override
+    public int compareTo(Reservacion o) {
+        return estancia.getFechaLlegada().compareTo(o.getEstancia().getFechaLlegada());
     }
     
 }

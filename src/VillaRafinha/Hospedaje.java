@@ -7,6 +7,7 @@ package VillaRafinha;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Objects;
 
 /**
  *
@@ -37,11 +38,16 @@ public class Hospedaje {
 
     
     
-    public Hospedaje(LocalDate fLlegada, int numDias){
-        this.fechaLlegada=fLlegada;
-        this.fechaSalida=fechaLlegada.plusDays(numDias);
+    public Hospedaje(LocalDate fLlegada, int numDias) throws Exception{
+        if (numDias<=7){
+            this.fechaLlegada = fLlegada;
+            this.fechaSalida = fechaLlegada.plusDays(numDias);
+        }else{
+            throw new Exception("Entrada de datos invalida");
+        }
     }
 
+    
     public LocalDate getFechaLlegada() {
         return fechaLlegada;
     }
@@ -74,6 +80,53 @@ public class Hospedaje {
     public void setNumDias(int numDias) {
         this.numDias = numDias;
     }
+    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 41 * hash + Objects.hashCode(this.fechaLlegada);
+        hash = 41 * hash + Objects.hashCode(this.fechaSalida);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Hospedaje other = (Hospedaje) obj;
+        if (!Objects.equals(this.fechaLlegada, other.fechaLlegada)) {
+            return false;
+        }
+        if (!Objects.equals(this.fechaSalida, other.fechaSalida)) {
+            return false;
+        }
+        return true;
+    }
+    
+    public boolean seIntercecta(Hospedaje hospedaje){
+        if(this.fechaLlegada.isAfter(hospedaje.fechaLlegada)&&this.fechaLlegada.isBefore(hospedaje.fechaSalida)){
+            return true; 
+        }else if(this.fechaSalida.isAfter(hospedaje.fechaLlegada)&&this.fechaSalida.isBefore(hospedaje.fechaSalida)){
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean contiene(Hospedaje hospedaje){
+        if (hospedaje.fechaLlegada.isAfter(this.fechaLlegada)&&hospedaje.fechaSalida.isBefore(this.fechaSalida)){
+            return true;
+        }
+        return false;
+    }
+   
 
     
     
