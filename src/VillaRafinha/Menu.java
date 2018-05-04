@@ -58,9 +58,9 @@ public class Menu {
                      salida;
                     if (a == 1) {
                         try {
-                            System.out.println("Ingrese Fecha de llegada: ");
+                            System.out.print("Ingrese Fecha de llegada: ");
                             llegada = this.gestorRes.pedirFechar();
-                            System.out.println("Ingrse fecha de salida: ");
+                            System.out.print("Ingrse fecha de salida: ");
                             salida = this.gestorRes.pedirFechar();
                             Hospedaje hosp = new Hospedaje(llegada, salida, this.gestorRes.pedirTipo());
                             boolean isSuperior = gestorRes.pedirPiso();
@@ -79,8 +79,10 @@ public class Menu {
                         this.gestorRes.verReservaciones();
 
                     }
+                    break;
                 case 2:
                     System.out.println("ola equis de");
+                    
                     break;
                 case 3:
                     String nombre;
