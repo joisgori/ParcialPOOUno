@@ -15,35 +15,29 @@ import java.util.Iterator;
  * @author Raul Granados 00138816
  */
 public class GestorPisosHabitaciones {
+
     //private GestorPisosHabitaciones gestor;
     //private Piso[] pisos = new Piso[6];
     private static GestorPisosHabitaciones gestor;
     private ArrayList<Piso> pisos = new ArrayList();
     int precioBase;
-    
 
-    
-    private GestorPisosHabitaciones(){
-        
-        
+    private GestorPisosHabitaciones() {
+
         this.pisos.add(new Piso("A"));
         this.pisos.add(new Piso("B"));
         this.pisos.add(new Piso("C"));
         this.pisos.add(new Piso("D"));
         this.pisos.add(new Piso("E"));
         this.pisos.add(new Piso("F"));
-        this.precioBase=80;
-        
-        
-        
-        
-        
+        this.precioBase = 80;
+
     }
-    
-    public static GestorPisosHabitaciones getInstance(){
-        if(gestor==null){
+
+    public static GestorPisosHabitaciones getInstance() {
+        if (gestor == null) {
             gestor = new GestorPisosHabitaciones();
-            
+
         }
         System.out.println("Gestor Instanciado");
         return gestor;
@@ -52,7 +46,6 @@ public class GestorPisosHabitaciones {
     public void setPrecioBase(int precioBase) {
         this.precioBase = precioBase;
     }
-    
 
     public ArrayList<Piso> getPisos() {
         return pisos;
@@ -62,31 +55,30 @@ public class GestorPisosHabitaciones {
         this.pisos = pisos;
     }
 
-    
     /**
      * Este metodo deshabilita todas las habitaciones de un piso.
-     * @param nivel el nivel en el que se ecuentra 
-     * @throws Exception en caso de que ya esten todos deshabilitados 
+     *
+     * @param nivel el nivel en el que se ecuentra
+     * @throws Exception en caso de que ya esten todos deshabilitados
      */
-    
     public void deshabilitarPiso(String nivel) throws Exception {
         for (Piso p : this.pisos) {
-            
+
             if (p.getNivel().equals(nivel)) {
                 if (p.isEstado()) {
                     for (Habitacion h : p.getHabitaciones()) {
                         h.deshablitar();
                     }
-                }
-                else{
-                    throw new Exception ("El piso ya esta dshabilitado");
-                    
+                } else {
+                    throw new Exception("El piso ya esta dshabilitado");
+
                 }
             }
 
         }
 
     }
+
     public void habilitarPiso(String nivel) throws Exception {
         for (Piso p : this.pisos) {
             if (p.getNivel().equals(nivel)) {
@@ -94,8 +86,7 @@ public class GestorPisosHabitaciones {
                     for (Habitacion h : p.getHabitaciones()) {
                         h.hablitar();
                     }
-                }
-                else{
+                } else {
                     throw new Exception("El piso ya esta habilitdo");
                 }
             }
@@ -103,9 +94,11 @@ public class GestorPisosHabitaciones {
         }
 
     }
+
     /**
      * Este metodo desabilita la habitacion.
-     * @param habitacion 
+     *
+     * @param habitacion
      * @throws Exception en caso de que la habitacion este ya habilitada
      */
     public void habilitarHabitacion(Habitacion habitacion) throws Exception {
@@ -117,8 +110,10 @@ public class GestorPisosHabitaciones {
         }
 
     }
+
     /**
      * Este metodo habilita la habitacion
+     *
      * @param habitacion
      * @throws Exception en caso de que la habitacion ya este deshabilitada
      */
@@ -129,12 +124,16 @@ public class GestorPisosHabitaciones {
             throw new Exception("La habitacion ya estaba deshabilitada");
         }
     }
+
     /**
-     * Esta habitacion recibe un objeto habitacion y uno de tipo hospedaje, del cual se extraen la fecha en la que se quere reservar 
-     * y se compara con las fechas de entrada y salida que tiene cada objeto de tipo hospedaje almacenado en el arreglo de cada habitacion
+     * Esta habitacion recibe un objeto habitacion y uno de tipo hospedaje, del
+     * cual se extraen la fecha en la que se quere reservar y se compara con las
+     * fechas de entrada y salida que tiene cada objeto de tipo hospedaje
+     * almacenado en el arreglo de cada habitacion
+     *
      * @param habitacion
      * @param hospedaje
-     * @return 
+     * @return
      */
 
     public boolean verificarDisp(Habitacion habitacion, Hospedaje hospedaje) {
@@ -166,8 +165,7 @@ public class GestorPisosHabitaciones {
                 if (hos1.getFechaSalida().isBefore(hospedaje.getFechaLlegada()) || hos1.getFechaSalida().equals(hospedaje.getFechaLlegada())) {
                     if (hos2.getFechaLlegada().isAfter(hospedaje.getFechaSalida()) || hos2.getFechaLlegada().equals(hospedaje.getFechaSalida())) {
                         return true;
-                    }
-                    else{
+                    } else {
                         return false;
                     }
 
@@ -183,6 +181,7 @@ public class GestorPisosHabitaciones {
             return false;
         }
     }
+
     public Habitacion getHabitacion(Tipo tipo, Hospedaje hospedaje, boolean isSuperior) throws Exception {
         //boolean isSuperior;
         int validador1, validador2;
@@ -213,6 +212,7 @@ public class GestorPisosHabitaciones {
         throw new Exception("No hay habitaciones de tipo " + tipo.toString() + "disponibles");
 
     }
+
     public int calcularNumHabitacionesDisponibles(boolean isSuperior, Hospedaje hospedaje) {
         int cont = 0, validador1, validador2;
         int tamanio = this.pisos.size() - 1;
@@ -238,25 +238,22 @@ public class GestorPisosHabitaciones {
             }
 
         }
-        
+
         return cont;
     }
-    
-    
-    public boolean isSuperior(Habitacion habitacion){
+
+    public boolean isSuperior(Habitacion habitacion) {
         int tamanio = this.pisos.size() - 1;
-        for(int i=tamanio;i>tamanio-2;i--){
+        for (int i = tamanio; i > tamanio - 2; i--) {
             Piso p = this.pisos.get(i);
-            for(Habitacion h: p.getHabitaciones()){
-                if(h.equals(habitacion)){
+            for (Habitacion h : p.getHabitaciones()) {
+                if (h.equals(habitacion)) {
                     return true;
                 }
             }
         }
         return false;
-        
-        
+
     }
-    
-    
+
 }

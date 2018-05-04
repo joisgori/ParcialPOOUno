@@ -116,7 +116,9 @@ public class Menu {
                 //Hospedaje hosp = new Hospedaje();
             } catch (Exception ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                scanner.nextLine();
             }
+            
         }
     }
 

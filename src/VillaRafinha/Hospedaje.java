@@ -141,10 +141,6 @@ public class Hospedaje {
     public boolean saleDurante(Hospedaje hospedaje){
         return hospedaje.fechaSalida.isAfter(this.fechaLlegada)&&hospedaje.fechaSalida.isBefore(this.fechaSalida);
     }
-   
 
-    
-    
-    
     
 }

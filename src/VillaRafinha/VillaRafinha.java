@@ -22,8 +22,8 @@ public class VillaRafinha {
     public static void main(String[] args) throws Exception {
         
         
-        //Menu menu=Menu.getInstance();
-        //menu.mostrar();
+        Menu menu=Menu.getInstance();
+        menu.mostrar();
         //Servicio servicio1= new Servicio("Piscina", (float) 15.5,"Acceso a pisina semiolimpica bajo techo");
         //Servicio servicio2= new Servicio("Buffet", (float) 12.4,"Desayuno, almuerzo y cena buffet");
         //Servicio servicio3= new Servicio("Bar", (float) 16.7,"Acceso al bar y open bar");
@@ -46,16 +46,16 @@ public class VillaRafinha {
         Inicializando gestores
         */
         
-        GestorPisosHabitaciones gestorPisos = GestorPisosHabitaciones.getInstance();
+        /*GestorPisosHabitaciones gestorPisos = GestorPisosHabitaciones.getInstance();
         GestorReservaciones gestorReserv = GestorReservaciones.getInstance();
-        GestorHuespedes gestorHuespedes = GestorHuespedes.getInstance();
+        GestorHuespedes gestorHuespedes = GestorHuespedes.getInstance();*/
         
         //Deshabilitando un piso y probando el metodo deshabilitar piso y getDisponibilidad
         //System.out.println(gestorPisos.calcularNumHabitacionesHabilitadas());
         //gestorPisos.deshabilitarPiso("A");
         //System.out.println(gestorPisos.calcularNumHabitacionesHabilitadas());
         
-
+        /*
         //Creando fechas para testeo
         
         LocalDate fecha1 = LocalDate.of(2018, 05, 3);
@@ -83,7 +83,7 @@ public class VillaRafinha {
         Reservacion reservacion1 = new Reservacion(hos1, huesped1);
         Reservacion reservacion2 = new Reservacion(hos2, huesped2);
         Reservacion reservacion3 = new Reservacion(hos1, huesped3);
-        Reservacion reservacion4 = new Reservacion(hos2, huesped3);
+        Reservacion reservacion4 = new Reservacion(hos2, huesped3);*/
 
         //System.out.println(gestorPisos.calcularNumHabitacionesHabilitadas(true, hos1));
         //gestorPisos.getPisos().get(5).getHabitaciones()[9].agregarHospedaje(hos2);
