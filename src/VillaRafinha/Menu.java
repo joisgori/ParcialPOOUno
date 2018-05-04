@@ -32,45 +32,51 @@ public class Menu {
         return menu;
     }
     public void opciones(){
-        System.out.println("1.Hacer Reservacion\n2.Hacer Check In\n3.Hacer Check Out\n");
+        System.out.println("1.Hacer Reservacion\n2.Hacer Check In\n3.Hacer Check Out");
     }
     public void mostrar() {
         int opc = 40;
-        opciones();
+        
         Scanner scanner = new Scanner(System.in);
 
         while (opc != 35) {
+            opciones();
+            System.out.print("Ingrese una opcion: ");
             opc = scanner.nextInt();
             switch (opc) {
                 case 1:
                     System.out.println("1. Por fechas\n2. Por numero de dias");
+                    System.out.print("Ingrese una opcion: ");
                     int a = scanner.nextInt();
-                    
-                        int dia, mes, anio;
-                        LocalDate llegada, salida;
-                        if (a == 1) {
-                            try {
-                                System.out.println("Ingrese Fecha de llegada: ");
-                                llegada = this.gestorRes.pedirFechar();
-                                System.out.println("Ingrse fecha de salida: ");
-                                salida = this.gestorRes.pedirFechar();
-                                Hospedaje hosp = new Hospedaje(llegada,salida,this.gestorRes.pedirTipo());
-                            } catch (Exception ex) {
-                                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                            
-                            
-                            
-                            
 
+                    int dia,
+                     mes,
+                     anio;
+                    LocalDate llegada,
+                     salida;
+                    if (a == 1) {
+                        try {
+                            System.out.println("Ingrese Fecha de llegada: ");
+                            llegada = this.gestorRes.pedirFechar();
+                            System.out.println("Ingrse fecha de salida: ");
+                            salida = this.gestorRes.pedirFechar();
+                            Hospedaje hosp = new Hospedaje(llegada, salida, this.gestorRes.pedirTipo());
+                            Reservacion res = new Reservacion(hosp, this.gestorRes.crearHuesped());
+                            this.gestorRes.agregarReservacion(res);
+                        } catch (Exception ex) {
+                            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                         }
+                        this.gestorRes.verReservaciones();
+
+                    }
                 case 2:
                     
-                    } 
-
-                    //Hospedaje hosp = new Hospedaje();
                     break;
+
             }
+
+            //Hospedaje hosp = new Hospedaje();
         }
+    }
 
     }

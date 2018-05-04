@@ -108,6 +108,21 @@ public class GestorReservaciones {
         return tipo;
 
     }
+    public Huesped crearHuesped(){
+        Huesped hues;
+        Scanner scanner = new Scanner(System.in);
+        String nombre, iD, telefono;
+        System.out.println("ingrese datos del huesped: ");
+        System.out.print("Ingrese nombre: ");
+        nombre = scanner.nextLine();
+        System.out.print("Ingrese iD: ");
+        iD = scanner.nextLine();
+        System.out.print("Ingrese telefono: ");
+        telefono = scanner.nextLine();
+        hues = new Huesped(nombre,iD,telefono);
+        
+        return hues;
+    }
         
         
     
