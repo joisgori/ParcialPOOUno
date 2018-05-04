@@ -5,18 +5,24 @@
  */
 package VillaRafinha;
 
+import java.time.LocalDate;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author rau3
  */
 public class Menu {
-    private GestorPisosHabitaciones gestor=null;
+    private GestorPisosHabitaciones gestorHab=null;
+    private GestorReservaciones gestorRes=null;
     private static Menu menu=null;
     
     private Menu() {
-        this.gestor  = GestorPisosHabitaciones.getInstance();
+        this.gestorHab  = GestorPisosHabitaciones.getInstance();
+        this.gestorRes = new GestorReservaciones();
 
     }
     public static Menu getInstance(){
@@ -32,18 +38,39 @@ public class Menu {
         int opc = 40;
         opciones();
         Scanner scanner = new Scanner(System.in);
-        
-        while (opc!=35) {
-            opc = scanner.nextInt(opc);
+
+        while (opc != 35) {
+            opc = scanner.nextInt();
             switch (opc) {
                 case 1:
+                    System.out.println("1. Por fechas\n2. Por numero de dias");
+                    int a = scanner.nextInt();
                     
+                        int dia, mes, anio;
+                        LocalDate llegada, salida;
+                        if (a == 1) {
+                            try {
+                                System.out.println("Ingrese Fecha de llegada: ");
+                                llegada = this.gestorRes.pedirFechar();
+                                System.out.println("Ingrse fecha de salida: ");
+                                salida = this.gestorRes.pedirFechar();
+                                Hospedaje hosp = new Hospedaje(llegada,salida,this.gestorRes.pedirTipo());
+                            } catch (Exception ex) {
+                                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            
+                            
+                            
+                            
+
+                        }
+                case 2:
+                    
+                    } 
+
+                    //Hospedaje hosp = new Hospedaje();
                     break;
             }
         }
 
     }
-    
-    
-    
-}
