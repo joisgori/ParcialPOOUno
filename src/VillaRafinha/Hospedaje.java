@@ -19,9 +19,10 @@ public class Hospedaje {
     private LocalDate fechaSalida;
     private int numDias;
     private Tipo tipo;
+    private boolean isSuperior;
     
     
-    public Hospedaje(LocalDate fLlegada, LocalDate fSalida, Tipo tipo) throws Exception {
+    public Hospedaje(LocalDate fLlegada, LocalDate fSalida, Tipo tipo,boolean isSuperior) throws Exception {
 
         Period periodo = Period.between(fLlegada, fSalida);
         if (periodo.getDays()<7 && !fLlegada.equals(fSalida)){
@@ -29,6 +30,7 @@ public class Hospedaje {
             this.fechaSalida = fSalida;
             this.numDias = periodo.getDays();
             this.tipo = tipo;
+            this.isSuperior=isSuperior;
         }else {
             throw new Exception ("Entrada de datos invalida");
         }
@@ -45,6 +47,14 @@ public class Hospedaje {
         }else{
             throw new Exception("Entrada de datos invalida");
         }
+    }
+
+    public boolean isIsSuperior() {
+        return isSuperior;
+    }
+
+    public void setIsSuperior(boolean isSuperior) {
+        this.isSuperior = isSuperior;
     }
 
     

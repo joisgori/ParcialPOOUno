@@ -22,19 +22,19 @@ public class VillaRafinha {
     public static void main(String[] args) throws Exception {
         
         
-        //Menu menu=Menu.getInstance();
-        //menu.mostrar();
-        Servicio servicio= new Servicio("Piscina", (float) 15.5,"Acceso a pisina semiolimpica bajo techo");
+        /*Menu menu=Menu.getInstance();
+        /*menu.mostrar();
+        /*Servicio servicio= new Servicio("Piscina", (float) 15.5,"Acceso a pisina semiolimpica bajo techo");
         System.out.println(servicio.toString());
         Paquete paquete= new Paquete("Premium",16.5);
         System.out.println(paquete.getNombre());;
         /* Estan son las pruebas del codigo que tenemos trabajando ya
         Inicializando gestores
         */
-        /*
-        GestorPisosHabitaciones gestorPisos = new GestorPisosHabitaciones();
+        
+        GestorPisosHabitaciones gestorPisos = GestorPisosHabitaciones.getInstance();
         GestorReservaciones gestorReserv = new GestorReservaciones();
-        GestorHuespedes gestorHuespedes = new GestorHuespedes();*/
+        GestorHuespedes gestorHuespedes = GestorHuespedes.getInstance();
         
         //Deshabilitando un piso y probando el metodo deshabilitar piso y getDisponibilidad
         //System.out.println(gestorPisos.calcularNumHabitacionesHabilitadas());
@@ -43,7 +43,7 @@ public class VillaRafinha {
         
 
         //Creando fechas para testeo
-        /*
+        
         LocalDate fecha1 = LocalDate.of(2018, 05, 3);
         LocalDate fecha2 = LocalDate.of(2018, 05, 8);
         LocalDate fecha3 = LocalDate.of(2018, 05, 3);
@@ -54,11 +54,11 @@ public class VillaRafinha {
         LocalDate fecha8 = LocalDate.of(2018, 06, 20);
 
         //Creando hospedajes para testeo
-        Hospedaje hos1 = new Hospedaje(fecha1, fecha2, Tipo.DOBLE);
-        Hospedaje hos2 = new Hospedaje(fecha3, fecha4, Tipo.DOBLE);
-        Hospedaje hos3 = new Hospedaje(fecha5, fecha6, Tipo.DOBLE);
-        Hospedaje hos4 = new Hospedaje(fecha5, fecha6, Tipo.DOBLE);
-        Hospedaje hos5 = new Hospedaje(fecha7, fecha8, Tipo.DOBLE);
+        Hospedaje hos1 = new Hospedaje(fecha1, fecha2, Tipo.DOBLE,true);
+        Hospedaje hos2 = new Hospedaje(fecha3, fecha4, Tipo.DOBLE,true);
+        Hospedaje hos3 = new Hospedaje(fecha5, fecha6, Tipo.DOBLE,false);
+        Hospedaje hos4 = new Hospedaje(fecha5, fecha6, Tipo.DOBLE,false);
+        Hospedaje hos5 = new Hospedaje(fecha7, fecha8, Tipo.DOBLE,true);
         
         //Creando Huespedes para testeo
         Huesped huesped1 = new Huesped("Raul", "asl");

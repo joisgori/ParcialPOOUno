@@ -27,6 +27,7 @@ public class Habitacion extends Producto{
         this.tipo = tipo;
         this.nivel = nivel;
         this.numero = numero;
+        
     }
 
     public Tipo getTipo() {

@@ -31,6 +31,7 @@ public class GestorPisosHabitaciones {
         this.pisos.add(new Piso("D"));
         this.pisos.add(new Piso("E"));
         this.pisos.add(new Piso("F"));
+        int precioBase;
         
         
         /*int cont=1;
@@ -180,9 +181,22 @@ public class GestorPisosHabitaciones {
             return false;
         }
     }
-    public Habitacion getHabitacion(Tipo tipo, Hospedaje hospedaje) throws Exception {
+    public Habitacion getHabitacion(Tipo tipo, Hospedaje hospedaje, boolean isSuperior) throws Exception {
+        //boolean isSuperior;
+        int validador1, validador2;
+        int tamanio = this.pisos.size();
 
-        for (Piso p : this.pisos) {
+        if (isSuperior) {
+            validador2 = tamanio - 1;
+            validador1 = tamanio;
+
+        } else {
+            validador1 = tamanio - 2;
+            validador2 = 0;
+        }
+
+        for (int i = validador1; i >= validador2; i--) {
+            Piso p = this.pisos.get(i);
             if (p.isEstado()) {
                 for (Habitacion h : p.getHabitaciones()) {
                     if (h.getTipo() == tipo) {
@@ -248,7 +262,20 @@ public class GestorPisosHabitaciones {
         }
         
     }*/
-    
+    public boolean isSuperior(Habitacion habitacion){
+        int tamanio = this.pisos.size() - 1;
+        for(int i=tamanio;i>tamanio-2;i--){
+            Piso p = this.pisos.get(i);
+            for(Habitacion h: p.getHabitaciones()){
+                if(h.equals(habitacion)){
+                    return true;
+                }
+            }
+        }
+        return false;
+        
+        
+    }
     
     
 }

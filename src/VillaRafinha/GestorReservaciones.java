@@ -136,7 +136,35 @@ public class GestorReservaciones {
         
         return nombre;
     }*/
+    public Reservacion buscarReservacionNomTel(String nombre, String telefono) throws Exception {
+        for (Reservacion r : this.reservaciones) {
+            if (r.getHuesped().getNombre().equals(nombre) && r.getHuesped().getTelefono().equals(telefono)) {
+                return r;
+
+            }
+        }
+        throw new Exception("No existe esa reservacion");
+
+    }
+    public Reservacion buscarReservacionNombre(String nombre) throws Exception {
+        for (Reservacion r : this.reservaciones) {
+            if (r.getHuesped().getNombre().equals(nombre)) {
+                return r;
+
+            }
+        }
+        throw new Exception("No existe esa reservacion");
+
+    }
+    public int asignarPrecio(Habitacion habitacion,boolean isSuperior,int precioBase){
+        if(isSuperior){
+            precioBase= (int) (precioBase*1.10);
+        }
+        return precioBase;
         
+        
+        
+    }
         
     
 
