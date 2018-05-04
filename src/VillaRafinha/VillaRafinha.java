@@ -44,7 +44,7 @@ public class VillaRafinha {
 
         //Creando fechas para testeo
         
-        LocalDate fecha1 = LocalDate.of(2018, 05, 3);
+        /*LocalDate fecha1 = LocalDate.of(2018, 05, 3);
         LocalDate fecha2 = LocalDate.of(2018, 05, 8);
         LocalDate fecha3 = LocalDate.of(2018, 05, 3);
         LocalDate fecha4 = LocalDate.of(2018, 05, 5);
@@ -76,15 +76,15 @@ public class VillaRafinha {
         Reservacion reservacion8 = new Reservacion(hos2, huesped3);
         Reservacion reservacion9 = new Reservacion(hos1, huesped3);
         Reservacion reservacion10 = new Reservacion(hos2, huesped3);
-        Reservacion reservacion11 = new Reservacion(hos5, huesped3);
-        Reservacion reservacion12 = new Reservacion(hos1, huesped3);
+        //Reservacion reservacion11 = new Reservacion(hos5, huesped3);
+        //Reservacion reservacion12 = new Reservacion(hos1, huesped3);
         
-        System.out.println(gestorPisos.calcularNumHabitacionesHabilitadas(true, hos1));
-        gestorPisos.getPisos().get(5).getHabitaciones()[9].agregarHospedaje(hos2);
-        System.out.println(gestorPisos.calcularNumHabitacionesHabilitadas(true, hos3));
+        /*System.out.println(gestorPisos.calcularNumHabitacionesHabilitadas(true, hos1));
+        //gestorPisos.getPisos().get(5).getHabitaciones()[9].agregarHospedaje(hos2);
+        *System.out.println(gestorPisos.calcularNumHabitacionesHabilitadas(true, hos3));
         
        
- /*
+ 
         //Probando la disponibilidad cuando el hotel no tiene reservaciones
         System.out.println(gestorReserv.getReservacionesDisp(hos1, gestorPisos.calcularNumHabitacionesHabilitadas()));
         
@@ -107,7 +107,7 @@ public class VillaRafinha {
         
         //Viendo reservaciones de los siguientes 7 dias
         gestorReserv.verReservaciones();
-*/
+
         
 /*SIMULANDO UN HOTEL LLENO DESHABILITANDO 5 PISOS PARA TRABAJAR CON 10 HABITACIONES
     Aun necesita probarse bien, he hecho pruebas basicas y parece funcionar, creo que si hay errores que quitarle aun pruebenlo 

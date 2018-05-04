@@ -19,6 +19,7 @@ public class GestorPisosHabitaciones {
     //private Piso[] pisos = new Piso[6];
     private static GestorPisosHabitaciones gestor;
     private ArrayList<Piso> pisos = new ArrayList();
+    int precioBase;
     
 
     
@@ -31,7 +32,7 @@ public class GestorPisosHabitaciones {
         this.pisos.add(new Piso("D"));
         this.pisos.add(new Piso("E"));
         this.pisos.add(new Piso("F"));
-        int precioBase;
+        this.precioBase=80;
         
         
         /*int cont=1;
@@ -51,6 +52,11 @@ public class GestorPisosHabitaciones {
         System.out.println("Gestor Instanciado");
         return gestor;
     }
+
+    public void setPrecioBase(int precioBase) {
+        this.precioBase = precioBase;
+    }
+    
 
     public ArrayList<Piso> getPisos() {
         return pisos;
