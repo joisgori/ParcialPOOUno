@@ -24,19 +24,19 @@ public class VillaRafinha {
         
         //Menu menu=Menu.getInstance();
         //menu.mostrar();
-        Servicio servicio1= new Servicio("Piscina", (float) 15.5,"Acceso a pisina semiolimpica bajo techo");
-        Servicio servicio2= new Servicio("Buffet", (float) 12.4,"Desayuno, almuerzo y cena buffet");
-        Servicio servicio3= new Servicio("Bar", (float) 16.7,"Acceso al bar y open bar");
+        //Servicio servicio1= new Servicio("Piscina", (float) 15.5,"Acceso a pisina semiolimpica bajo techo");
+        //Servicio servicio2= new Servicio("Buffet", (float) 12.4,"Desayuno, almuerzo y cena buffet");
+        //Servicio servicio3= new Servicio("Bar", (float) 16.7,"Acceso al bar y open bar");
         
         //System.out.println(servicio1.toString());
-       GestorProductos gestorProductos= GestorProductos.getInstance();
-        Paquete paquete1= new Paquete("Premium",(float)59.99);
-        paquete1.agregarServicio(servicio1);
-        paquete1.agregarServicio(servicio2);
+        //GestorProductos gestorProductos= GestorProductos.getInstance();
+        //Paquete paquete1= new Paquete("Premium",(float)59.99);
+        //paquete1.agregarServicio(servicio1);
+        //paquete1.agregarServicio(servicio2);
         //System.out.println(paquete1.toString());
-        paquete1.agregarServicio(servicio3);
-        gestorProductos.agregarPaquete(paquete1);
-        System.out.println(gestorProductos.buscarPaquete("premium"));
+        //paquete1.agregarServicio(servicio3);
+        //gestorProductos.agregarPaquete(paquete1);
+        //System.out.println(gestorProductos.buscarPaquete("premium"));
         //System.out.println(paquete1.toString());
         //paquete1.quitarServicio(servicio2);
         //System.out.println(paquete1.toString());
@@ -47,7 +47,7 @@ public class VillaRafinha {
         */
         
         GestorPisosHabitaciones gestorPisos = GestorPisosHabitaciones.getInstance();
-        GestorReservaciones gestorReserv = new GestorReservaciones();
+        GestorReservaciones gestorReserv = GestorReservaciones.getInstance();
         GestorHuespedes gestorHuespedes = GestorHuespedes.getInstance();
         
         //Deshabilitando un piso y probando el metodo deshabilitar piso y getDisponibilidad
@@ -69,7 +69,7 @@ public class VillaRafinha {
 
         //Creando hospedajes para testeo
         Hospedaje hos1 = new Hospedaje(fecha1, fecha2, Tipo.DOBLE);
-        Hospedaje hos2 = new Hospedaje(fecha3, fecha4, Tipo.DOBLE);
+        Hospedaje hos2 = new Hospedaje(fecha3, fecha4, Tipo.SENCILLA);
         Hospedaje hos3 = new Hospedaje(fecha5, fecha6, Tipo.DOBLE);
         Hospedaje hos4 = new Hospedaje(fecha5, fecha6, Tipo.DOBLE);
         Hospedaje hos5 = new Hospedaje(fecha7, fecha8, Tipo.DOBLE);
@@ -84,15 +84,7 @@ public class VillaRafinha {
         Reservacion reservacion2 = new Reservacion(hos2, huesped2);
         Reservacion reservacion3 = new Reservacion(hos1, huesped3);
         Reservacion reservacion4 = new Reservacion(hos2, huesped3);
-        Reservacion reservacion5 = new Reservacion(hos1, huesped3);
-        Reservacion reservacion6 = new Reservacion(hos2, huesped3);
-        Reservacion reservacion7 = new Reservacion(hos1, huesped3);
-        Reservacion reservacion8 = new Reservacion(hos2, huesped3);
-        Reservacion reservacion9 = new Reservacion(hos1, huesped3);
-        Reservacion reservacion10 = new Reservacion(hos2, huesped3);
-        Reservacion reservacion11 = new Reservacion(hos5, huesped3);
-        Reservacion reservacion12 = new Reservacion(hos1, huesped3);
-        
+
         //System.out.println(gestorPisos.calcularNumHabitacionesHabilitadas(true, hos1));
         //gestorPisos.getPisos().get(5).getHabitaciones()[9].agregarHospedaje(hos2);
         //System.out.println(gestorPisos.calcularNumHabitacionesHabilitadas(true, hos3));
@@ -123,6 +115,7 @@ public class VillaRafinha {
         //gestorReserv.verReservaciones();
 
         
+
         
         
   

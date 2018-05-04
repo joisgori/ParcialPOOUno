@@ -39,6 +39,8 @@ public class Huesped extends Persona {
     public String toString() {
         return "Huesped: " +this.getNombre()+"\nCodigo: "+this.getId()+"\nTelefono: "+this.getTelefono();
     }
+    
+    
 
     
 }

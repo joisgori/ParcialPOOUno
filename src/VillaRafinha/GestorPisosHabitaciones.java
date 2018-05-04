@@ -72,7 +72,7 @@ public class GestorPisosHabitaciones {
             if (p.getNivel().equals(nivel)) {
                 if (p.isEstado()) {
                     for (Habitacion h : p.getHabitaciones()) {
-                        h.setEstado(false);
+                        h.deshablitar();
                     }
                 }
                 else{
@@ -89,7 +89,7 @@ public class GestorPisosHabitaciones {
             if (p.getNivel().equals(nivel)) {
                 if (!p.isEstado()) {
                     for (Habitacion h : p.getHabitaciones()) {
-                        h.setEstado(true);
+                        h.hablitar();
                     }
                 }
                 else{
@@ -107,7 +107,7 @@ public class GestorPisosHabitaciones {
      */
     public void habilitarHabitacion(Habitacion habitacion) throws Exception {
         if (!habitacion.isEstado()) {
-            habitacion.setEstado(true);
+            habitacion.hablitar();
         } else {
             throw new Exception("La habitacion ya esta habilitada");
 
@@ -121,7 +121,7 @@ public class GestorPisosHabitaciones {
      */
     public void deshabilitarHabitacion(Habitacion habitacion) throws Exception {
         if (habitacion.isEstado()) {
-            habitacion.setEstado(false);
+            habitacion.deshablitar();
         } else {
             throw new Exception("La habitacion ya estaba deshabilitada");
         }

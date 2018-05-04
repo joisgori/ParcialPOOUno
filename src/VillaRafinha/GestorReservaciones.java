@@ -19,11 +19,22 @@ import java.util.Scanner;
 public class GestorReservaciones {
     
     private ArrayList<Reservacion> reservaciones;
-     
+    private Scanner scanner = new Scanner(System.in);
+    private static GestorReservaciones gestorReservaciones;    
         
-    public GestorReservaciones(){
+    
+    private GestorReservaciones(){
         reservaciones= new ArrayList<>();
     }
+    
+    
+    public static GestorReservaciones getInstance(){
+        if(gestorReservaciones==null){
+            gestorReservaciones=new GestorReservaciones();
+        }
+        return gestorReservaciones;
+    }
+    
 
     public ArrayList<Reservacion> getReservaciones() {
         return reservaciones;
@@ -55,6 +66,7 @@ public class GestorReservaciones {
                     return disponibilidad;
                 }
             }
+            System.out.println("Hay "+disponibilidad+" habitaciones disponibles");
             return disponibilidad;
         }
     }
@@ -89,29 +101,23 @@ public class GestorReservaciones {
     
     
     public LocalDate pedirFechar() throws Exception{
-        Scanner scanner = new Scanner(System.in);
-        String fechaxd;
-        LocalDate fecha;
-        /*System.out.print("Ingrese anio: ");
-        anio = scanner.nextInt();
-        System.out.print("Ingrese mes: ");
-        mes = scanner.nextInt();
-        System.out.print("Ingrse dia: ");
-        dia = scanner.nextInt();
-        fecha = LocalDate.of(anio, mes, dia);*/
+    
+        String fecha;
+        
         System.out.println("Ingrese fecha en formato dd/mm/aaaa: ");
-        fechaxd = scanner.nextLine();
+        fecha = scanner.nextLine();
         DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return LocalDate.parse(fechaxd,formateador);
+        return LocalDate.parse(fecha,formateador);
     }
     
     
     public Tipo pedirTipo() throws Exception{
-        Scanner scanner = new Scanner(System.in);
+        
         int opc;
         Tipo tipo;
         System.out.println("1. Habitacion sencilla\n2. Habitacion doble");
         System.out.print("Ingrese tipo de habitacion: ");
+        
         opc = scanner.nextInt();
         switch (opc) {
             case 1:
@@ -130,22 +136,19 @@ public class GestorReservaciones {
 
     }
     
+    
     public boolean pedirPiso(){
+    
         boolean isSuperior;
         int opc;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("1. Piso normal\n2.Dos ultimos pisos");
+        
+        System.out.println("1. Piso normal\n2.Pisos superiores");
         System.out.print("Ingrese una opcion: ");
         opc = scanner.nextInt();
         isSuperior = (opc==1);
         return isSuperior;
     }
-    /*public String ingresarNombre(){
-        Scanner scanner = new Scanner(System.in);
-        String nombre = scanner.nextLine();
-        
-        return nombre;
-    }*/
+    
         
         
     
