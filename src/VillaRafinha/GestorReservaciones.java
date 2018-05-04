@@ -6,6 +6,7 @@
 package VillaRafinha;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -23,6 +24,11 @@ public class GestorReservaciones {
     public GestorReservaciones(){
         reservaciones= new ArrayList<>();
     }
+
+    public ArrayList<Reservacion> getReservaciones() {
+        return reservaciones;
+    }
+    
     
     public int getReservacionesDisp(Hospedaje hospedaje, int disponibilidad) throws Exception{
         
@@ -73,17 +79,22 @@ public class GestorReservaciones {
     }
     public LocalDate pedirFechar() throws Exception{
         Scanner scanner = new Scanner(System.in);
-        int dia,mes,anio;
+        String fechaxd;
         LocalDate fecha;
-        System.out.print("Ingrese anio: ");
+        /*System.out.print("Ingrese anio: ");
         anio = scanner.nextInt();
         System.out.print("Ingrese mes: ");
         mes = scanner.nextInt();
         System.out.print("Ingrse dia: ");
         dia = scanner.nextInt();
-        fecha = LocalDate.of(anio, mes, dia);
+        fecha = LocalDate.of(anio, mes, dia);*/
+        System.out.println("Ingrese fecha en formato dd/mm/aaaa: ");
+        fechaxd = scanner.nextLine();
+        DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
+        
 
-        return fecha;
+        return LocalDate.parse(fechaxd,formateador);
     }
     public Tipo pedirTipo() throws Exception{
         Scanner scanner = new Scanner(System.in);
@@ -108,21 +119,23 @@ public class GestorReservaciones {
         return tipo;
 
     }
-    public Huesped crearHuesped(){
-        Huesped hues;
+    
+    public boolean pedirPiso(){
+        boolean isSuperior;
+        int opc;
         Scanner scanner = new Scanner(System.in);
-        String nombre, iD, telefono;
-        System.out.println("ingrese datos del huesped: ");
-        System.out.print("Ingrese nombre: ");
-        nombre = scanner.nextLine();
-        System.out.print("Ingrese iD: ");
-        iD = scanner.nextLine();
-        System.out.print("Ingrese telefono: ");
-        telefono = scanner.nextLine();
-        hues = new Huesped(nombre,iD,telefono);
-        
-        return hues;
+        System.out.println("1. Piso normal\n2.Dos ultimos pisos");
+        System.out.print("Ingrese una opcion: ");
+        opc = scanner.nextInt();
+        isSuperior = (opc==1);
+        return isSuperior;
     }
+    /*public String ingresarNombre(){
+        Scanner scanner = new Scanner(System.in);
+        String nombre = scanner.nextLine();
+        
+        return nombre;
+    }*/
         
         
     

@@ -6,17 +6,24 @@
 package VillaRafinha;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
  * @author daniel
  */
 public class GestorHuespedes {
-    
+    private static GestorHuespedes gestorHuespedes;
     private ArrayList<Huesped> huespedes;
 
-    public GestorHuespedes() {
+    private GestorHuespedes() {
         huespedes= new ArrayList<>();
+    }
+    public static GestorHuespedes getInstance(){
+        if(gestorHuespedes == null){
+            gestorHuespedes = new GestorHuespedes();
+        }
+        return gestorHuespedes;
     }
     
     public void agregarHuesped(Huesped huesped) throws Exception{
@@ -32,6 +39,21 @@ public class GestorHuespedes {
         for (Huesped huesped: huespedes){
             System.out.println(huesped.toString()+"\n");
         }
+    }
+    public Huesped crearHuesped(){
+        Huesped hues;
+        Scanner scanner = new Scanner(System.in);
+        String nombre, iD, telefono;
+        System.out.println("ingrese datos del huesped: ");
+        System.out.print("Ingrese nombre: ");
+        nombre = scanner.nextLine();
+        System.out.print("Ingrese iD: ");
+        iD = scanner.nextLine();
+        System.out.print("Ingrese telefono: ");
+        telefono = scanner.nextLine();
+        hues = new Huesped(nombre,iD,telefono);
+        
+        return hues;
     }
     
     

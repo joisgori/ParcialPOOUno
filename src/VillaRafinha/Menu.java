@@ -13,16 +13,18 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author rau3
+ * @author Raul Granados 00138816
  */
 public class Menu {
     private GestorPisosHabitaciones gestorHab=null;
     private GestorReservaciones gestorRes=null;
+    private GestorHuespedes gestoHus = null;
     private static Menu menu=null;
     
     private Menu() {
         this.gestorHab  = GestorPisosHabitaciones.getInstance();
         this.gestorRes = new GestorReservaciones();
+        this.gestoHus = GestorHuespedes.getInstance();
 
     }
     public static Menu getInstance(){
@@ -61,8 +63,16 @@ public class Menu {
                             System.out.println("Ingrse fecha de salida: ");
                             salida = this.gestorRes.pedirFechar();
                             Hospedaje hosp = new Hospedaje(llegada, salida, this.gestorRes.pedirTipo());
-                            Reservacion res = new Reservacion(hosp, this.gestorRes.crearHuesped());
-                            this.gestorRes.agregarReservacion(res);
+                            boolean isSuperior = gestorRes.pedirPiso();
+                            int disp = this.gestorHab.calcularNumHabitacionesHabilitadas(isSuperior, hosp);
+                            if (gestorRes.getReservacionesDisp(hosp, disp)>0) {
+                                Huesped hues = this.gestoHus.crearHuesped();
+                                Reservacion res = new Reservacion(hosp, hues);
+                                this.gestoHus.agregarHuesped(hues);
+
+                                this.gestorRes.agregarReservacion(res);
+                            }
+                            
                         } catch (Exception ex) {
                             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -70,8 +80,21 @@ public class Menu {
 
                     }
                 case 2:
-                    
+                    System.out.println("ola equis de");
                     break;
+                case 3:
+                    String nombre;
+                    System.out.print("Ingrese su nombre: ");
+                    nombre = scanner.nextLine();
+                    for(Reservacion r: this.gestorRes.getReservaciones()){
+                        if(r.getHuesped().getNombre().equals(nombre)){
+                            this.gestorRes.getReservaciones().remove(r);
+                            
+                        }
+                        
+                    }
+                    break;
+                    
 
             }
 
