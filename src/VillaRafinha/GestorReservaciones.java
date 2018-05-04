@@ -30,42 +30,49 @@ public class GestorReservaciones {
     }
     
     
-    public int getReservacionesDisp(Hospedaje hospedaje, int disponibilidad) throws Exception{
+    public int getReservacionesDisp(Hospedaje hospedaje, int disponibilidad){
         
         if (this.reservaciones.isEmpty()){
            return disponibilidad;
         }else
         {
             for (Reservacion reserv : reservaciones) {
-                if (hospedaje.seIntercecta(reserv.getEstancia()) || hospedaje.contiene(reserv.getEstancia())||hospedaje.equals(reserv.getEstancia())) {
-                    disponibilidad--;
+                if (hospedaje.getTipo() == reserv.getEstancia().getTipo()) {
+                    if (reserv.getEstancia().equals(hospedaje)) {
+                        disponibilidad--;
+                    }else if (reserv.getEstancia().llegaDurante(hospedaje)||reserv.getEstancia().saleDurante(hospedaje)){
+                        disponibilidad--;
+                    }else if(reserv.getEstancia().llegaAntes(hospedaje)&&reserv.getEstancia().saleDespues(hospedaje)){
+                        disponibilidad--;
+                    }
                 }
             }
 
         }
-        if (disponibilidad!=0){
-             return disponibilidad;
-        }else{
-            throw new Exception("No hay disponibilidad");
+        if (disponibilidad ==0){
+            System.out.println("NO HAY DISPONIBILIDAD");
         }
-        
+        return disponibilidad;
     }
 
+    
     public void agregarReservacion(Reservacion reservacion) {
         
         reservaciones.add(reservacion);
         System.out.println("Reservacion agregada exitosamente");
         Collections.sort(this.reservaciones);
-        
-
     }
+    
     
     public void verReservaciones(){
         Iterator<Reservacion> it= reservaciones.iterator();
         Reservacion reserv = it.next();
+        
         LocalDate inicio= LocalDate.now();
         LocalDate fin= LocalDate.now().plusDays(7);
+        
         System.out.println("Mostrando desde: "+inicio.toString()+" hasta "+fin.toString()+"\n");
+        
         while(reserv.getEstancia().getFechaLlegada().isBefore(fin)){
             System.out.println(reserv.toString());
             if (it.hasNext()){
@@ -73,10 +80,10 @@ public class GestorReservaciones {
             }else{
                 break;
             }
-        }
-            
-          
+        }      
     }
+    
+    
     public LocalDate pedirFechar() throws Exception{
         Scanner scanner = new Scanner(System.in);
         String fechaxd;
@@ -91,11 +98,10 @@ public class GestorReservaciones {
         System.out.println("Ingrese fecha en formato dd/mm/aaaa: ");
         fechaxd = scanner.nextLine();
         DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        
-        
-
         return LocalDate.parse(fechaxd,formateador);
     }
+    
+    
     public Tipo pedirTipo() throws Exception{
         Scanner scanner = new Scanner(System.in);
         int opc;

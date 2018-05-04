@@ -14,16 +14,26 @@ import java.util.Objects;
 public class Producto {
     
     private String nombre;
-    private double precio;
+    private float precio;
     private String descripcion;
     private boolean estado;
 
-    public Producto(String nombre, double precio) {
+    public Producto(){
+    
+    }
+    
+    public Producto(String nombre) {
+        this.nombre = nombre.toUpperCase();
+        this.estado = true;
+    }
+    
+    public Producto(String nombre, float precio) {
         this.nombre = nombre.toUpperCase();
         this.precio = precio;
         this.estado = true;
     }
-    public Producto(String nombre, double precio, String descripcion) {
+    
+    public Producto(String nombre, float precio, String descripcion) {
         this.nombre = nombre.toUpperCase();
         this.precio = precio;
         this.descripcion = descripcion;

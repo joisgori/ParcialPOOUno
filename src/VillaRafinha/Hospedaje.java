@@ -111,59 +111,25 @@ public class Hospedaje {
         return true;
     }
     
-    public boolean seIntercecta(Hospedaje hospedaje){
-        if(this.fechaLlegada.isAfter(hospedaje.fechaLlegada)&&this.fechaLlegada.isBefore(hospedaje.fechaSalida)){
-            return true; 
-        }else if(this.fechaSalida.isAfter(hospedaje.fechaLlegada)&&this.fechaSalida.isBefore(hospedaje.fechaSalida)){
-            return true;
-        }
-        return false;
-    }
-    
-    public boolean contiene(Hospedaje hospedaje){
-        if (hospedaje.fechaLlegada.isAfter(this.fechaLlegada)&&hospedaje.fechaSalida.isBefore(this.fechaSalida)){
-            return true;
-        }
-        return false;
-    }
-    
  
     public boolean llegaAntes(Hospedaje hospedaje){
-        if (hospedaje.fechaLlegada.isBefore(this.fechaLlegada)){
-            return true;
-        }
-        return false;
+        return hospedaje.fechaLlegada.isBefore(this.fechaLlegada);
     }
     public boolean llegaDespues(Hospedaje hospedaje){
-        if (hospedaje.fechaLlegada.isAfter(this.fechaSalida)){
-            return true;
-        }
-        return false;
+        return hospedaje.fechaLlegada.isAfter(this.fechaSalida);
     }
     public boolean llegaDurante(Hospedaje hospedaje){
-        if (hospedaje.fechaLlegada.isAfter(this.fechaLlegada)&&hospedaje.fechaLlegada.isBefore(this.fechaSalida)){
-            return true;
-        }
-        return false;
+        return hospedaje.fechaLlegada.isAfter(this.fechaLlegada)&&hospedaje.fechaLlegada.isBefore(this.fechaSalida);
     }
    
     public boolean saleAntes(Hospedaje hospedaje){
-        if (hospedaje.fechaSalida.isBefore(this.fechaLlegada)){
-            return true;
-        }
-        return false;
+        return hospedaje.fechaSalida.isBefore(this.fechaLlegada);
     }
     public boolean saleDespues(Hospedaje hospedaje){
-        if (hospedaje.fechaSalida.isAfter(this.fechaSalida)){
-            return true;
-        }
-        return false;
+        return hospedaje.fechaSalida.isAfter(this.fechaSalida);
     }
     public boolean saleDurante(Hospedaje hospedaje){
-        if (hospedaje.fechaSalida.isAfter(this.fechaLlegada)&&hospedaje.fechaSalida.isBefore(this.fechaSalida)){
-            return true;
-        }
-        return false;
+        return hospedaje.fechaSalida.isAfter(this.fechaLlegada)&&hospedaje.fechaSalida.isBefore(this.fechaSalida);
     }
    
 
