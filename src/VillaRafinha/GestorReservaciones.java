@@ -46,13 +46,14 @@ public class GestorReservaciones {
                         disponibilidad--;
                     }
                 }
+                if (disponibilidad==0){
+                    System.out.println("NO HAY DISPONIBILIDAD");
+                    return disponibilidad;
+                }
             }
 
         }
-        if (disponibilidad ==0){
-            System.out.println("NO HAY DISPONIBILIDAD");
-        }
-        return disponibilidad;
+       return disponibilidad;
     }
 
     
