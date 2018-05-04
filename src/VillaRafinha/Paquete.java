@@ -38,12 +38,13 @@ public class Paquete {
     }
     
     
-    public void agregarServicio(String nombre, float precio, String descripcion, boolean estado){
+    public void agregarServicio(){
         Scanner input= new Scanner(System.in);
-        nombre = input.nextLine();
-        precio = input.nextFloat();
-        descripcion = input.nextLine();
+        String nombre = input.nextLine();
+        float precio = input.nextFloat();
+        String descripcion = input.nextLine();
         String e = input.next();
+        boolean estado = false;
         if (e == "t" || e == "T"){
             estado = true;
         }else if (e == "f"|| e=="F"){
@@ -52,10 +53,10 @@ public class Paquete {
         servicio.add(new Servicio(nombre, precio, descripcion, estado));
         
     }
-    public void removerServicio(String nombre, float precio, String descripcion, boolean estado){
+    public void removerServicio(){
         Scanner input= new Scanner(System.in);
-        nombre = input.nextLine();
-        precio = input.nextFloat();
+        String nombre = input.nextLine();
+        float precio = input.nextFloat();
         
         for (int i = 0; i<servicio.size();i++){
             if ((servicio.get(i).getNombre()==nombre)&& (servicio.get(i).getPrecio()==precio)){

@@ -66,8 +66,10 @@ public class GestorProductos {
             
             switch (opc){
                 case 1:
+                    paquete.agregarServicio();
                     break;
                 case 2: 
+                    paquete.removerServicio();
                     break;
                 case 3:
                     
