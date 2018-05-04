@@ -22,9 +22,12 @@ public class VillaRafinha {
     public static void main(String[] args) throws Exception {
         
         
-        Menu menu=Menu.getInstance();
-        menu.mostrar();
-        
+        //Menu menu=Menu.getInstance();
+        //menu.mostrar();
+        Servicio servicio= new Servicio("Piscina", (float) 15.5,"Acceso a pisina semiolimpica bajo techo");
+        System.out.println(servicio.toString());
+        Paquete paquete= new Paquete("Premium",16.5);
+        System.out.println(paquete.getNombre());;
         /* Estan son las pruebas del codigo que tenemos trabajando ya
         Inicializando gestores
         */

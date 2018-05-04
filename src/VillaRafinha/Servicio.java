@@ -11,8 +11,25 @@ package VillaRafinha;
  */
 public class Servicio extends Producto{
     
-    public Servicio(String nombre, float precio, String descripcion, boolean estado) {
-        super(nombre, precio, descripcion, estado);
+    public Servicio(String nombre, double precio, String descripcion) {
+        super(nombre, precio, descripcion);
     }
+
+    public String getEstado(){
+        
+        if (super.isEstado()){
+            
+            return "Habilitada";
+        }else{
+            return "Deshabilitada";
+        }
+        
+    }
+    @Override
+    public String toString() {
+        return "Servicio: " +this.getNombre()+"\nPrecio por dia: "+this.getPrecio()+"\nDescripcion: "+this.getDescripcion()+"\n"+this.getEstado()+" \n";
+    }
+    
+    
     
 }

@@ -6,7 +6,7 @@
 package VillaRafinha;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 /**
  *
@@ -16,12 +16,10 @@ public class GestorProductos {
     private static GestorProductos gestorProductos;
     private ArrayList<Paquete> paquetes;
     private ArrayList<Servicio> servicios;
-    private ArrayList<Admin> administradores;
 
     private GestorProductos() {
         paquetes = new ArrayList<>();
         servicios = new ArrayList<>();
-        administradores = new ArrayList<>();
         
     }
     
@@ -49,44 +47,7 @@ public class GestorProductos {
         this.servicios = servicios;
     }
 
-    public ArrayList<Admin> getAdministradores() {
-        return administradores;
-    }
 
-    public void setAdministradores(ArrayList<Admin> administradores) {
-        this.administradores = administradores;
-    }
-    
-    public void modificarPaquete(Paquete paquete){
-        Scanner scanner = new Scanner(System.in);
-        
-        int opc=0;
-        while(opc!=3){
-            System.out.println("1. Agregar servicio\n2.Remover servicio\n");
-            
-            switch (opc){
-                case 1:
-                    paquete.agregarServicio();
-                    break;
-                case 2: 
-                    paquete.removerServicio();
-                    break;
-                case 3:
-                    
-            }
-        }
-        
-    }
-    
-    public void modificarPrecioPaquete(Paquete paquete,float precio){
-       // paquete.setPrecio(precio);
-    }
-    
-    
-
-    
-
-    
     
     
 }
