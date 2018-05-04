@@ -34,7 +34,7 @@ public class Menu {
         return menu;
     }
     public void opciones(){
-        System.out.println("1.Hacer Reservacion\n2.Hacer Check In\n3.Hacer Check Out");
+        System.out.println("1.Hacer Reservacion\n2.Hacer Check In\n3.Hacer Check Out\n4.Modificaciones");
     }
     public void mostrar() {
         int opc = 40;
@@ -66,7 +66,7 @@ public class Menu {
                                 boolean isSuperior = gestorRes.pedirPiso();
                                 Hospedaje hosp = new Hospedaje(llegada, salida, this.gestorRes.pedirTipo(),isSuperior);
                                 
-                                int disp = this.gestorHab.calcularNumHabitacionesHabilitadas(isSuperior, hosp);
+                                //int disp = this.gestorHab.calcularNumHabitacionesHabilitadas(isSuperior, hosp);
 
                                 Huesped hues = this.gestoHus.crearHuesped();
                                 Reservacion res = new Reservacion(hosp, hues);
@@ -105,6 +105,9 @@ public class Menu {
                             }
                             
                         }
+                        break;
+                    case 4:
+                        
                         break;
                         
                         
