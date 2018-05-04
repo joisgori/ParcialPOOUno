@@ -44,16 +44,19 @@ public class GestorReservaciones {
                         disponibilidad--;
                     }else if(reserv.getEstancia().llegaAntes(hospedaje)&&reserv.getEstancia().saleDespues(hospedaje)){
                         disponibilidad--;
+                    }else if (hospedaje.llegaDurante(reserv.getEstancia())||hospedaje.saleDurante(reserv.getEstancia())){
+                        disponibilidad--;
+                    }else if(hospedaje.llegaAntes(reserv.getEstancia())&&hospedaje.saleDespues(reserv.getEstancia())){
+                        disponibilidad--;
                     }
                 }
-                if (disponibilidad==0){
+                if (disponibilidad == 0) {
                     System.out.println("NO HAY DISPONIBILIDAD");
                     return disponibilidad;
                 }
             }
-
+            return disponibilidad;
         }
-       return disponibilidad;
     }
 
     
