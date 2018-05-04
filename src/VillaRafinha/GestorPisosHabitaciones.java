@@ -17,11 +17,14 @@ import java.util.Iterator;
 public class GestorPisosHabitaciones {
     //private GestorPisosHabitaciones gestor;
     //private Piso[] pisos = new Piso[6];
+    private static GestorPisosHabitaciones gestor;
     private ArrayList<Piso> pisos = new ArrayList();
     
 
     
-    public GestorPisosHabitaciones(){
+    private GestorPisosHabitaciones(){
+        
+        
         this.pisos.add(new Piso("A"));
         this.pisos.add(new Piso("B"));
         this.pisos.add(new Piso("C"));
@@ -39,12 +42,14 @@ public class GestorPisosHabitaciones {
         
     }
     
-    /*public static GestorPisosHabitaciones getInstance(){
+    public static GestorPisosHabitaciones getInstance(){
         if(gestor==null){
             gestor = new GestorPisosHabitaciones();
+            
         }
+        System.out.println("Gestor Instanciado");
         return gestor;
-    }*/
+    }
 
     public ArrayList<Piso> getPisos() {
         return pisos;

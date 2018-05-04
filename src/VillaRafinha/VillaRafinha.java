@@ -20,13 +20,18 @@ public class VillaRafinha {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        
+        
+        Menu menu=Menu.getInstance();
+        menu.mostrar();
+        
         /* Estan son las pruebas del codigo que tenemos trabajando ya
         Inicializando gestores
         */
-        
+        /*
         GestorPisosHabitaciones gestorPisos = new GestorPisosHabitaciones();
         GestorReservaciones gestorReserv = new GestorReservaciones();
-        GestorHuespedes gestorHuespedes = new GestorHuespedes();
+        GestorHuespedes gestorHuespedes = new GestorHuespedes();*/
         
         //Deshabilitando un piso y probando el metodo deshabilitar piso y getDisponibilidad
         //System.out.println(gestorPisos.calcularNumHabitacionesHabilitadas());
@@ -35,6 +40,7 @@ public class VillaRafinha {
         
 
         //Creando fechas para testeo
+        /*
         LocalDate fecha1 = LocalDate.of(2018, 05, 3);
         LocalDate fecha2 = LocalDate.of(2018, 05, 8);
         LocalDate fecha3 = LocalDate.of(2018, 05, 3);
@@ -155,6 +161,7 @@ public class VillaRafinha {
     
     
     }
+    
     
     
 }
