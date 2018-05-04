@@ -14,22 +14,27 @@ import java.util.Objects;
 public class Producto {
     
     private String nombre;
-    private float precio;
+    private double precio;
     private String descripcion;
     private boolean estado;
 
-    public Producto(String nombre, float precio, String descripcion, boolean estado) {
-        this.nombre = nombre;
+    public Producto(String nombre, double precio) {
+        this.nombre = nombre.toUpperCase();
+        this.precio = precio;
+        this.estado = true;
+    }
+    public Producto(String nombre, double precio, String descripcion) {
+        this.nombre = nombre.toUpperCase();
         this.precio = precio;
         this.descripcion = descripcion;
-        this.estado = estado;
+        this.estado = true;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public float getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
@@ -59,10 +64,8 @@ public class Producto {
 
     @Override
     public int hashCode() {
-        int hash = 3;
+        int hash = 7;
         hash = 79 * hash + Objects.hashCode(this.nombre);
-        hash = 79 * hash + Float.floatToIntBits(this.precio);
-        hash = 79 * hash + Objects.hashCode(this.descripcion);
         return hash;
     }
 
@@ -78,24 +81,19 @@ public class Producto {
             return false;
         }
         final Producto other = (Producto) obj;
-        if (Float.floatToIntBits(this.precio) != Float.floatToIntBits(other.precio)) {
-            return false;
-        }
         if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
-        if (!Objects.equals(this.descripcion, other.descripcion)) {
             return false;
         }
         return true;
     }
+
     
     public void hablitar()throws Exception{
         if(!this.estado){
             this.estado=true;
         }
         else{
-            throw new Exception("La habitacion ya esta habilitada");
+            throw new Exception("Ya esta habilitada");
         }
     }
     public void deshablitar()throws Exception{
@@ -103,7 +101,7 @@ public class Producto {
             this.estado=false;
         }
         else{
-            throw new Exception("La habitacion ya esta deshabilitada");
+            throw new Exception("Ya esta deshabilitada");
         }
     }
     

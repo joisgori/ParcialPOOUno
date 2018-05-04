@@ -22,8 +22,8 @@ public class Habitacion extends Producto{
 
     
 
-    public Habitacion(Tipo tipo, String nivel, int numero, String nombre, float precio, String descripcion, boolean estado) {
-        super(nombre, precio, descripcion, estado);
+    public Habitacion(Tipo tipo, String nivel, int numero, String nombre, float precio, String descripcion) {
+        super(nombre, precio, descripcion);
         this.tipo = tipo;
         this.nivel = nivel;
         this.numero = numero;
