@@ -19,18 +19,17 @@ public class Persona {
 
 //constructores
 
+    public Persona(String nombre, String iD, String telefono) {
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.iD = iD;
+    }
 
-    public Persona(String nombre, String iD, String telefono){
+    public Persona(String nombre, String iD) {
         this.nombre = nombre;
-        this.telefono=telefono;
-        this.iD=iD;
-        }
-    
-    public Persona(String nombre,String iD){
-        this.nombre = nombre;
-        this.iD=iD;
-        
-        }
+        this.iD = iD;
+
+    }
 //métodos getter
 
     public String getNombre() {

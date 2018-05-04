@@ -10,14 +10,13 @@ package VillaRafinha;
  *
  * @author Josué González <00034715@uca.edu.sv>
  */
-public class Usuario extends Persona {
+public class Usuario {
 
     private final String usuario;
     private String constraseña;
 //constructores
 
     public Usuario(String usuario, String constraseña, String nombre, String iD) {
-        super(nombre, iD);
         this.usuario = usuario;
         this.constraseña = constraseña;
     }

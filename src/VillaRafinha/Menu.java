@@ -23,7 +23,7 @@ public class Menu {
     
     private Menu() {
         this.gestorHab  = GestorPisosHabitaciones.getInstance();
-        this.gestorRes = new GestorReservaciones();
+        this.gestorRes = GestorReservaciones.getInstance();
         this.gestoHus = GestorHuespedes.getInstance();
 
     }
