@@ -52,9 +52,7 @@ public class Menu {
                         System.out.print("Ingrese una opcion: ");
                         int a = scanner.nextInt();
                         
-                        int dia,
-                                mes,
-                                anio;
+                        int dia,mes,anio;
                         LocalDate llegada,
                                 salida;
                         if (a == 1) {

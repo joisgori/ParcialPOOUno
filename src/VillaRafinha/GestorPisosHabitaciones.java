@@ -185,7 +185,7 @@ public class GestorPisosHabitaciones {
     public Habitacion getHabitacion(Tipo tipo, Hospedaje hospedaje, boolean isSuperior) throws Exception {
         //boolean isSuperior;
         int validador1, validador2;
-        int tamanio = this.pisos.size();
+        int tamanio = this.pisos.size()-1;
 
         if (isSuperior) {
             validador2 = tamanio - 1;
