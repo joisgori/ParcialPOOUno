@@ -34,7 +34,7 @@ public class Menu {
         return menu;
     }
     public void opciones(){
-        System.out.println("1.Hacer Reservacion\n2.Hacer Check In\n3.Hacer Check Out\n4.Modificaciones");
+        System.out.println("\n1.Hacer Reservacion\n2.Hacer Check In\n3.Hacer Check Out\n4.Modificaciones");
     }
     public void mostrar() {
         int opc = 40;
@@ -116,6 +116,8 @@ public class Menu {
                         
                         break;
                     case 4:
+                        System.out.println("\n1.Precios y habitaciones\n2.Tarifas");
+                      
                         
                         break;
                         
