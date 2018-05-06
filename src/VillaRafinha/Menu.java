@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  *
  * @author Raul Granados 00138816
  */
-public class Menu {
+/*public class Menu {
     private GestorPisosHabitaciones gestorHab=null;
     private GestorReservaciones gestorRes=null;
     private GestorHuespedes gestoHus = null;
@@ -120,4 +120,4 @@ public class Menu {
         }
     }
 
-    }
+    }*/
