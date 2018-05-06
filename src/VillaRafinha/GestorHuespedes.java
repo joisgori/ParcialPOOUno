@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class GestorHuespedes {
     private static GestorHuespedes gestorHuespedes;
-    private ArrayList<Huesped> huespedes;
+    private static ArrayList<Huesped> huespedes;
 
     private GestorHuespedes() {
         huespedes= new ArrayList<>();

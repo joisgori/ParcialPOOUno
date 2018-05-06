@@ -6,24 +6,34 @@
 package VillaRafinha;
 
 import java.time.LocalDate;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author josue
  */
-//public class VillaRafinha {
+public class VillaRafinha {
 
     /**
      * @param args the command line arguments
      * @throws java.lang.Exception
      */
-  //  public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
+        /*LocalDate fecha1 = LocalDate.of(2018, 05, 6);
+        LocalDate fecha2 = LocalDate.of(2018, 05, 10);
+        LocalDate fecha3 = LocalDate.of(2018, 05, 7);
+        LocalDate fecha4 = LocalDate.of(2018, 05, 11);
+        GestorPisosHabitaciones ges = GestorPisosHabitaciones.getInstance();
+        Hospedaje hos1 = new Hospedaje(fecha1, fecha2, Tipo.DOBLE,true);
+        Habitacion hab = new Habitacion(Tipo.DOBLE, "A", 9, "jaja", (float)80.0,"xd");
+        Hospedaje hos2 = new Hospedaje(fecha3, fecha4, Tipo.SENCILLA,false);
+        System.out.println(ges.verificarDisp(hab,hos2));*/
         
-        
-    //    Menu menu=Menu.getInstance();
-      //  menu.mostrar();
+        Menu menu=Menu.getInstance();
+        menu.mostrar();
+    }
+}
         //Servicio servicio1= new Servicio("Piscina", (float) 15.5,"Acceso a pisina semiolimpica bajo techo");
         //Servicio servicio2= new Servicio("Buffet", (float) 12.4,"Desayuno, almuerzo y cena buffet");
         //Servicio servicio3= new Servicio("Bar", (float) 16.7,"Acceso al bar y open bar");

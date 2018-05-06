@@ -20,6 +20,7 @@ public class Hospedaje {
     private int numDias;
     private Tipo tipo;
     private boolean isSuperior;
+    private Huesped huesped;
     
     
     public Hospedaje(LocalDate fLlegada, LocalDate fSalida, Tipo tipo,boolean isSuperior) throws Exception {
@@ -48,6 +49,11 @@ public class Hospedaje {
             throw new Exception("Entrada de datos invalida");
         }
     }
+
+    public Huesped getHuesped() {
+        return huesped;
+    }
+    
 
     public boolean isIsSuperior() {
         return isSuperior;

@@ -107,6 +107,7 @@ public class GestorReservaciones {
         System.out.println("Ingrese fecha en formato dd/mm/aaaa: ");
         fecha = scanner.nextLine();
         DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
         return LocalDate.parse(fecha,formateador);
     }
     
@@ -115,7 +116,7 @@ public class GestorReservaciones {
         
         int opc;
         Tipo tipo;
-        System.out.println("1. Habitacion sencilla\n2. Habitacion doble");
+        System.out.println("\n1. Habitacion sencilla\n2. Habitacion doble");
         System.out.print("Ingrese tipo de habitacion: ");
         
         opc = scanner.nextInt();
@@ -142,7 +143,7 @@ public class GestorReservaciones {
         boolean isSuperior;
         int opc;
         
-        System.out.println("1. Piso normal\n2.Pisos superiores");
+        System.out.println("\n1. Piso normal\n2.Pisos superiores");
         System.out.print("Ingrese una opcion: ");
         opc = scanner.nextInt();
         isSuperior = (opc==1);

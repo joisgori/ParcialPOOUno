@@ -44,6 +44,9 @@ public class Reservacion implements Comparable<Reservacion>{
     public void setHabitacion(Habitacion habitacion) {
         this.habitacion = habitacion;
     }
+    public Habitacion getHabitacion() {
+        return habitacion;
+    }
 
     public void setPaquete(Paquete paquete) {
         this.paquete = paquete;
@@ -80,6 +83,7 @@ public class Reservacion implements Comparable<Reservacion>{
     public boolean isActiva() {
         return activa;
     }
+    
 
     @Override
     public int hashCode() {

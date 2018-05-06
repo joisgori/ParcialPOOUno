@@ -6,7 +6,7 @@
 package VillaRafinha;
 
 import java.time.LocalDate;
-//import java.util.InputMismatchException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,16 +15,16 @@ import java.util.logging.Logger;
  *
  * @author Raul Granados 00138816
  */
-/*public class Menu {
-    private GestorPisosHabitaciones gestorHab=null;
-    private GestorReservaciones gestorRes=null;
-    private GestorHuespedes gestoHus = null;
+public class Menu {
+    private static GestorPisosHabitaciones gestorHab=null;
+    private static GestorReservaciones gestorRes=null;
+    private static GestorHuespedes gestoHus = null;
     private static Menu menu=null;
     
     private Menu() {
-        this.gestorHab  = GestorPisosHabitaciones.getInstance();
-        this.gestorRes = GestorReservaciones.getInstance();
-        this.gestoHus = GestorHuespedes.getInstance();
+        Menu.gestorHab  = GestorPisosHabitaciones.getInstance();
+        Menu.gestorRes = GestorReservaciones.getInstance();
+        Menu.gestoHus = GestorHuespedes.getInstance();
 
     }
     public static Menu getInstance(){
@@ -40,15 +40,16 @@ import java.util.logging.Logger;
         int opc = 40;
         
         Scanner scanner = new Scanner(System.in);
+        
 
         while (opc != 35) {
-            try {
+            
                 opciones();
                 System.out.print("Ingrese una opcion: ");
                 opc = scanner.nextInt();
                 switch (opc) {
                     case 1:
-                        System.out.println("1. Por fechas\n2. Por numero de dias");
+                        System.out.println("\n1. Por fechas\n2. Por numero de dias");
                         System.out.print("Ingrese una opcion: ");
                         int a = scanner.nextInt();
                         
@@ -65,18 +66,20 @@ import java.util.logging.Logger;
                                 Hospedaje hosp = new Hospedaje(llegada, salida, this.gestorRes.pedirTipo(),isSuperior);
                                 
                                 //int disp = this.gestorHab.calcularNumHabitacionesHabilitadas(isSuperior, hosp);
+                                //if (gestorRes.getReservacionesDisp(hosp, gestorHab.getHabitacionesHabilitadas(hosp)) > 0) {
+                                    Huesped hues = this.gestoHus.crearHuesped();
+                                    Reservacion res = new Reservacion(hosp, hues);
+                                    this.gestoHus.agregarHuesped(hues);
 
-                                Huesped hues = this.gestoHus.crearHuesped();
-                                Reservacion res = new Reservacion(hosp, hues);
-                                this.gestoHus.agregarHuesped(hues);
-
-                                this.gestorRes.agregarReservacion(res);
+                                    this.gestorRes.agregarReservacion(res);
+                                    this.gestorRes.verReservaciones();
+                               // }
 
 
                             } catch (Exception ex) {
                                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                            this.gestorRes.verReservaciones();
+                            
                             
                         }
                         break;
@@ -84,25 +87,33 @@ import java.util.logging.Logger;
                         Scanner check = new Scanner(System.in);
                         System.out.print("Ingrese nombre: ");
                         String nombreCheck = check.nextLine();
-                        
-                        Reservacion rCheck=gestorRes.buscarReservacionNombre(nombreCheck);
-                        Habitacion hCheck=gestorHab.getHabitacion(rCheck);
-                        rCheck.setHabitacion(hCheck);
-                        System.out.println("Habitacion asignada: "+hCheck.getNivel()+hCheck.getNumero());
-                        gestorRes.verReservaciones();
-                        
+
+                        Reservacion rCheck;
+                        try {
+                            rCheck = gestorRes.buscarReservacionNombre(nombreCheck);
+                            Habitacion hCheck = gestorHab.getHabitacion(rCheck);
+                            rCheck.setHabitacion(hCheck);
+                            hCheck.agregarHospedaje(rCheck.getEstancia());
+                            System.out.println("/nHabitacion asignada: " + hCheck.getNivel() + hCheck.getNumero());
+                            gestorRes.verReservaciones();
+                        } catch (Exception ex) {
+                            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
                         break;
                     case 3:
+                        Scanner scanner3= new Scanner(System.in);
                         String nombre;
                         System.out.print("Ingrese su nombre: ");
-                        nombre = scanner.nextLine();
+                        nombre = scanner3.nextLine();
                         for(Reservacion r: this.gestorRes.getReservaciones()){
                             if(r.getHuesped().getNombre().equals(nombre)){
+                                r.getHabitacion().getHospedajesHabitacion().remove(r.getEstancia());
                                 this.gestorRes.getReservaciones().remove(r);
-                                
                             }
                             
                         }
+                        
                         break;
                     case 4:
                         
@@ -112,12 +123,9 @@ import java.util.logging.Logger;
                 }
                 
                 //Hospedaje hosp = new Hospedaje();
-            } catch (Exception ex) {
-                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-                scanner.nextLine();
-            }
+            } 
             
         }
     }
 
-    }*/
+    

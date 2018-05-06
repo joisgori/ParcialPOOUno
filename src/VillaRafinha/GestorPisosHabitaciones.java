@@ -19,8 +19,8 @@ public class GestorPisosHabitaciones {
     //private GestorPisosHabitaciones gestor;
     //private Piso[] pisos = new Piso[6];
     private static GestorPisosHabitaciones gestor;
-    private ArrayList<Piso> pisos = new ArrayList();
-    int precioBase;
+    private  ArrayList<Piso> pisos = new ArrayList();
+    private static int precioBase;
 
     private GestorPisosHabitaciones() {
 
@@ -149,15 +149,17 @@ public class GestorPisosHabitaciones {
             if (!it.hasNext()) {
                 if (hos2.getFechaLlegada().isAfter(hospedaje.getFechaSalida())) {
                     return true;
-                } else if (hos2.getFechaSalida().isBefore(hospedaje.getFechaLlegada())) {
-                    return true;
                 } else {
-                    return false;
+                    if (hos2.getFechaSalida().isBefore(hospedaje.getFechaLlegada())) {
+                        return true;
+                    } else {
+                        return false;
+                    }
                 }
             }
-            if (hos2.getFechaLlegada().isAfter(hospedaje.getFechaSalida())) {
+            /*if (hos2.getFechaLlegada().isAfter(hospedaje.getFechaSalida())) {
                 return true;
-            }
+            }*/
 
             while (it.hasNext()) {
                 hos1 = hos2;
@@ -213,12 +215,12 @@ public class GestorPisosHabitaciones {
 
     }
 
-    public int calcularNumHabitacionesDisponibles(boolean isSuperior, Hospedaje hospedaje) {
+    public int calcularNumHabitacionesDisponibles(Hospedaje hospedaje) {
         int cont = 0, validador1, validador2;
         int tamanio = this.pisos.size() - 1;
         Piso p;
         //Habitacion h;
-        if (isSuperior) {
+        if (hospedaje.isIsSuperior()) {
             validador2 = tamanio - 1;
             validador1 = tamanio;
 
@@ -239,6 +241,34 @@ public class GestorPisosHabitaciones {
 
         }
 
+        return cont;
+    }
+    public int getHabitacionesHabilitadas(Hospedaje hospedaje){
+        int cont = 0, validador1, validador2;
+        int tamanio = this.pisos.size() - 1;
+        Piso p;
+        //Habitacion h;
+        if (hospedaje.isIsSuperior()) {
+            validador2 = tamanio - 1;
+            validador1 = tamanio;
+
+        } else {
+            validador1 = tamanio - 2;
+            validador2 = 0;
+        }
+        for (int i = validador1; i >= validador2; i--) {
+            p = this.pisos.get(i);
+            for (Habitacion h : p.getHabitaciones()) {
+                if (h.isEstado()) {
+                    cont++;
+
+                }
+            }
+
+        }
+        
+        
+        
         return cont;
     }
 
