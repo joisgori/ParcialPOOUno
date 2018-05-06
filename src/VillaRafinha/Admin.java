@@ -27,6 +27,40 @@ public class Admin extends Persona {
         super(nombre, iD, telefono);
     }
 
+    public Admin() {
+        super(null, null);
+    }
+
+    public Admin(String usuario, String constraseña, String nombre, String iD) {
+        super(nombre, iD);
+        this.usuario = usuario;
+        this.constraseña = constraseña;
+    }
+
+    public Admin(String usuario, String constraseña, String nombre, String iD, String telefono) {
+        super(nombre, iD, telefono);
+        this.usuario = usuario;
+        this.constraseña = constraseña;
+    }
+//métodos getter
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public String getConstraseña() {
+        return constraseña;
+    }
+
+    //métodos setters
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public void setConstraseña(String constraseña) {
+        this.constraseña = constraseña;
+    }
+
     public static void opcionReserva() {
         System.out.println("Por favor, a partir de las siguientes opciones indíquenos que desea hacer: ");
         System.out.println("1. Realizar una reservación\n2. Salir");
@@ -59,11 +93,8 @@ public class Admin extends Persona {
                 break;
             }
         }
-       
-    
 
     public static void main(String[] args) {
-
         int opcion = 3;
         int CantidadHabitaciones;
         Scanner leer = new Scanner(System.in);
