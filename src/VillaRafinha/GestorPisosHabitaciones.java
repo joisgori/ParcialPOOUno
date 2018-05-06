@@ -182,12 +182,12 @@ public class GestorPisosHabitaciones {
         }
     }
 
-    public Habitacion getHabitacion(Tipo tipo, Hospedaje hospedaje, boolean isSuperior) throws Exception {
+    public Habitacion getHabitacion(Reservacion reservacion) throws Exception {
         //boolean isSuperior;
         int validador1, validador2;
         int tamanio = this.pisos.size()-1;
 
-        if (isSuperior) {
+        if (reservacion.getEstancia().isIsSuperior()) {
             validador2 = tamanio - 1;
             validador1 = tamanio;
 
@@ -200,8 +200,8 @@ public class GestorPisosHabitaciones {
             Piso p = this.pisos.get(i);
             if (p.isEstado()) {
                 for (Habitacion h : p.getHabitaciones()) {
-                    if (h.getTipo() == tipo) {
-                        if (this.verificarDisp(h, hospedaje)) {
+                    if (h.getTipo() == reservacion.getEstancia().getTipo()) {
+                        if (this.verificarDisp(h, reservacion.getEstancia())) {
                             return h;
                         }
                     }
@@ -209,7 +209,7 @@ public class GestorPisosHabitaciones {
             }
 
         }
-        throw new Exception("No hay habitaciones de tipo " + tipo.toString() + "disponibles");
+        throw new Exception("No hay habitaciones de tipo " + reservacion.getEstancia().getTipo().toString() + "disponibles");
 
     }
 

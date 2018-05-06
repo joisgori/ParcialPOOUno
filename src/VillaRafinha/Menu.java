@@ -86,7 +86,7 @@ import java.util.logging.Logger;
                         String nombreCheck = check.nextLine();
                         
                         Reservacion rCheck=gestorRes.buscarReservacionNombre(nombreCheck);
-                        Habitacion hCheck=gestorHab.getHabitacion(rCheck.getEstancia().getTipo(), rCheck.getEstancia(),rCheck.getEstancia().isIsSuperior());
+                        Habitacion hCheck=gestorHab.getHabitacion(rCheck);
                         rCheck.setHabitacion(hCheck);
                         System.out.println("Habitacion asignada: "+hCheck.getNivel()+hCheck.getNumero());
                         gestorRes.verReservaciones();

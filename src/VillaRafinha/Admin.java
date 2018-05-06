@@ -94,7 +94,14 @@ public class Admin extends Persona {
             }
         }
 
-    public static void main(String[] args) {
+    /**
+     *
+     * @param args
+     */
+   
+
+}
+     public static void main(String[] args) {
         int opcion = 3;
         int CantidadHabitaciones;
         Scanner leer = new Scanner(System.in);
@@ -125,6 +132,6 @@ public class Admin extends Persona {
                 leer.nextLine();
             }
         }
-    }
-
+     }
 }
+    
