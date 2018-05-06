@@ -128,7 +128,8 @@ public class Admin extends Persona {
                         System.out.println("Por favor ingrese una opcion valida");
                 }
             } catch (InputMismatchException e) {
-                System.err.println("Por favor ingrese un número");
+                System.err.println("Por favor ingrese un número"); 
+                //se utilizaría para realizar una excepción cuando el usuario ingresara una letra o caracter distino al de un tipo entero.
                 leer.nextLine();
             }
         }
