@@ -146,7 +146,7 @@ public class GestorReservaciones {
         System.out.println("\n1. Piso normal\n2.Pisos superiores");
         System.out.print("Ingrese una opcion: ");
         opc = scanner.nextInt();
-        isSuperior = (opc==1);
+        isSuperior = !(opc==1);
         return isSuperior;
     }
     

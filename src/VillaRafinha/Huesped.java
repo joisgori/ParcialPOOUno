@@ -10,7 +10,6 @@ package VillaRafinha;
  * @author Josué González <00034715@uca.edu.sv>
  */
 public class Huesped extends Persona {
-
     TarjetaCredito[] tarjetaCredito = new TarjetaCredito[8];
 //constructores
     

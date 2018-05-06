@@ -104,7 +104,7 @@ public class Menu {
                     case 3:
                         Scanner scanner3= new Scanner(System.in);
                         String nombre;
-                        System.out.print("Ingrese su nombre: ");
+                        System.out.print("Nombre del huesped: ");
                         nombre = scanner3.nextLine();
                         for(Reservacion r: this.gestorRes.getReservaciones()){
                             if(r.getHuesped().getNombre().equals(nombre)){

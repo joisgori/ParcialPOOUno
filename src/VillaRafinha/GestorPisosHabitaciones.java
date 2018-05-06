@@ -7,6 +7,7 @@ package VillaRafinha;
 //import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Scanner;
 
 
 
@@ -190,15 +191,15 @@ public class GestorPisosHabitaciones {
         int tamanio = this.pisos.size()-1;
 
         if (reservacion.getEstancia().isIsSuperior()) {
-            validador2 = tamanio - 1;
-            validador1 = tamanio;
+            validador1 = tamanio - 1;
+            validador2 = tamanio;
 
         } else {
-            validador1 = tamanio - 2;
-            validador2 = 0;
+            validador1 = 0;
+            validador2 = tamanio-2;
         }
 
-        for (int i = validador1; i >= validador2; i--) {
+        for (int i = validador1; i <= validador2; i++) {
             Piso p = this.pisos.get(i);
             if (p.isEstado()) {
                 for (Habitacion h : p.getHabitaciones()) {
@@ -274,7 +275,7 @@ public class GestorPisosHabitaciones {
 
     public boolean isSuperior(Habitacion habitacion) {
         int tamanio = this.pisos.size() - 1;
-        for (int i = tamanio; i > tamanio - 2; i--) {
+        /*for (int i = tamanio; i > tamanio - 2; i--) {
             Piso p = this.pisos.get(i);
             for (Habitacion h : p.getHabitaciones()) {
                 if (h.equals(habitacion)) {
@@ -282,8 +283,24 @@ public class GestorPisosHabitaciones {
                 }
             }
         }
-        return false;
-
+        return false;*/
+       for (int i = tamanio-1; i <= tamanio; i++){
+           Piso p=this.pisos.get(i);
+           
+           if(p.getNivel().equals(habitacion.getNivel())){
+               return true;
+           }
+       }
+       return false;
+    }
+    public void agregarPiso(){
+        String nivel;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nivel del nuevo piso: ");
+        nivel = scanner.nextLine();
+        Piso nuevopiso = new Piso(nivel);
+        this.pisos.add(nuevopiso);
     }
 
 }
+    
