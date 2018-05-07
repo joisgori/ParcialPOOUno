@@ -20,11 +20,12 @@ public class Reservacion implements Comparable<Reservacion>{
     private Hospedaje estancia;
     private Paquete paquete;
     private Float total;
-    private boolean activa;
+    private boolean check;
     private TarjetaCredito garantia;
     private Habitacion habitacion;
     
     public Reservacion(Hospedaje hospedaje, Huesped huesped){
+        this.check=false;
         this.estancia=hospedaje;
         this.huesped=huesped;
     }
@@ -56,8 +57,8 @@ public class Reservacion implements Comparable<Reservacion>{
         this.total = total;
     }
 
-    public void setActiva(boolean activa) {
-        this.activa = activa;
+    public void setCheck(boolean activa) {
+        this.check = activa;
     }
 
     public boolean isSencilla() {
@@ -80,8 +81,8 @@ public class Reservacion implements Comparable<Reservacion>{
         return total;
     }
 
-    public boolean isActiva() {
-        return activa;
+    public boolean isCheck() {
+        return check;
     }
     
 
@@ -115,7 +116,7 @@ public class Reservacion implements Comparable<Reservacion>{
     }
     
     public void cancelarReservacion(){
-        this.setActiva(false);
+        this.setCheck(false);
     }
     
     public void procesarREservacion(TarjetaCredito t){

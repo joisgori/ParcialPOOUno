@@ -44,6 +44,7 @@ public class Menu {
 
         while (opc != 35) {
             
+            try{
                 opciones();
                 System.out.print("Ingrese una opcion: ");
                 opc = scanner.nextInt();
@@ -91,11 +92,17 @@ public class Menu {
                         Reservacion rCheck;
                         try {
                             rCheck = gestorRes.buscarReservacionNombre(nombreCheck);
-                            Habitacion hCheck = gestorHab.getHabitacion(rCheck);
-                            rCheck.setHabitacion(hCheck);
-                            hCheck.agregarHospedaje(rCheck.getEstancia());
-                            System.out.println("/nHabitacion asignada: " + hCheck.getNivel() + hCheck.getNumero());
-                            gestorRes.verReservaciones();
+                            if (!rCheck.isCheck()) {
+                                rCheck.setCheck(true);
+                                Habitacion hCheck = gestorHab.getHabitacion(rCheck);
+                                rCheck.setHabitacion(hCheck);
+                                hCheck.agregarHospedaje(rCheck.getEstancia());
+                                System.out.println("/nHabitacion asignada: " + hCheck.getNivel() + hCheck.getNumero());
+                                gestorRes.verReservaciones();
+                            }
+                            else{
+                                System.out.println("Ya se ha realizado el Check In");
+                            }
                         } catch (Exception ex) {
                             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -116,7 +123,14 @@ public class Menu {
                         
                         break;
                     case 4:
+                        Scanner scanner4 = new Scanner(System.in);
+                        int opc4 = scanner.nextInt();
                         System.out.println("\n1.Precios y habitaciones\n2.Tarifas");
+                        if(opc==1){
+                            System.out.println("1. Cambiar precio habitaciones\n2.Agregar Piso\n3. Habilitar piso\n4.Deshabilitar piso ");
+                            
+                            
+                        }
                       
                         
                         break;
@@ -125,9 +139,13 @@ public class Menu {
                 }
                 
                 //Hospedaje hosp = new Hospedaje();
-            } 
+            } catch (InputMismatchException e) {
+                System.err.println("Por favor, Ingrese una opcion correcta");
+                scanner.nextLine(); //este es el del while
+            }
             
         }
     }
-
     
+
+}
