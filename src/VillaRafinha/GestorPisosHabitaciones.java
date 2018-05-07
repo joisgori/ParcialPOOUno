@@ -60,13 +60,14 @@ public class GestorPisosHabitaciones {
      * @param nivel el nivel en el que se ecuentra
      * @throws Exception en caso de que ya esten todos deshabilitados
      */
-    public void deshabilitarPiso(String nivel) throws Exception {
+    public boolean deshabilitarPiso(String nivel) throws Exception {
         for (Piso p : this.pisos) {
 
             if (p.getNivel().equals(nivel)) {
                 if (p.isEstado()) {
                     for (Habitacion h : p.getHabitaciones()) {
                         h.deshablitar();
+                        return true;
                     }
                 } else {
                     throw new Exception("El piso ya esta dshabilitado");
@@ -75,22 +76,27 @@ public class GestorPisosHabitaciones {
             }
 
         }
+        throw new Exception("El piso no existe");
 
     }
 
-    public void habilitarPiso(String nivel) throws Exception {
+    public boolean habilitarPiso(String nivel) throws Exception {
         for (Piso p : this.pisos) {
             if (p.getNivel().equals(nivel)) {
                 if (!p.isEstado()) {
+                    
                     for (Habitacion h : p.getHabitaciones()) {
                         h.hablitar();
+                        
                     }
+                    return true;
                 } else {
                     throw new Exception("El piso ya esta habilitdo");
                 }
             }
 
         }
+        throw new Exception("El piso no existe");
 
     }
 
@@ -102,7 +108,7 @@ public class GestorPisosHabitaciones {
      */
     public void habilitarHabitacion(Habitacion habitacion) throws Exception {
         if (!habitacion.isEstado()) {
-            habitacion.hablitar();
+            habitacion.setEstado(true);
         } else {
             throw new Exception("La habitacion ya esta habilitada");
 
@@ -116,11 +122,11 @@ public class GestorPisosHabitaciones {
      * @param habitacion
      * @throws Exception en caso de que la habitacion ya este deshabilitada
      */
-    public void deshabilitarHabitacion(Habitacion habitacion) throws Exception {
+    public void deshabilitarHabitacion(Habitacion habitacion)  {
         if (habitacion.isEstado()) {
-            habitacion.deshablitar();
+            habitacion.setEstado(false);
         } else {
-            throw new Exception("La habitacion ya estaba deshabilitada");
+            System.out.println("La habitacion ya estaba deshabilitada");
         }
     }
 

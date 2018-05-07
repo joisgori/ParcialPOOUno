@@ -37,7 +37,7 @@ public class Menu {
         System.out.println("Ingrese numeros enteros");
         System.out.println("\n1.Hacer Reservacion\n2.Hacer Check In\n3.Hacer Check Out\n4.Modificaciones");
     }
-    public void mostrar() {
+    public void mostrar() throws Exception {
         int opc = 40;
         
         Scanner scanner = new Scanner(System.in);
@@ -66,7 +66,7 @@ public class Menu {
                                 llegada = this.gestorRes.pedirFechar();
                                 System.out.println("Ingrse fecha de salida: ");
                                 salida = this.gestorRes.pedirFechar();
-                                System.out.print("Ingrese numero de habitaciones: ");
+                                //System.out.print("Ingrese numero de habitaciones: ");
                                 //numHab = scanner1.nextInt();
                                 
                                 boolean isSuperior = gestorRes.pedirPiso();
@@ -105,8 +105,7 @@ public class Menu {
                                 hCheck.agregarHospedaje(rCheck.getEstancia());
                                 System.out.println("/nHabitacion asignada: " + hCheck.getNivel() + hCheck.getNumero());
                                 gestorRes.verReservaciones();
-                            }
-                            else{
+                            } else {
                                 System.out.println("Ya se ha realizado el Check In");
                             }
                         } catch (Exception ex) {
@@ -115,43 +114,77 @@ public class Menu {
 
                         break;
                     case 3:
-                        Scanner scanner3= new Scanner(System.in);
+                        Scanner scanner3 = new Scanner(System.in);
                         String nombre;
                         System.out.print("Nombre del huesped: ");
                         nombre = scanner3.nextLine();
-                        for(Reservacion r: this.gestorRes.getReservaciones()){
-                            if(r.getHuesped().getNombre().equals(nombre)){
+                        for (Reservacion r : this.gestorRes.getReservaciones()) {
+                            if (r.getHuesped().getNombre().equals(nombre)) {
                                 r.getHabitacion().getHospedajesHabitacion().remove(r.getEstancia());
                                 this.gestorRes.getReservaciones().remove(r);
                                 break;
                             }
-                            
+
                         }
-                        
+
                         break;
                     case 4:
                         Scanner scanner4 = new Scanner(System.in);
-                        System.out.println("\n1.Precios y habitaciones\n2.Tarifas\n3.Paquetes");
+                        System.out.println("\n1.Pisos y Habitaciones\n2.Tarifas\n3.Paquetes");
                         int opc4 = scanner4.nextInt();
-                        if(opc4==1){
-                            System.out.println("1. Cambiar precio habitaciones\n2.Agregar Piso\n3. Habilitar piso\n4.Deshabilitar piso ");
+                        if (opc4 == 1) {
+                            System.out.println("1. Cambiar precio habitaciones\n2.Agregar Piso\n3. Habilitar piso\n4.Deshabilitar piso\n5. Habilitar habitacion\n6. Deshabilitar habitacion");
                             int opc41 = scanner4.nextInt();
-                            if(opc41==1){
-                                System.out.println("El precio base es: "+gestorRes.getPrecioBase());
-                                System.out.print("Ingrese el nuevo precio base: ");
-                                gestorRes.setPrecioBase(scanner4.nextInt());
-                                System.out.println("El nuevo precio base es: "+gestorRes.getPrecioBase());
-                            }else if(opc41==2){
-                                gestorHab.agregarPiso();
+                            switch (opc41) {
+                                
+                                case 1:
+                                    System.out.println("El precio base es: " + gestorRes.getPrecioBase());
+                                    System.out.print("Ingrese el nuevo precio base: ");
+                                    gestorRes.setPrecioBase(scanner4.nextInt());
+                                    System.out.println("El nuevo precio base es: " + gestorRes.getPrecioBase());
+                                    break;
+                                case 2:
+                                    gestorHab.agregarPiso();
+                                    break;
+                                case 3:
+                                    Scanner scanner43 = new Scanner(System.in);
+                                    String piso;
+                                    piso = scanner43.nextLine();
+                                    try {
+
+                                        gestorHab.habilitarPiso(piso);
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+
+                                    break;
+                                case 4:
+                                    String piso2;
+                                    Scanner scanner44 = new Scanner(System.in);
+                                    piso2 = scanner44.nextLine();
+
+                                    try {
+                                        gestorHab.deshabilitarPiso(piso2);
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+
+                                    break;
+                                case 5:
+                                    break;
+                                case 6:
+                                    break;
+                                default:
+                                    System.out.println("Llora pues");
+                                    break;
                             }
-                                    
-                            
+
                         }
-                      
                         
+
                         break;
-                        
-                        
+
+
                 }
                 
                 //Hospedaje hosp = new Hospedaje();

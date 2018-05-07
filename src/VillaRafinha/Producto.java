@@ -103,7 +103,7 @@ public class Producto {
             this.estado=true;
         }
         else{
-            throw new Exception("Ya esta habilitada");
+            System.out.println("La habitacion ya esta habilitada");
         }
     }
     public void deshablitar()throws Exception{
@@ -111,7 +111,7 @@ public class Producto {
             this.estado=false;
         }
         else{
-            throw new Exception("Ya esta deshabilitada");
+            System.out.println("Ya esta deshabilitada");
         }
     }
     
