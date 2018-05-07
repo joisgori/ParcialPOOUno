@@ -102,8 +102,8 @@ public class Menu {
                                 llegada = this.gestorRes.pedirFechar();
                                 System.out.println("Ingrese cantidad de días: ");
                                 numdias = this.gestorRes.pedirnum();
-                                System.out.print("Ingrese número de habitaciones: ");
-                                //numHab = scanner1.nextInt();
+                                //System.out.print("Ingrese número de habitaciones: ");
+                                //numHab = scannopdos.nextInt();
 
                                 boolean isSuperior = gestorRes.pedirPiso();
                                 Hospedaje hospedias = new Hospedaje(llegada, numdias);
