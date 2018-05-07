@@ -23,14 +23,16 @@ public class Reservacion implements Comparable<Reservacion>{
     private Float total;
     private boolean check;
     private TarjetaCredito garantia;
-    private Habitacion habitacion;
+    //private Habitacion[] habitacion = new Habitacion[2];
     private final String id;
+    private Habitacion habitacion;
     
     public Reservacion(Hospedaje hospedaje, Huesped huesped){
         this.check=false;
         this.estancia=hospedaje;
         this.huesped=huesped;
         this.id= UUID.randomUUID().toString().toUpperCase().substring(0, 5);
+        //habitacion = new Habitacion[numHab];
     }
     
     public void setSencilla(boolean sencilla) {
@@ -45,12 +47,23 @@ public class Reservacion implements Comparable<Reservacion>{
         this.estancia = estancia;
     }
 
-    public void setHabitacion(Habitacion habitacion) {
-        this.habitacion = habitacion;
+    /*public Habitacion[] getHabitacion() {
+        return habitacion;
     }
+
+    public void setHabitacion(Habitacion[] habitacion) {
+        this.habitacion = habitacion;
+    }*/
+
     public Habitacion getHabitacion() {
         return habitacion;
     }
+
+    public void setHabitacion(Habitacion habitacion) {
+        this.habitacion = habitacion;
+    }
+    
+    
 
     public void setPaquete(Paquete paquete) {
         this.paquete = paquete;

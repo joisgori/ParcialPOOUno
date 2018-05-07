@@ -34,6 +34,7 @@ public class Menu {
         return menu;
     }
     public void opciones(){
+        System.out.println("Ingrese numeros enteros");
         System.out.println("\n1.Hacer Reservacion\n2.Hacer Check In\n3.Hacer Check Out\n4.Modificaciones");
     }
     public void mostrar() {
@@ -58,11 +59,16 @@ public class Menu {
                         LocalDate llegada,
                                 salida;
                         if (a == 1) {
+                            Scanner scanner1 = new Scanner(System.in);
                             try {
+                                int numHab ;
                                 System.out.println("Ingrese Fecha de llegada: ");
                                 llegada = this.gestorRes.pedirFechar();
                                 System.out.println("Ingrse fecha de salida: ");
                                 salida = this.gestorRes.pedirFechar();
+                                System.out.print("Ingrese numero de habitaciones: ");
+                                //numHab = scanner1.nextInt();
+                                
                                 boolean isSuperior = gestorRes.pedirPiso();
                                 Hospedaje hosp = new Hospedaje(llegada, salida, this.gestorRes.pedirTipo(),isSuperior);
                                 
@@ -117,6 +123,7 @@ public class Menu {
                             if(r.getHuesped().getNombre().equals(nombre)){
                                 r.getHabitacion().getHospedajesHabitacion().remove(r.getEstancia());
                                 this.gestorRes.getReservaciones().remove(r);
+                                break;
                             }
                             
                         }

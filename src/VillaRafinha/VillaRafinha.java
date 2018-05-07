@@ -30,12 +30,12 @@ public class VillaRafinha {
         Hospedaje hos2 = new Hospedaje(fecha3, fecha4, Tipo.SENCILLA,false);
         System.out.println(ges.verificarDisp(hab,hos2));*/
         
-        //Menu menu=Menu.getInstance();
-        //menu.mostrar();
+        Menu menu=Menu.getInstance();
+        menu.mostrar();
     
-        Servicio servicio1= new Servicio("Piscina", (float) 15.5,"Acceso a piscina semiolimpica bajo techo");
-        Servicio servicio2= new Servicio("Buffet", (float) 12.4,"Desayuno, almuerzo y cena buffet");
-        Servicio servicio3= new Servicio("Bar", (float) 16.7,"Acceso al bar y open bar");
+        //Servicio servicio1= new Servicio("Piscina", (float) 15.5,"Acceso a piscina semiolimpica bajo techo");
+        //Servicio servicio2= new Servicio("Buffet", (float) 12.4,"Desayuno, almuerzo y cena buffet");
+        //Servicio servicio3= new Servicio("Bar", (float) 16.7,"Acceso al bar y open bar");
         
         //System.out.println(servicio1.toString());
         //GestorProductos gestorProductos= GestorProductos.getInstance();
@@ -151,4 +151,4 @@ public class VillaRafinha {
 
 //}
     }
-    }
+}
