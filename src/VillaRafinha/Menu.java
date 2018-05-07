@@ -124,11 +124,20 @@ public class Menu {
                         break;
                     case 4:
                         Scanner scanner4 = new Scanner(System.in);
-                        int opc4 = scanner.nextInt();
                         System.out.println("\n1.Precios y habitaciones\n2.Tarifas\n3.Paquetes");
-                        if(opc==1){
+                        int opc4 = scanner4.nextInt();
+                        if(opc4==1){
                             System.out.println("1. Cambiar precio habitaciones\n2.Agregar Piso\n3. Habilitar piso\n4.Deshabilitar piso ");
-                            
+                            int opc41 = scanner4.nextInt();
+                            if(opc41==1){
+                                System.out.println("El precio base es: "+gestorRes.getPrecioBase());
+                                System.out.print("Ingrese el nuevo precio base: ");
+                                gestorRes.setPrecioBase(scanner4.nextInt());
+                                System.out.println("El nuevo precio base es: "+gestorRes.getPrecioBase());
+                            }else if(opc41==2){
+                                gestorHab.agregarPiso();
+                            }
+                                    
                             
                         }
                       

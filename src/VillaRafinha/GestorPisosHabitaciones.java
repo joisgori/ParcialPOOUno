@@ -21,7 +21,7 @@ public class GestorPisosHabitaciones {
     //private Piso[] pisos = new Piso[6];
     private static GestorPisosHabitaciones gestor;
     private  ArrayList<Piso> pisos = new ArrayList();
-    private static int precioBase;
+    
 
     private GestorPisosHabitaciones() {
 
@@ -31,7 +31,7 @@ public class GestorPisosHabitaciones {
         this.pisos.add(new Piso("D"));
         this.pisos.add(new Piso("E"));
         this.pisos.add(new Piso("F"));
-        this.precioBase = 80;
+        
 
     }
 
@@ -44,9 +44,7 @@ public class GestorPisosHabitaciones {
         return gestor;
     }
 
-    public void setPrecioBase(int precioBase) {
-        this.precioBase = precioBase;
-    }
+    
 
     public ArrayList<Piso> getPisos() {
         return pisos;
@@ -296,6 +294,7 @@ public class GestorPisosHabitaciones {
     public void agregarPiso(){
         String nivel;
         Scanner scanner = new Scanner(System.in);
+        System.out.println("El ultimo piso es: "+this.pisos.get(this.pisos.size()-1).getNivel());
         System.out.println("Nivel del nuevo piso: ");
         nivel = scanner.nextLine();
         Piso nuevopiso = new Piso(nivel);

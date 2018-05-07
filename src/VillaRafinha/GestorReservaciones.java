@@ -20,11 +20,14 @@ public class GestorReservaciones {
     
     private ArrayList<Reservacion> reservaciones;
     private Scanner scanner = new Scanner(System.in);
-    private static GestorReservaciones gestorReservaciones;    
+    private static GestorReservaciones gestorReservaciones;  
+    private static int precioBase;
+    
         
     
     private GestorReservaciones(){
         reservaciones= new ArrayList<>();
+        this.precioBase = 80;
     }
     
     
@@ -34,6 +37,15 @@ public class GestorReservaciones {
         }
         return gestorReservaciones;
     }
+
+    public  int getPrecioBase() {
+        return precioBase;
+    }
+
+    public void setPrecioBase(int precioBase) {
+        GestorReservaciones.precioBase = precioBase;
+    }
+    
     
 
     public ArrayList<Reservacion> getReservaciones() {
