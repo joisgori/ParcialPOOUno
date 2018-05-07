@@ -20,7 +20,7 @@ public class GestorPisosHabitaciones {
     //private GestorPisosHabitaciones gestor;
     //private Piso[] pisos = new Piso[6];
     private static GestorPisosHabitaciones gestor;
-    private  ArrayList<Piso> pisos = new ArrayList();
+    private  static ArrayList<Piso> pisos = new ArrayList();
     
 
     private GestorPisosHabitaciones() {
@@ -271,8 +271,8 @@ public class GestorPisosHabitaciones {
         return cont;
     }
 
-    public boolean isSuperior(Habitacion habitacion) {
-        int tamanio = this.pisos.size() - 1;
+    public static boolean isSuperior(Habitacion habitacion) {
+        int tamanio = pisos.size() - 1;
         /*for (int i = tamanio; i > tamanio - 2; i--) {
             Piso p = this.pisos.get(i);
             for (Habitacion h : p.getHabitaciones()) {
@@ -283,7 +283,7 @@ public class GestorPisosHabitaciones {
         }
         return false;*/
        for (int i = tamanio-1; i <= tamanio; i++){
-           Piso p=this.pisos.get(i);
+           Piso p=pisos.get(i);
            
            if(p.getNivel().equals(habitacion.getNivel())){
                return true;

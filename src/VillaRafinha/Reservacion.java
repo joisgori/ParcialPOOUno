@@ -24,7 +24,7 @@ public class Reservacion implements Comparable<Reservacion>{
     private boolean check;
     private TarjetaCredito garantia;
     private Habitacion habitacion;
-    private String id;
+    private final String id;
     
     public Reservacion(Hospedaje hospedaje, Huesped huesped){
         this.check=false;

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class GestorProductos {
     private static GestorProductos gestorProductos;
     private ArrayList<Paquete> paquetes;
-    private ArrayList<Servicio> servicios;
+    private  ArrayList<Servicio> servicios;
 
     private GestorProductos() {
         paquetes = new ArrayList<>();
@@ -35,7 +35,7 @@ public class GestorProductos {
         return paquetes;
     }
 
-    public void setPaquetes(ArrayList<Paquete> paquetes) {
+    public  void setPaquetes(ArrayList<Paquete> paquetes) {
         this.paquetes = paquetes;
     }
 
@@ -48,14 +48,14 @@ public class GestorProductos {
     }
     
     public void agregarServicio(Servicio servicio) throws Exception{
-        if (!this.servicios.contains(servicio)){
+        if (!servicios.contains(servicio)){
             servicios.add(servicio);
         }else{
             throw new Exception("Servicio ya existe");
         }
     }
     public void quitarServicio(Servicio servicio) throws Exception{
-        if (this.servicios.contains(servicio)){
+        if (servicios.contains(servicio)){
             servicios.remove(servicio);
         }else{
             throw new Exception("Servicio no existe");
@@ -63,7 +63,7 @@ public class GestorProductos {
     }
     
     public void agregarPaquete(Paquete paquete) throws Exception{
-        if (!this.paquetes.contains(paquete)){
+        if (!paquetes.contains(paquete)){
             paquetes.add(paquete);
         }else{
             throw new Exception("Paquete ya existe");
@@ -71,7 +71,7 @@ public class GestorProductos {
     }
     
     public void quitarPaquete(Paquete paquete) throws Exception{
-        if (this.paquetes.contains(paquete)){
+        if (paquetes.contains(paquete)){
             paquetes.remove(paquete);
         }else{
             throw new Exception("Paquete no existe");
