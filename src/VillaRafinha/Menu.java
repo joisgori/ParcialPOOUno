@@ -16,36 +16,39 @@ import java.util.logging.Logger;
  * @author Raul Granados 00138816
  */
 public class Menu {
-    private  static GestorPisosHabitaciones gestorHab=null;
-    private  static GestorReservaciones gestorRes=null;
-    private  static GestorHuespedes gestoHus = null;
-    private  static Menu menu=null;
-    
+
+    private static GestorPisosHabitaciones gestorHab = null;
+    private static GestorReservaciones gestorRes = null;
+    private static GestorHuespedes gestoHus = null;
+    private static Menu menu = null;
+
     private Menu() {
-        this.gestorHab  = GestorPisosHabitaciones.getInstance();
+        this.gestorHab = GestorPisosHabitaciones.getInstance();
         this.gestorRes = GestorReservaciones.getInstance();
         this.gestoHus = GestorHuespedes.getInstance();
 
     }
-    public static Menu getInstance(){
-        if(menu==null){
-            menu=new Menu();
+
+    public static Menu getInstance() {
+        if (menu == null) {
+            menu = new Menu();
         }
         return menu;
     }
-    public void opciones(){
+
+    public void opciones() {
         System.out.println("Ingrese numeros enteros");
         System.out.println("\n1.Hacer Reservacion\n2.Hacer Check In\n3.Hacer Check Out\n4.Modificaciones");
     }
+
     public void mostrar() {
         int opc = 40;
-        
+
         Scanner scanner = new Scanner(System.in);
-        
 
         while (opc != 35) {
-            
-            try{
+
+            try {
                 opciones();
                 System.out.print("Ingrese una opcion: ");
                 opc = scanner.nextInt();
@@ -54,24 +57,27 @@ public class Menu {
                         System.out.println("\n1. Por fechas\n2. Por numero de dias");
                         System.out.print("Ingrese una opcion: ");
                         int a = scanner.nextInt();
-                        
-                        int dia,mes,anio;
+
+                        int dia,
+                         mes,
+                         anio,
+                         numdias;
                         LocalDate llegada,
-                                salida;
+                         salida;
                         if (a == 1) {
                             Scanner scanner1 = new Scanner(System.in);
                             try {
-                                int numHab ;
+                                int numHab;
                                 System.out.println("Ingrese Fecha de llegada: ");
                                 llegada = this.gestorRes.pedirFechar();
-                                System.out.println("Ingrse fecha de salida: ");
+                                System.out.println("Ingrese fecha de salida: ");
                                 salida = this.gestorRes.pedirFechar();
-                                System.out.print("Ingrese numero de habitaciones: ");
+                                System.out.print("Ingrese número de habitaciones: ");
                                 //numHab = scanner1.nextInt();
-                                
+
                                 boolean isSuperior = gestorRes.pedirPiso();
-                                Hospedaje hosp = new Hospedaje(llegada, salida, this.gestorRes.pedirTipo(),isSuperior);
-                                
+                                Hospedaje hosp = new Hospedaje(llegada, salida, this.gestorRes.pedirTipo(), isSuperior);
+
                                 //int disp = this.gestorHab.calcularNumHabitacionesHabilitadas(isSuperior, hosp);
                                 if (gestorRes.getReservacionesDisp(hosp, gestorHab.getHabitacionesHabilitadas(hosp)) > 0) {
                                     Huesped hues = this.gestoHus.crearHuesped();
@@ -82,12 +88,43 @@ public class Menu {
                                     this.gestorRes.verReservaciones();
                                 }
 
+                            } catch (Exception ex) {
+                                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                        }/*código recién agregado para validar la segunda opción del menú sobre la cantidad de días...*/ else if (a == 2) { //ACÁ ADJUNTE MI PARTE DE CÓDIGO PARA HACER UNA RESERVACIÓN COLOCANDO CANTIDAD DE DÍAS PUNTUALES,
+                            //Acá habrá que adjuntar la segunda opción que es ingresar una cantidad N de días
+                            System.out.println("Escogió la segunda opción...");
+                            Scanner scannopdos = new Scanner(System.in);
+                            try {
+                                int numHab;
+                                System.out.println("Ingrese Fecha de llegada: ");
+                                llegada = this.gestorRes.pedirFechar();
+                                System.out.println("Ingrese cantidad de días: ");
+                                numdias = this.gestorRes.pedirnum();
+                                System.out.print("Ingrese número de habitaciones: ");
+                                //numHab = scanner1.nextInt();
+
+                                boolean isSuperior = gestorRes.pedirPiso();
+                                Hospedaje hospedias = new Hospedaje(llegada, numdias);
+
+                                //int disp = this.gestorHab.calcularNumHabitacionesHabilitadas(isSuperior, hosp);
+                                if (gestorRes.getReservacionesDisp(hospedias, gestorHab.getHabitacionesHabilitadas(hospedias)) > 0) {
+                                    Huesped huespe = this.gestoHus.crearHuesped();
+                                    Reservacion res = new Reservacion(hospedias, huespe);
+                                    this.gestoHus.agregarHuesped(huespe);
+
+                                    this.gestorRes.agregarReservacion(res);
+                                    this.gestorRes.verReservaciones();
+                                }
 
                             } catch (Exception ex) {
                                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                            
-                            
+//EL CÓDIGO TERMINA ACÁ PARA ESA OPCIÓN
+//Esto que se encuentra acontinuación será donde termine el buckle para validar la opción correcta escogida dentro del menú para la manera de reserva...
+                        } else {
+                            System.out.println("Ingrese una opción válida...");
                         }
                         break;
                     case 2:
@@ -105,8 +142,7 @@ public class Menu {
                                 hCheck.agregarHospedaje(rCheck.getEstancia());
                                 System.out.println("/nHabitacion asignada: " + hCheck.getNivel() + hCheck.getNumero());
                                 gestorRes.verReservaciones();
-                            }
-                            else{
+                            } else {
                                 System.out.println("Ya se ha realizado el Check In");
                             }
                         } catch (Exception ex) {
@@ -115,53 +151,49 @@ public class Menu {
 
                         break;
                     case 3:
-                        Scanner scanner3= new Scanner(System.in);
+                        Scanner scanner3 = new Scanner(System.in);
                         String nombre;
                         System.out.print("Nombre del huesped: ");
                         nombre = scanner3.nextLine();
-                        for(Reservacion r: this.gestorRes.getReservaciones()){
-                            if(r.getHuesped().getNombre().equals(nombre)){
+                        for (Reservacion r : this.gestorRes.getReservaciones()) {
+                            if (r.getHuesped().getNombre().equals(nombre)) {
                                 r.getHabitacion().getHospedajesHabitacion().remove(r.getEstancia());
                                 this.gestorRes.getReservaciones().remove(r);
                                 break;
                             }
-                            
+
                         }
-                        
+
                         break;
                     case 4:
                         Scanner scanner4 = new Scanner(System.in);
                         System.out.println("\n1.Precios y habitaciones\n2.Tarifas\n3.Paquetes");
                         int opc4 = scanner4.nextInt();
-                        if(opc4==1){
+                        if (opc4 == 1) {
                             System.out.println("1. Cambiar precio habitaciones\n2.Agregar Piso\n3. Habilitar piso\n4.Deshabilitar piso ");
                             int opc41 = scanner4.nextInt();
-                            if(opc41==1){
-                                System.out.println("El precio base es: "+gestorRes.getPrecioBase());
+                            if (opc41 == 1) {
+                                System.out.println("El precio base es: " + gestorRes.getPrecioBase());
                                 System.out.print("Ingrese el nuevo precio base: ");
                                 gestorRes.setPrecioBase(scanner4.nextInt());
-                                System.out.println("El nuevo precio base es: "+gestorRes.getPrecioBase());
-                            }else if(opc41==2){
+                                System.out.println("El nuevo precio base es: " + gestorRes.getPrecioBase());
+                            } else if (opc41 == 2) {
                                 gestorHab.agregarPiso();
                             }
-                                    
-                            
+
                         }
-                      
-                        
+
                         break;
-                        
-                        
+
                 }
-                
+
                 //Hospedaje hosp = new Hospedaje();
             } catch (InputMismatchException e) {
                 System.err.println("Por favor, Ingrese una opcion correcta");
                 scanner.nextLine(); //este es el del while
             }
-            
+
         }
     }
-    
 
 }
