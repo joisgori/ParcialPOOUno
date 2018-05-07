@@ -7,6 +7,7 @@ package VillaRafinha;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.UUID;
 
 /**
  *
@@ -47,8 +48,7 @@ public class GestorHuespedes {
         System.out.println("ingrese datos del huesped: ");
         System.out.print("Ingrese nombre: ");
         nombre = scanner.nextLine();
-        System.out.print("Ingrese iD: ");
-        iD = scanner.nextLine();
+        iD = UUID.randomUUID().toString().toUpperCase().substring(0, 5);
         System.out.print("Ingrese telefono: ");
         telefono = scanner.nextLine();
         hues = new Huesped(nombre,iD,telefono);

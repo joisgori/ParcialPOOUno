@@ -6,6 +6,7 @@
 package VillaRafinha;
 
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  *
@@ -23,11 +24,13 @@ public class Reservacion implements Comparable<Reservacion>{
     private boolean check;
     private TarjetaCredito garantia;
     private Habitacion habitacion;
+    private String id;
     
     public Reservacion(Hospedaje hospedaje, Huesped huesped){
         this.check=false;
         this.estancia=hospedaje;
         this.huesped=huesped;
+        this.id= UUID.randomUUID().toString().toUpperCase().substring(0, 5);
     }
     
     public void setSencilla(boolean sencilla) {
