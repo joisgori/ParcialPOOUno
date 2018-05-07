@@ -26,6 +26,7 @@ public class Reservacion implements Comparable<Reservacion>{
     private Habitacion habitacion;
     private final String id;
     
+    //Constructor
     public Reservacion(Hospedaje hospedaje, Huesped huesped){
         this.check=false;
         this.estancia=hospedaje;
@@ -33,6 +34,7 @@ public class Reservacion implements Comparable<Reservacion>{
         this.id= UUID.randomUUID().toString().toUpperCase().substring(0, 5);
     }
     
+    //métodos setter
     public void setSencilla(boolean sencilla) {
         this.sencilla = sencilla;
     }
@@ -48,14 +50,11 @@ public class Reservacion implements Comparable<Reservacion>{
     public void setHabitacion(Habitacion habitacion) {
         this.habitacion = habitacion;
     }
-    public Habitacion getHabitacion() {
-        return habitacion;
-    }
-
+    
     public void setPaquete(Paquete paquete) {
         this.paquete = paquete;
     }
-
+    
     public void setTotal(Float total) {
         this.total = total;
     }
@@ -63,9 +62,10 @@ public class Reservacion implements Comparable<Reservacion>{
     public void setCheck(boolean activa) {
         this.check = activa;
     }
-
-    public boolean isSencilla() {
-        return sencilla;
+    
+    //métodos getter
+    public Habitacion getHabitacion() {
+        return habitacion;
     }
 
     public Huesped getHuesped() {
@@ -84,10 +84,14 @@ public class Reservacion implements Comparable<Reservacion>{
         return total;
     }
 
+    //Estos booleanos retornan validación para la clase menú de acuerdo a las opciones seleccionadas.
     public boolean isCheck() {
         return check;
     }
     
+    public boolean isSencilla() {
+        return sencilla;
+    }
 
     @Override
     public int hashCode() {
