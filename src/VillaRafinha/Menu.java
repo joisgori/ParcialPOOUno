@@ -67,14 +67,14 @@ public class Menu {
                                 Hospedaje hosp = new Hospedaje(llegada, salida, this.gestorRes.pedirTipo(),isSuperior);
                                 
                                 //int disp = this.gestorHab.calcularNumHabitacionesHabilitadas(isSuperior, hosp);
-                                //if (gestorRes.getReservacionesDisp(hosp, gestorHab.getHabitacionesHabilitadas(hosp)) > 0) {
+                                if (gestorRes.getReservacionesDisp(hosp, gestorHab.getHabitacionesHabilitadas(hosp)) > 0) {
                                     Huesped hues = this.gestoHus.crearHuesped();
                                     Reservacion res = new Reservacion(hosp, hues);
                                     this.gestoHus.agregarHuesped(hues);
 
                                     this.gestorRes.agregarReservacion(res);
                                     this.gestorRes.verReservaciones();
-                               // }
+                                }
 
 
                             } catch (Exception ex) {
