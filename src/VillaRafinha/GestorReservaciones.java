@@ -116,12 +116,13 @@ public class GestorReservaciones {
     //AGREGANDO FUNCION PARA PEDIR CANTIDAD DE DÍAS ---------------
     public int pedirnum() throws Exception {
         int numdias;
-
+//Está función está lista para ser usada como recursiva en el gestor de reservaciones, pues con esta misma se validará 
+        //que no puedan pasar de 7 días los días que se pretende hacer una reservación por parte del usuario.
         System.out.println("Ingrese cantidad de días en número entero: ");
         numdias = scanner.nextInt();
         return numdias;
     }
-    //--------------------- yo josué agregué esto
+    //------------- yo josué agregué esto
 
     public Tipo pedirTipo() throws Exception {
 
