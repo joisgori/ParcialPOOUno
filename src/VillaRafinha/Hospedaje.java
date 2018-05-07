@@ -37,13 +37,23 @@ public class Hospedaje {
     }
 
     public Hospedaje(LocalDate fLlegada, int numDias) throws Exception {
-        if (numDias <= 7) {
-            this.fechaLlegada = fLlegada;
-            this.fechaSalida = fechaLlegada.plusDays(numDias);
-        } else {
-            //en esta parte se hará una excepción para que se ingrese una cantidad de días válidos, para funcionar con la función recién definida en gestorreservaciones
-            throw new Exception("Entrada de datos inválida");
+        while (true) {
+            if (numDias <= 7) {
+                this.fechaLlegada = fLlegada;
+                this.fechaSalida = fechaLlegada.plusDays(numDias);
+                break;
+            } else {
+                System.out.println("No puede realizar una reservación por más de 7 días, por favor ingrese nuevamente el número de días que desea reservar...");
+                GestorReservaciones.getInstance().pedirnum();
+                if (GestorReservaciones.getInstance().pedirnum() <= 7) {
+                    System.out.println("Así sí."); //SÍ ESTÁ LLEGANDO HASTA ACÁ, PERO DESPUÉS DE ESTO QUIEBRA EL CÓDIGO, AÚN NO SÉ PORQUÉ...
+                    break;
+                }
+                //en esta parte se hará una excepción para que se ingrese una cantidad de días válidos, para funcionar con la función recién definida en gestorreservaciones
+
+            }
         }
+        throw new Exception("Entrada de datos inválida");
     }
 
     public Huesped getHuesped() {
