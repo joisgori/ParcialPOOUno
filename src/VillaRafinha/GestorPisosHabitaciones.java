@@ -106,14 +106,18 @@ public class GestorPisosHabitaciones {
      * @param habitacion
      * @throws Exception en caso de que la habitacion este ya habilitada
      */
-    public void habilitarHabitacion(Habitacion habitacion) throws Exception {
-        if (!habitacion.isEstado()) {
-            habitacion.setEstado(true);
-        } else {
-            throw new Exception("La habitacion ya esta habilitada");
-
+    public boolean habilitarHabitacion(String nivel, int numero) throws Exception {
+        for (Piso p : this.getPisos()) {
+            if (p.getNivel().equals(nivel)) {
+                for (Habitacion h : p.getHabitaciones()) {
+                    if (h.getNumero() == numero&&!h.isEstado()) {
+                        h.setEstado(true);
+                        return true;
+                    }
+                }
+            }
         }
-
+        throw new Exception("La habitacion ya esta habilitada o no existe");
     }
 
     /**
@@ -122,12 +126,18 @@ public class GestorPisosHabitaciones {
      * @param habitacion
      * @throws Exception en caso de que la habitacion ya este deshabilitada
      */
-    public void deshabilitarHabitacion(Habitacion habitacion)  {
-        if (habitacion.isEstado()) {
-            habitacion.setEstado(false);
-        } else {
-            System.out.println("La habitacion ya estaba deshabilitada");
+    public boolean deshabilitarHabitacion(String nivel, int numero) throws Exception  {
+        for (Piso p : this.getPisos()) {
+            if (p.getNivel().equals(nivel)) {
+                for (Habitacion h : p.getHabitaciones()) {
+                    if (h.getNumero() == numero&&!h.isEstado()) {
+                        h.setEstado(true);
+                        return true;
+                    }
+                }
+            }
         }
+        throw new Exception("La habitacion ya esta deshabilitada o no existe");
     }
 
     /**

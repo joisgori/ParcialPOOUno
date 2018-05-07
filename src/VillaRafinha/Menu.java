@@ -53,17 +53,16 @@ public class Menu {
                 System.out.print("Ingrese una opcion: ");
                 opc = scanner.nextInt();
                 switch (opc) {
+                    
                     case 1:
+                        int dia, mes,anio,numdias;
+                        LocalDate llegada,salida;
+                        Hospedaje hosp = null;
+
                         System.out.println("\n1. Por fechas\n2. Por numero de dias");
                         System.out.print("Ingrese una opcion: ");
                         int a = scanner.nextInt();
 
-                        int dia,
-                         mes,
-                         anio,
-                         numdias;
-                        LocalDate llegada,
-                         salida;
                         if (a == 1) {
                             Scanner scanner1 = new Scanner(System.in);
                             try {
@@ -72,22 +71,11 @@ public class Menu {
                                 llegada = this.gestorRes.pedirFechar();
                                 System.out.println("Ingrese fecha de salida: ");
                                 salida = this.gestorRes.pedirFechar();
-                                //System.out.print("Ingrese numero de habitaciones: ");
-                                //numHab = scanner1.nextInt();
 
                                 boolean isSuperior = gestorRes.pedirPiso();
-                                Hospedaje hosp = new Hospedaje(llegada, salida, this.gestorRes.pedirTipo(), isSuperior);
+                                hosp = new Hospedaje(llegada, salida, this.gestorRes.pedirTipo(), isSuperior);
 
                                 //int disp = this.gestorHab.calcularNumHabitacionesHabilitadas(isSuperior, hosp);
-                                if (gestorRes.getReservacionesDisp(hosp, gestorHab.getHabitacionesHabilitadas(hosp)) > 0) {
-                                    Huesped hues = this.gestoHus.crearHuesped();
-                                    Reservacion res = new Reservacion(hosp, hues);
-                                    this.gestoHus.agregarHuesped(hues);
-
-                                    this.gestorRes.agregarReservacion(res);
-                                    this.gestorRes.verReservaciones();
-                                }
-
                             } catch (Exception ex) {
                                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                             }
@@ -105,28 +93,30 @@ public class Menu {
                                 numdias = this.gestorRes.pedirnum();
                                 //System.out.print("Ingrese número de habitaciones: ");
                                 //numHab = scannopdos.nextInt();
-                                Hospedaje hospedias = new Hospedaje(llegada, numdias);
                                 boolean isSuperior = gestorRes.pedirPiso();
+                                hosp = new Hospedaje(llegada, numdias,this.gestorRes.pedirTipo(), isSuperior);
                                 
 
-                                //int disp = this.gestorHab.calcularNumHabitacionesHabilitadas(isSuperior, hosp);
-                                if (gestorRes.getReservacionesDisp(hospedias, gestorHab.getHabitacionesHabilitadas(hospedias)) > 0) {
-                                    Huesped huespe = this.gestoHus.crearHuesped();
-                                    Reservacion res = new Reservacion(hospedias, huespe);
-                                    this.gestoHus.agregarHuesped(huespe);
-
-                                    this.gestorRes.agregarReservacion(res);
-                                    this.gestorRes.verReservaciones();
-                                }
+                                
 
                             } catch (Exception ex) {
                                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                             }
 //EL CÓDIGO TERMINA ACÁ PARA ESA OPCIÓN
 //Esto que se encuentra acontinuación será donde termine el buckle para validar la opción correcta escogida dentro del menú para la manera de reserva...
+                        }
+                        
+                        if (gestorRes.getReservacionesDisp(hosp, gestorHab.getHabitacionesHabilitadas(hosp)) > 0) {
+                            Huesped huespe = this.gestoHus.crearHuesped();
+                            Reservacion res = new Reservacion(hosp, huespe);
+                            this.gestoHus.agregarHuesped(huespe);
+
+                            this.gestorRes.agregarReservacion(res);
+                            this.gestorRes.verReservaciones();
                         } else {
                             System.out.println("Ingrese una opción válida...");
                         }
+
                         break;
                     case 2:
                         Scanner check = new Scanner(System.in);
@@ -171,10 +161,11 @@ public class Menu {
                         System.out.println("\n1.Pisos y Habitaciones\n2.Tarifas\n3.Paquetes");
                         int opc4 = scanner4.nextInt();
                         if (opc4 == 1) {
-                            System.out.println("1. Cambiar precio habitaciones\n2.Agregar Piso\n3. Habilitar piso\n4.Deshabilitar piso\n5. Habilitar habitacion\n6. Deshabilitar habitacion");
+                            System.out.println("1. Cambiar precio habitaciones\n2.Agregar Piso\n3. Habilitar piso\n4.Deshabilitar piso");
+                            System.out.println("5. Habilitar habitacion\n6. Deshabilitar habitacion");
                             int opc41 = scanner4.nextInt();
                             switch (opc41) {
-                                
+
                                 case 1:
                                     System.out.println("El precio base es: " + gestorRes.getPrecioBase());
                                     System.out.print("Ingrese el nuevo precio base: ");
@@ -209,8 +200,24 @@ public class Menu {
 
                                     break;
                                 case 5:
+                                    String nivel;
+                                    int numero;
+                                    Scanner scanner45 = new Scanner(System.in);
+                                    System.out.print("Ingrese nivel de la habitacion: ");
+                                    nivel = scanner45.nextLine();
+                                    System.out.print("Ingrese numero de habitacio: ");
+                                    numero = scanner45.nextInt();
+                                    gestorHab.habilitarHabitacion(nivel, numero);
                                     break;
                                 case 6:
+                                    String nivel6;
+                                    int numero6;
+                                    Scanner scanner46 = new Scanner(System.in);
+                                    System.out.print("Ingrese nivel de la habitacion: ");
+                                    nivel = scanner46.nextLine();
+                                    System.out.print("Ingrese numero de habitacio: ");
+                                    numero = scanner46.nextInt();
+                                    gestorHab.deshabilitarHabitacion(nivel, numero);
                                     break;
                                 default:
                                     System.out.println("Llora pues");

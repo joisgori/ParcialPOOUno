@@ -36,10 +36,12 @@ public class Hospedaje {
         }
     }
 
-    public Hospedaje(LocalDate fLlegada, int numDias) throws Exception {
+    public Hospedaje(LocalDate fLlegada, int numDias,Tipo tipo, boolean isSuperior) throws Exception {
             if (numDias <= 7) {
                 this.fechaLlegada = fLlegada;
                 this.fechaSalida = fechaLlegada.plusDays(numDias);
+                this.tipo=tipo;
+                this.isSuperior=isSuperior;
             } else {
                 throw new Exception("Entrada de datos inválida");
                 /*System.out.println("No puede realizar una reservación por más de 7 días, por favor ingrese nuevamente el número de días que desea reservar...");
