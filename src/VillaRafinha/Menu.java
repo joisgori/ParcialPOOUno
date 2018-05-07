@@ -16,15 +16,15 @@ import java.util.logging.Logger;
  * @author Raul Granados 00138816
  */
 public class Menu {
-    private static GestorPisosHabitaciones gestorHab=null;
-    private static GestorReservaciones gestorRes=null;
-    private static GestorHuespedes gestoHus = null;
-    private static Menu menu=null;
+    private  static GestorPisosHabitaciones gestorHab=null;
+    private  static GestorReservaciones gestorRes=null;
+    private  static GestorHuespedes gestoHus = null;
+    private  static Menu menu=null;
     
     private Menu() {
-        Menu.gestorHab  = GestorPisosHabitaciones.getInstance();
-        Menu.gestorRes = GestorReservaciones.getInstance();
-        Menu.gestoHus = GestorHuespedes.getInstance();
+        this.gestorHab  = GestorPisosHabitaciones.getInstance();
+        this.gestorRes = GestorReservaciones.getInstance();
+        this.gestoHus = GestorHuespedes.getInstance();
 
     }
     public static Menu getInstance(){
