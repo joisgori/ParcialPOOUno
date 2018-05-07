@@ -125,7 +125,7 @@ public class Menu {
                     case 4:
                         Scanner scanner4 = new Scanner(System.in);
                         int opc4 = scanner.nextInt();
-                        System.out.println("\n1.Precios y habitaciones\n2.Tarifas");
+                        System.out.println("\n1.Precios y habitaciones\n2.Tarifas\n3.Paquetes");
                         if(opc==1){
                             System.out.println("1. Cambiar precio habitaciones\n2.Agregar Piso\n3. Habilitar piso\n4.Deshabilitar piso ");
                             
