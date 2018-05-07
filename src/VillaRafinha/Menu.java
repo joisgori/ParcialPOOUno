@@ -69,7 +69,6 @@ public class Menu {
                                 //int disp = this.gestorHab.calcularNumHabitacionesHabilitadas(isSuperior, hosp);
                                 if (gestorRes.getReservacionesDisp(hosp, gestorHab.getHabitacionesHabilitadas(hosp)) > 0) {
                                     Huesped hues = this.gestoHus.crearHuesped();
-                                    gestoHus.agregarHuesped(hues);
                                     Reservacion res = new Reservacion(hosp, hues);
                                     this.gestoHus.agregarHuesped(hues);
 
