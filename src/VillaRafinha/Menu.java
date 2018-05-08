@@ -78,6 +78,7 @@ public class Menu {
                                 //int disp = this.gestorHab.calcularNumHabitacionesHabilitadas(isSuperior, hosp);
                             } catch (Exception ex) {
                                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                                //System.err.println("Ingrese fecha correcta");
                             }
 
                         }/*código recién agregado para validar la segunda opción del menú sobre la cantidad de días...*/ //ACÁ ADJUNTE MI PARTE DE CÓDIGO PARA HACER UNA RESERVACIÓN COLOCANDO CANTIDAD DE DÍAS PUNTUALES,
