@@ -22,7 +22,6 @@ public class Reservacion implements Comparable<Reservacion>{
     private Paquete paquete;
     private Float total;
     private boolean check;
-    private TarjetaCredito garantia;
     //private Habitacion[] habitacion = new Habitacion[2];
     private final String id;
     private Habitacion habitacion;
@@ -130,9 +129,6 @@ public class Reservacion implements Comparable<Reservacion>{
         this.setCheck(false);
     }
     
-    public void procesarREservacion(TarjetaCredito t){
-        this.garantia=t;
-    }
 
     @Override
     public String toString() {

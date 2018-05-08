@@ -10,8 +10,7 @@ package VillaRafinha;
  * @author Josué González <00034715@uca.edu.sv>
  */
 public class Huesped extends Persona {
-    TarjetaCredito[] tarjetaCredito = new TarjetaCredito[8];
-//constructores
+ //constructores
     
     public Huesped(String nombre, String iD) {
         super(nombre, iD);
@@ -20,19 +19,6 @@ public class Huesped extends Persona {
         super(nombre, telefono);
     }
 
-    
-    
-//métodos getter
-
-    public TarjetaCredito[] getTarjetaCredito() {
-        return tarjetaCredito;
-    }
-    
-//métodos setter
-
-    public void setTarjetaCredito(TarjetaCredito[] tarjetaCredito) {
-        this.tarjetaCredito = tarjetaCredito;
-    }
 
     @Override
     public String toString() {
