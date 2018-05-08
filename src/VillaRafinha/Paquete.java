@@ -96,6 +96,10 @@ public class Paquete extends Producto{
         }
         super.setPrecio((float)precio-(float)precio*this.tasaDescuento);
     }
+    
+    public void verPaquetesLista(){
+        
+    }
 
     @Override
     public String toString() {

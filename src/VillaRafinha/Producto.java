@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package VillaRafinha;
 
 import java.util.Objects;
@@ -18,9 +13,6 @@ public class Producto {
     private String descripcion;
     private boolean estado;
 
-    public Producto(){
-    
-    }
     
     public Producto(String nombre) {
         this.nombre = nombre.toUpperCase();
@@ -68,9 +60,7 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
+
 
     @Override
     public int hashCode() {
@@ -91,10 +81,7 @@ public class Producto {
             return false;
         }
         final Producto other = (Producto) obj;
-        if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.nombre, other.nombre);
     }
 
     

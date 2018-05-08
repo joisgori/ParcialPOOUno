@@ -111,7 +111,7 @@ public class GestorPisosHabitaciones {
             if (p.getNivel().equals(nivel)) {
                 for (Habitacion h : p.getHabitaciones()) {
                     if (h.getNumero() == numero&&!h.isEstado()) {
-                        h.setEstado(true);
+                        h.hablitar();
                         return true;
                     }
                 }
@@ -131,7 +131,7 @@ public class GestorPisosHabitaciones {
             if (p.getNivel().equals(nivel)) {
                 for (Habitacion h : p.getHabitaciones()) {
                     if (h.getNumero() == numero&&!h.isEstado()) {
-                        h.setEstado(true);
+                        h.hablitar();
                         return true;
                     }
                 }

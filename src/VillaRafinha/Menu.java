@@ -23,9 +23,9 @@ public class Menu {
     private static Menu menu = null;
 
     private Menu() {
-        this.gestorHab = GestorPisosHabitaciones.getInstance();
-        this.gestorRes = GestorReservaciones.getInstance();
-        this.gestoHus = GestorHuespedes.getInstance();
+        Menu.gestorHab = GestorPisosHabitaciones.getInstance();
+        Menu.gestorRes = GestorReservaciones.getInstance();
+        Menu.gestoHus = GestorHuespedes.getInstance();
 
     }
 
@@ -68,12 +68,12 @@ public class Menu {
                             try {
                                 int numHab;
                                 System.out.println("Ingrese Fecha de llegada: ");
-                                llegada = this.gestorRes.pedirFechar();
+                                llegada = Menu.gestorRes.pedirFechar();
                                 System.out.println("Ingrese fecha de salida: ");
-                                salida = this.gestorRes.pedirFechar();
+                                salida = Menu.gestorRes.pedirFechar();
 
                                 boolean isSuperior = gestorRes.pedirPiso();
-                                hosp = new Hospedaje(llegada, salida, this.gestorRes.pedirTipo(), isSuperior);
+                                hosp = new Hospedaje(llegada, salida, Menu.gestorRes.pedirTipo(), isSuperior);
 
                                 //int disp = this.gestorHab.calcularNumHabitacionesHabilitadas(isSuperior, hosp);
                             } catch (Exception ex) {

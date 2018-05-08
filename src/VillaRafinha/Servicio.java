@@ -26,14 +26,9 @@ public class Servicio extends Producto{
         
     }
    
-    
-    public String verDetalleServicio(){
-        return "Servicio: " +this.getNombre()+"\nPrecio por dia: "+this.getPrecio()+"\nDescripcion: "+this.getDescripcion()+"\n"+this.getEstado()+" \n";
-    }
-    
      @Override
     public String toString() {
-        return this.getNombre();
+     return "Servicio: " +this.getNombre()+"\nPrecio por dia: "+this.getPrecio()+"\nDescripcion: "+this.getDescripcion()+"\n"+this.getEstado()+" \n";
     }
     
 }
