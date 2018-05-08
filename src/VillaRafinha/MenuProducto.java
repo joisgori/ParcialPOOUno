@@ -16,10 +16,18 @@ import java.util.Scanner;
  
  public class MenuProducto {
  //Esta clase será usada para generar los gestores de la clase de menu producto
-     
-     private final GestorProductos gestorProductos= GestorProductos.getInstance(); 
+     private static MenuProducto menuProducto;
+     private  GestorProductos gestorProductos; 
 
-    public MenuProducto() {
+    private MenuProducto() {
+        gestorProductos= GestorProductos.getInstance();
+    }
+    public static MenuProducto getInstance(){
+        if(menuProducto ==null){
+            menuProducto = new MenuProducto();
+            
+        }
+        return menuProducto;
     }
  
      public int mostrarMenu(){
