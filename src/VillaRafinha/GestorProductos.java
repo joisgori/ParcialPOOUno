@@ -19,6 +19,9 @@ public class GestorProductos {
         servicios = new ArrayList<>();
         paquetes.add(new Paquete("BASICO","de acceso limitado"));
         paquetes.add(new Paquete("PREMIUM","ACCESO ILIMITADO A CASI TODO"));
+        servicios.add(new Servicio("Piscina", (float)12.45,"Acceso a piscina bajo techo"));
+        servicios.add(new Servicio("Bar", (float)22.58,"Acceso al bar 24 horas"));
+        servicios.add(new Servicio("Area comun", (float)16.75,"Acceso a linda area comun"));
         
     }
     /**
