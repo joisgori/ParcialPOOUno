@@ -29,6 +29,11 @@ import java.util.Scanner;
         }
         return menuProducto;
     }
+
+    public GestorProductos getGestorProductos() {
+        return gestorProductos;
+    }
+    
  
      public int mostrarMenu(){
          Scanner scanner =new Scanner(System.in);

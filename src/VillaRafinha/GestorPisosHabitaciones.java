@@ -21,6 +21,7 @@ public class GestorPisosHabitaciones {
     //private Piso[] pisos = new Piso[6];
     private static GestorPisosHabitaciones gestor;
     private  static ArrayList<Piso> pisos = new ArrayList();
+    private static int precioBase;
     
 
     private GestorPisosHabitaciones() {
@@ -42,6 +43,15 @@ public class GestorPisosHabitaciones {
         }
         return gestor;
     }
+
+    public static int getPrecioBase() {
+        return precioBase;
+    }
+
+    public static void setPrecioBase(int precioBase) {
+        GestorPisosHabitaciones.precioBase = precioBase;
+    }
+    
 
     
 

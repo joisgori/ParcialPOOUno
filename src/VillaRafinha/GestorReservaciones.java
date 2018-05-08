@@ -20,11 +20,11 @@ public class GestorReservaciones {
 
     private ArrayList<Reservacion> reservaciones;
     private static GestorReservaciones gestorReservaciones;
-    private static int precioBase;
+    //private static int precioBase;
 
     private GestorReservaciones() {
         reservaciones = new ArrayList<>();
-        GestorReservaciones.precioBase = 80;
+        //GestorReservaciones.precioBase = 80;
     }
 
     public static GestorReservaciones getInstance() {
@@ -34,13 +34,13 @@ public class GestorReservaciones {
         return gestorReservaciones;
     }
 
-    public int getPrecioBase() {
+    /*public int getPrecioBase() {
         return precioBase;
-    }
+    }*/
 
-    public void setPrecioBase(int precioBase) {
+    /*public void setPrecioBase(int precioBase) {
         GestorReservaciones.precioBase = precioBase;
-    }
+    }*/
 
     public ArrayList<Reservacion> getReservaciones() {
         return reservaciones;

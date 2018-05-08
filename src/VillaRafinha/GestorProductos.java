@@ -17,6 +17,8 @@ public class GestorProductos {
     private GestorProductos() {
         paquetes = new ArrayList<>();
         servicios = new ArrayList<>();
+        paquetes.add(new Paquete("BASICO","de acceso limitado"));
+        paquetes.add(new Paquete("PREMIUM","ACCESO ILIMITADO A CASI TODO"));
         
     }
     /**
