@@ -16,12 +16,13 @@ public class Menu {
     private static GestorReservaciones gestorRes = null;
     private static GestorHuespedes gestoHus = null;
     private static Menu menu = null;
+    private static MenuProducto menuPro = null;
 
     private Menu() {
         Menu.gestorHab = GestorPisosHabitaciones.getInstance();
         Menu.gestorRes = GestorReservaciones.getInstance();
         Menu.gestoHus = GestorHuespedes.getInstance();
-
+        Menu.menuPro = MenuProducto.getInstance();
     }
 
     public static Menu getInstance() {
@@ -157,7 +158,7 @@ public class Menu {
                         break;
                     case 4:
                         Scanner scanner4 = new Scanner(System.in);
-                        System.out.println("\n1.Pisos y Habitaciones\n2.Tarifas\n3.Paquetes");
+                        System.out.println("\n1.Pisos y Habitaciones\n2.Paquetes");
                         int opc4 = scanner4.nextInt();
                         if (opc4 == 1) {
                             System.out.println("1. Cambiar precio habitaciones\n2.Agregar Piso\n3. Habilitar piso\n4.Deshabilitar piso");
@@ -223,6 +224,8 @@ public class Menu {
                                     break;
                             }
 
+                        }else if(opc4==2){
+                            menuPro.ejecutarAccion();
                         }
                         
 
