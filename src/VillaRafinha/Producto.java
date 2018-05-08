@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package VillaRafinha;
 
 import java.util.Objects;
 
 /**
- *
+ *Esta clase es una abstarccion de los diferentes productos que ofrece el hotel
  * @author Raul Granados 00138816
  */
 public class Producto {
@@ -18,10 +13,7 @@ public class Producto {
     private String descripcion;
     private boolean estado;
 
-    public Producto(){
-    
-    }
-    
+    //Contructores con diferentes parametros
     public Producto(String nombre) {
         this.nombre = nombre.toUpperCase();
         this.estado = true;
@@ -33,13 +25,20 @@ public class Producto {
         this.estado = true;
     }
     
+    public Producto(String nombre, String descripcion) {
+        this.nombre = nombre.toUpperCase();
+        this.descripcion = descripcion;
+        this.estado = true;
+    }
+    
     public Producto(String nombre, float precio, String descripcion) {
         this.nombre = nombre.toUpperCase();
         this.precio = precio;
         this.descripcion = descripcion;
         this.estado = true;
     }
-
+    
+    //setters y getters
     public String getNombre() {
         return nombre;
     }
@@ -68,10 +67,8 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
 
+    //equals y hashcode
     @Override
     public int hashCode() {
         int hash = 7;
@@ -91,27 +88,32 @@ public class Producto {
             return false;
         }
         final Producto other = (Producto) obj;
-        if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.nombre, other.nombre);
     }
 
-    
+    /**
+     * Este metodo nos permite cambiar el estado del producto a true, habilitado
+     * @throws Exception "Producto ya habilitado"
+     */
     public void hablitar()throws Exception{
         if(!this.estado){
             this.estado=true;
         }
         else{
-            System.out.println("La habitacion ya esta habilitada");
+            System.out.println(this.getClass()+" ya habilitado");
         }
     }
+    
+    /**
+     * Este metodo nos permite cambiar el estado del producto a false, deshabilitado
+     * @throws Exception "Producto ya deshabilitado"
+     */
     public void deshablitar()throws Exception{
         if(this.estado){
             this.estado=false;
         }
         else{
-            System.out.println("Ya esta deshabilitada");
+            System.out.println(this.getClass()+"ya esta deshabilitada");
         }
     }
     

@@ -5,8 +5,9 @@
  */
 package VillaRafinha;
 
+
 /**
- *
+ *Esta clase representa los diferentes servicios que ofrece el hotel
  * @author daniel
  */
 public class Servicio extends Producto{
@@ -25,15 +26,15 @@ public class Servicio extends Producto{
         }
         
     }
+    
    
-    
-    public String verDetalleServicio(){
+    public String verServicioDetalle(){
         return "Servicio: " +this.getNombre()+"\nPrecio por dia: "+this.getPrecio()+"\nDescripcion: "+this.getDescripcion()+"\n"+this.getEstado()+" \n";
-    }
     
+    }
      @Override
     public String toString() {
-        return this.getNombre();
+        return  this.getNombre();
     }
-    
+
 }
