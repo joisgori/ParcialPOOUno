@@ -101,7 +101,7 @@ public class Menu {
                                 
 
                             } catch (Exception ex) {
-                                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                                System.err.println("Por favor, Ingrese una fecha correcta");
                             }
 //EL CÓDIGO TERMINA ACÁ PARA ESA OPCIÓN
 //Esto que se encuentra acontinuación será donde termine el buckle para validar la opción correcta escogida dentro del menú para la manera de reserva...
