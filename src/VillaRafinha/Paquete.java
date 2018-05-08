@@ -15,6 +15,10 @@ public class Paquete extends Producto{
         super(nombre, descripcion);
         this.servicios=servicios;
      }
+    public Paquete(String nombre, String descripcion) {
+        super(nombre, descripcion);
+        //this.servicios=servicios;
+     }
 
     
     //setters y getters

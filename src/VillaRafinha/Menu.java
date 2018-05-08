@@ -1,6 +1,7 @@
 package VillaRafinha;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -49,11 +50,13 @@ public class Menu {
                 System.out.print("Ingrese una opcion: ");
                 opc = scanner.nextInt();
                 switch (opc) {
-                    
+
                     case 1:
-                        int dia, mes,anio,numdias;
-                        LocalDate llegada,salida;
+                        int numdias;
+                        LocalDate llegada,
+                         salida;
                         Hospedaje hosp = null;
+                        String paquete;
 
                         System.out.println("\n1. Por fechas\n2. Por numero de dias");
                         System.out.print("Ingrese una opcion: ");
@@ -67,14 +70,15 @@ public class Menu {
                                 llegada = Menu.gestorRes.pedirFechar();
                                 System.out.println("Ingrese fecha de salida: ");
                                 salida = Menu.gestorRes.pedirFechar();
+                                Period periodo = Period.between(llegada, salida);
 
                                 boolean isSuperior = gestorRes.pedirPiso();
                                 hosp = new Hospedaje(llegada, salida, Menu.gestorRes.pedirTipo(), isSuperior);
 
                                 //int disp = this.gestorHab.calcularNumHabitacionesHabilitadas(isSuperior, hosp);
                             } catch (Exception ex) {
-                                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-                                //System.err.println("Ingrese fecha correcta");
+                                //Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                                System.err.println(ex);
                             }
 
                         }/*código recién agregado para validar la segunda opción del menú sobre la cantidad de días...*/ //ACÁ ADJUNTE MI PARTE DE CÓDIGO PARA HACER UNA RESERVACIÓN COLOCANDO CANTIDAD DE DÍAS PUNTUALES,
@@ -88,34 +92,44 @@ public class Menu {
                                 llegada = this.gestorRes.pedirFechar();
                                 System.out.println("Ingrese cantidad de días: ");
                                 numdias = this.gestorRes.pedirnum();
-                                //System.out.print("Ingrese número de habitaciones: ");
-                                //numHab = scannopdos.nextInt();
-                                boolean isSuperior = gestorRes.pedirPiso();
-                                hosp = new Hospedaje(llegada, numdias,this.gestorRes.pedirTipo(), isSuperior);
-                                
+                                if (numdias > 7) {
+                                    throw new Exception("No se puede reservar por mas de 7 dias");
+                                } else {
+                                    //System.out.print("Ingrese número de habitaciones: ");
+                                    //numHab = scannopdos.nextInt();
+                                    boolean isSuperior = gestorRes.pedirPiso();
+                                    hosp = new Hospedaje(llegada, numdias, this.gestorRes.pedirTipo(), isSuperior);
 
-                                
+                                }
 
                             } catch (Exception ex) {
-                                System.err.println("Por favor, Ingrese una fecha correcta");
+                                //Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                                System.err.println(ex);
                             }
 //EL CÓDIGO TERMINA ACÁ PARA ESA OPCIÓN
 //Esto que se encuentra acontinuación será donde termine el buckle para validar la opción correcta escogida dentro del menú para la manera de reserva...
                         }
-                        try{
-                        if (gestorRes.getReservacionesDisp(hosp, gestorHab.getHabitacionesHabilitadas(hosp)) > 0) {
-                            Huesped huespe = this.gestoHus.crearHuesped();
-                            Reservacion res = new Reservacion(hosp, huespe);
-                            this.gestoHus.agregarHuesped(huespe);
+                        try {
 
-                            this.gestorRes.agregarReservacion(res);
-                            this.gestorRes.verReservaciones();
-                        } else {
-                            System.out.println("Ingrese una opción válida...");
-                        }
-                        }catch (Exception ex) {
-                                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                            Scanner paqueteScan = new Scanner(System.in);
+                            if (gestorRes.getReservacionesDisp(hosp, gestorHab.getHabitacionesHabilitadas(hosp)) > 0) {
+                                Huesped huespe = this.gestoHus.crearHuesped();
+                                Reservacion res = new Reservacion(hosp, huespe);
+                                GestorProductos.verPaquetes();
+                                System.out.print("Ingrese paquete: ");
+                                paquete = paqueteScan.nextLine();
+                                res.setPaquete(GestorProductos.buscarPaquete(paquete));
+                                this.gestoHus.agregarHuesped(huespe);
+
+                                this.gestorRes.agregarReservacion(res);
+                                this.gestorRes.verReservaciones();
+                            } else {
+                                System.out.println("Ingrese una opción válida...");
                             }
+                        } catch (Exception ex) {
+                            //Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                            System.err.println("No se ha podido realizar la reservacion");
+                        }
 
                         break;
                     case 2:
@@ -134,10 +148,11 @@ public class Menu {
                                 System.out.println("/nHabitacion asignada: " + hCheck.getNivel() + hCheck.getNumero());
                                 gestorRes.verReservaciones();
                             } else {
-                                System.out.println("Ya se ha realizado el Check In");
+                                //System.out.println("Ya se ha realizado el Check In");
+                                throw new Exception("Ya se ha realizado el check in");
                             }
                         } catch (Exception ex) {
-                            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                            System.err.println(ex);
                         }
 
                         break;
@@ -167,10 +182,10 @@ public class Menu {
                             switch (opc41) {
 
                                 case 1:
-                                    System.out.println("El precio base es: " + gestorRes.getPrecioBase());
+                                    System.out.println("El precio base es: " + GestorPisosHabitaciones.getPrecioBase());
                                     System.out.print("Ingrese el nuevo precio base: ");
-                                    gestorRes.setPrecioBase(scanner4.nextInt());
-                                    System.out.println("El nuevo precio base es: " + gestorRes.getPrecioBase());
+                                    GestorPisosHabitaciones.setPrecioBase(scanner4.nextInt());
+                                    System.out.println("El nuevo precio base es: " + GestorPisosHabitaciones.getPrecioBase());
                                     break;
                                 case 2:
                                     gestorHab.agregarPiso();
@@ -183,7 +198,8 @@ public class Menu {
 
                                         gestorHab.habilitarPiso(piso);
                                     } catch (Exception ex) {
-                                        Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                                        //Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                                        System.out.println(ex);
                                     }
 
                                     break;
@@ -195,7 +211,8 @@ public class Menu {
                                     try {
                                         gestorHab.deshabilitarPiso(piso2);
                                     } catch (Exception ex) {
-                                        Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                                        //Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                                        System.out.println(ex);
                                     }
 
                                     break;
@@ -224,13 +241,11 @@ public class Menu {
                                     break;
                             }
 
-                        }else if(opc4==2){
+                        } else if (opc4 == 2) {
                             menuPro.ejecutarAccion();
                         }
-                        
 
                         break;
-
 
                 }
 
