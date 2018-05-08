@@ -19,7 +19,6 @@ import java.util.Scanner;
 public class GestorReservaciones {
 
     private ArrayList<Reservacion> reservaciones;
-    private final Scanner scanner = new Scanner(System.in);
     private static GestorReservaciones gestorReservaciones;
     private static int precioBase;
 
@@ -103,6 +102,7 @@ public class GestorReservaciones {
     }
 
     public LocalDate pedirFechar() throws Exception {
+        Scanner scanner = new Scanner(System.in);
         String fecha;
 
         System.out.println("Ingrese fecha en formato dd/mm/aaaa: ");
@@ -113,6 +113,7 @@ public class GestorReservaciones {
     }
 
     public int pedirnum() throws Exception {
+        Scanner scanner = new Scanner(System.in);
         int numdias;
 
         System.out.println("Ingrese cantidad de días en número entero: ");
@@ -121,7 +122,7 @@ public class GestorReservaciones {
     }
 
     public Tipo pedirTipo() throws Exception {
-
+        Scanner scanner = new Scanner(System.in);
         int opc;
         Tipo tipo;
         System.out.println("\n1. Habitacion sencilla\n2. Habitacion doble");
@@ -144,7 +145,7 @@ public class GestorReservaciones {
     }
 
     public boolean pedirPiso() {
-
+        Scanner scanner = new Scanner(System.in);
         boolean isSuperior;
         int opc;
 
