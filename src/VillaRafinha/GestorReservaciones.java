@@ -102,7 +102,7 @@ public class GestorReservaciones {
     }
 
     public LocalDate pedirFechar() throws Exception {
-        Scanner scanner = new Scanner(System.in);
+        
         String fecha;
         Scanner scanfecha = new Scanner(System.in);
         System.out.println("Ingrese fecha en formato dd/mm/aaaa: ");
