@@ -84,6 +84,7 @@ import java.util.Scanner;
                  }else if(opc4==2){
                     
                     GestorProductos.verServiciosLista();
+                    scanner.nextLine();
                     String servicio = scanner.nextLine();
                     GestorProductos.quitarServicio(GestorProductos.buscarServicio(servicio));
                  }
