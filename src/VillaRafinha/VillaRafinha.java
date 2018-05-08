@@ -34,7 +34,7 @@ public class VillaRafinha {
         
         //Menu menu=Menu.getInstance();
         //menu.mostrar();
-        MenuProducto menuProducto=new MenuProducto();
+        MenuProducto menuProducto=MenuProducto.getInstance();
         menuProducto.ejecutarAccion();
         //GestorProductos.getInstance();
         //GestorProductos.agregarServicio(GestorProductos.crearServicio());
