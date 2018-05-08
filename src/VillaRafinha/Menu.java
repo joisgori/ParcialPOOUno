@@ -78,6 +78,7 @@ public class Menu {
                                 //int disp = this.gestorHab.calcularNumHabitacionesHabilitadas(isSuperior, hosp);
                             } catch (Exception ex) {
                                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                                //System.err.println("Ingrese fecha correcta");
                             }
 
                         }/*código recién agregado para validar la segunda opción del menú sobre la cantidad de días...*/ //ACÁ ADJUNTE MI PARTE DE CÓDIGO PARA HACER UNA RESERVACIÓN COLOCANDO CANTIDAD DE DÍAS PUNTUALES,
@@ -100,12 +101,12 @@ public class Menu {
                                 
 
                             } catch (Exception ex) {
-                                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                                System.err.println("Por favor, Ingrese una fecha correcta");
                             }
 //EL CÓDIGO TERMINA ACÁ PARA ESA OPCIÓN
 //Esto que se encuentra acontinuación será donde termine el buckle para validar la opción correcta escogida dentro del menú para la manera de reserva...
                         }
-                        
+                        try{
                         if (gestorRes.getReservacionesDisp(hosp, gestorHab.getHabitacionesHabilitadas(hosp)) > 0) {
                             Huesped huespe = this.gestoHus.crearHuesped();
                             Reservacion res = new Reservacion(hosp, huespe);
@@ -116,6 +117,9 @@ public class Menu {
                         } else {
                             System.out.println("Ingrese una opción válida...");
                         }
+                        }catch (Exception ex) {
+                                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                            }
 
                         break;
                     case 2:

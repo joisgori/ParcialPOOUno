@@ -102,14 +102,23 @@ public class GestorReservaciones {
     }
 
     public LocalDate pedirFechar() throws Exception {
-        Scanner scanner = new Scanner(System.in);
+        
         String fecha;
-
+        Scanner scanfecha = new Scanner(System.in);
         System.out.println("Ingrese fecha en formato dd/mm/aaaa: ");
-        fecha = scanner.nextLine();
-        DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        fecha = scanfecha.nextLine();
+        String[] fechaPartida = fecha.split("/");
+        int dia = Integer.parseInt(fechaPartida[0]);
+        int mes = Integer.parseInt(fechaPartida[1]);
+        int anio = Integer.parseInt(fechaPartida[2]);
+        if (dia <= 31 && mes <= 12 && anio <= 3000) {
 
-        return LocalDate.parse(fecha, formateador);
+            DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+            return LocalDate.parse(fecha, formateador);
+        } else {
+            throw new Exception("Ingrese una fecha valida");
+        }
     }
 
     public int pedirnum() throws Exception {

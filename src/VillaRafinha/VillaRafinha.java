@@ -21,7 +21,7 @@ public class VillaRafinha {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);
         /*LocalDate fecha1 = LocalDate.of(2018, 05, 6);
         LocalDate fecha2 = LocalDate.of(2018, 05, 10);
         LocalDate fecha3 = LocalDate.of(2018, 05, 7);
@@ -32,16 +32,16 @@ public class VillaRafinha {
         Hospedaje hos2 = new Hospedaje(fecha3, fecha4, Tipo.SENCILLA,false);
         System.out.println(ges.verificarDisp(hab,hos2));*/
         
-        //Menu menu=Menu.getInstance();
-        //menu.mostrar();
-        GestorProductos.getInstance();
-        GestorProductos.agregarServicio(GestorProductos.crearServicio());
-        GestorProductos.agregarServicio(GestorProductos.crearServicio());
+        Menu menu=Menu.getInstance();
+        menu.mostrar();
+        //GestorProductos.getInstance();
+        //GestorProductos.agregarServicio(GestorProductos.crearServicio());
+        //GestorProductos.agregarServicio(GestorProductos.crearServicio());
         //GestorProductos.agregarServicio(GestorProductos.crearServicio());
         //GestorProductos.verServicios();
-        GestorProductos.agregarPaquete(GestorProductos.crearPaquete());
         //GestorProductos.agregarPaquete(GestorProductos.crearPaquete());
-        GestorProductos.verPaquetes();
+        //GestorProductos.agregarPaquete(GestorProductos.crearPaquete());
+        //GestorProductos.verPaquetes();
         //GestorProductos.verPaquetesLista();
         //Servicio servicio1= new Servicio("Piscina", (float) 15.5,"Acceso a piscina semiolimpica bajo techo");
         //Servicio servicio2= new Servicio("Buffet", (float) 12.4,"Desayuno, almuerzo y cena buffet");
