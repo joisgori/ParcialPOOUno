@@ -35,7 +35,7 @@ public class Menu {
 
     public void opciones() {
         System.out.println("Ingrese numeros enteros");
-        System.out.println("\n1.Hacer Reservacion\n2.Hacer Check In\n3.Hacer Check Out\n4.Modificaciones");
+        System.out.println("\n1.Hacer Reservacion\n2.Hacer Check In\n3.Hacer Check Out\n4.Modificaciones\5.Ver reservaciones");
     }
 
     public void mostrar() throws Exception {
@@ -115,14 +115,14 @@ public class Menu {
                             if (gestorRes.getReservacionesDisp(hosp, gestorHab.getHabitacionesHabilitadas(hosp)) > 0) {
                                 Huesped huespe = this.gestoHus.crearHuesped();
                                 Reservacion res = new Reservacion(hosp, huespe);
-                                GestorProductos.verPaquetes();
+                                GestorProductos.verPaquetesLista();
                                 System.out.print("Ingrese paquete: ");
                                 paquete = paqueteScan.nextLine();
                                 res.setPaquete(GestorProductos.buscarPaquete(paquete));
-                                this.gestoHus.agregarHuesped(huespe);
+                                Menu.gestoHus.agregarHuesped(huespe);
 
-                                this.gestorRes.agregarReservacion(res);
-                                this.gestorRes.verReservaciones();
+                                Menu.gestorRes.agregarReservacion(res);
+                                res.toString();
                             } else {
                                 System.out.println("Ingrese una opción válida...");
                             }
@@ -173,7 +173,7 @@ public class Menu {
                         break;
                     case 4:
                         Scanner scanner4 = new Scanner(System.in);
-                        System.out.println("\n1.Pisos y Habitaciones\n2.Paquetes");
+                        System.out.println("\n1.Pisos y Habitaciones\n2.Paquetes y servicios");
                         int opc4 = scanner4.nextInt();
                         if (opc4 == 1) {
                             System.out.println("1. Cambiar precio habitaciones\n2.Agregar Piso\n3. Habilitar piso\n4.Deshabilitar piso");
@@ -222,7 +222,7 @@ public class Menu {
                                     Scanner scanner45 = new Scanner(System.in);
                                     System.out.print("Ingrese nivel de la habitacion: ");
                                     nivel = scanner45.nextLine();
-                                    System.out.print("Ingrese numero de habitacio: ");
+                                    System.out.print("Ingrese numero de habitacion: ");
                                     numero = scanner45.nextInt();
                                     gestorHab.habilitarHabitacion(nivel, numero);
                                     break;
@@ -232,12 +232,12 @@ public class Menu {
                                     Scanner scanner46 = new Scanner(System.in);
                                     System.out.print("Ingrese nivel de la habitacion: ");
                                     nivel = scanner46.nextLine();
-                                    System.out.print("Ingrese numero de habitacio: ");
+                                    System.out.print("Ingrese numero de habitacion: ");
                                     numero = scanner46.nextInt();
                                     gestorHab.deshabilitarHabitacion(nivel, numero);
                                     break;
                                 default:
-                                    System.out.println("Llora pues");
+                                    System.out.println("...");
                                     break;
                             }
 
@@ -246,7 +246,16 @@ public class Menu {
                         }
 
                         break;
-
+                    case 5:
+                        Scanner scanner5 = new Scanner(System.in);
+                        System.out.println("1-Ver reservaciones de los proximos 7 dias\n2-Ver todas las reservaciones");
+                        System.out.print("Opcion: ");
+                        int opc5 =scanner5.nextInt();
+                        if(opc5==1){
+                            gestorRes.verReservaciones();
+                        }else if (opc5==2){
+                            gestorRes.verTodasReservaciones();
+                        }
                 }
 
                 //Hospedaje hosp = new Hospedaje();
