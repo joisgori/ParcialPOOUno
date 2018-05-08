@@ -32,8 +32,10 @@ public class VillaRafinha {
         Hospedaje hos2 = new Hospedaje(fecha3, fecha4, Tipo.SENCILLA,false);
         System.out.println(ges.verificarDisp(hab,hos2));*/
         
-        Menu menu=Menu.getInstance();
-        menu.mostrar();
+        //Menu menu=Menu.getInstance();
+        //menu.mostrar();
+        MenuProducto menuProducto=new MenuProducto();
+        menuProducto.ejecutarAccion();
         //GestorProductos.getInstance();
         //GestorProductos.agregarServicio(GestorProductos.crearServicio());
         //GestorProductos.agregarServicio(GestorProductos.crearServicio());

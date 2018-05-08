@@ -26,7 +26,7 @@ import java.util.Scanner;
          Scanner scanner =new Scanner(System.in);
          int opc;
          System.out.println("Que desea hacer hoy?\n");
-         System.out.println("1-Ver paquetes y servicios\n2-Agregar un paquete o servicio\n3-Remover un paquete o servicio\4-Modificar un paquete\n5-Modificar un servicio\n");
+         System.out.println("1-Ver paquetes y servicios\n2-Agregar un paquete o servicio\n3-Remover un paquete o servicio\n4-Modificar un paquete\n5-Modificar un servicio\n");
          System.out.print("Opcion: ");
          opc=scanner.nextInt();
          return opc;
