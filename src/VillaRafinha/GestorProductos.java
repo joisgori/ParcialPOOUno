@@ -88,7 +88,7 @@ public class GestorProductos {
             String nombreServ= scanner.nextLine();
             servicio=GestorProductos.buscarServicio(nombreServ);
             serviciosPaquete.add(servicio);
-            System.out.print("Presione 1 para terminar, cualquier otratecla para agregar otro servicio: ");
+            System.out.print("Presione 1 para terminar, cualquier otra tecla para agregar otro servicio: ");
             control=scanner.nextInt();
             if (control==1){
                 break;
