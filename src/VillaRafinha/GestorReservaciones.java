@@ -100,6 +100,12 @@ public class GestorReservaciones {
             }
         }
     }
+    public void verTodasReservaciones() {
+        reservaciones.forEach((reservacion) -> {
+            reservacion.toString();
+        });
+
+    }
 
     public LocalDate pedirFechar() throws Exception {
         
