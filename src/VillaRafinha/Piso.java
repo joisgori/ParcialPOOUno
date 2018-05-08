@@ -21,11 +21,11 @@ public class Piso {
         this.nivel=nivel;
         for(int i=1;i<=10;i++){
             if(i%2==0){
-                this.habitaciones[i-1]= new Habitacion(Tipo.DOBLE,nivel,i,nivel+i,(float) 5.0,"bla bla");
+                this.habitaciones[i-1]= new Habitacion(Tipo.DOBLE,nivel,i,nivel+i,(float) 5.0,"Linda habitacion con dos camas sencillas");
                 
             }
             else{
-                this.habitaciones[i-1]= new Habitacion(Tipo.SENCILLA,nivel,i,nivel+i,(float) 5.0,"bla bla");
+                this.habitaciones[i-1]= new Habitacion(Tipo.SENCILLA,nivel,i,nivel+i,(float) 5.0,"Linda habitacion con cama doble");
             }
             
         }

@@ -1,6 +1,7 @@
 package VillaRafinha;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 /**
@@ -12,7 +13,7 @@ public class GestorProductos {
     private static GestorProductos gestorProductos;
     private static ArrayList<Paquete> paquetes;
     private  static ArrayList<Servicio> servicios;
-
+    
     private GestorProductos() {
         paquetes = new ArrayList<>();
         servicios = new ArrayList<>();
@@ -47,6 +48,56 @@ public class GestorProductos {
         GestorProductos.servicios = servicios;
     }
     
+    /**
+     * Este metodo obtiene los datos de un nuevo servicio y crea una instancia de la clase
+     * @return el servicio con los valores ingresados
+     */
+    public static Servicio crearServicio(){
+        Scanner scanner = new Scanner (System.in);
+        System.out.print("Ingrese nombre: ");
+        String nombre = scanner.nextLine();
+        System.out.print("Descripcion: ");
+        String descripcion = scanner.nextLine();
+        System.out.print("Ingrese precio por dia: ");
+        float precio=scanner.nextFloat();
+       
+        Servicio servicio = new Servicio(nombre,precio,descripcion);
+        return servicio;
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public static Paquete crearPaquete() throws Exception{
+        
+        Scanner scanner = new Scanner (System.in);
+        int control=0;
+        Servicio servicio; 
+        ArrayList<Servicio> serviciosPaquete = new ArrayList<>();
+       
+        System.out.print("Ingrese nombre el paquete: ");
+        String nombre = scanner.nextLine();
+        System.out.print("Ingrese una descripcion: ");
+        String descripcion = scanner.nextLine();
+        
+        while(true){
+            scanner.nextLine();
+            GestorProductos.verServiciosLista();
+            System.out.print("Escriba el servicio que desea agregar: ");
+            String nombreServ= scanner.nextLine();
+            servicio=GestorProductos.buscarServicio(nombreServ);
+            serviciosPaquete.add(servicio);
+            System.out.print("Presione 1 para terminar, cualquier otratecla para agregar otro servicio: ");
+            control=scanner.nextInt();
+            if (control==1){
+                break;
+            }
+                    
+        }
+        Paquete paquete = new Paquete(nombre, descripcion, serviciosPaquete);
+        return paquete;
+    }
     /**
      * Este metodo nos permite agregar un servicio a la lista de servicios que ofrece el hotel
      * @param servicio sera el objeto que agregaremos al gestor
@@ -113,7 +164,7 @@ public class GestorProductos {
      */
     public static void verServicios(){
         servicios.forEach((servicio) -> {
-            System.out.println(servicio.toString());
+            System.out.println(servicio.verServicioDetalle());
         });
     }
     
@@ -128,7 +179,7 @@ public class GestorProductos {
      *Este metodo nos permite ver los servicios en formato lista
      */
     public static void verServiciosLista(){
-        servicios.forEach((servicio)->{System.out.println("Paquete: "+servicio.getNombre()+"\nPrecio: "+servicio.getPrecio()+"\n");});
+        servicios.forEach((servicio)->{System.out.println("Servicio: "+servicio.getNombre()+"\nPrecio: "+servicio.getPrecio()+"\n");});
     }
     
     /**
@@ -153,14 +204,15 @@ public class GestorProductos {
      * @return el servicio cuyo nombre se recibe como parametro
      * @throws Exception "Servicio no existe" si el servicio no existe en el gestor
      */
-    public static Servicio buscarServicio(String nombre) throws Exception{
+    
+    public static Servicio buscarServicio(String nombre){
         nombre=nombre.toUpperCase();
         for (Servicio servicio: servicios){
             if (nombre.equals(servicio.getNombre())){
                 return servicio;
             }
         }
-        throw new Exception("Servicio no existe");
+        return null;
     }
     
     /**

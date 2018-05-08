@@ -1,41 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package VillaRafinha;
 import java.util.ArrayList;
 import java.util.Objects;
 /**
- *
+ *Esta clase representa los diferentes paquetes que ofrece el hotel
  * @author aacm13
  */
 public class Paquete extends Producto{
     
-    private ArrayList<Servicio> servicios;
+    private ArrayList<Servicio> servicios=new ArrayList<>();
     private float tasaDescuento=(float)0.2;
     
-    public Paquete(String nombre, float precio, String descripcion, ArrayList<Servicio> servicios) {
-        super(nombre, precio, descripcion);
-        this.servicios=servicios;        
-    }
-
-    public Paquete(String nombre, float precio, ArrayList<Servicio> servicios) {
-        super(nombre, precio);
+    //Constructores
+    public Paquete(String nombre, String descripcion, ArrayList<Servicio> servicios) {
+        super(nombre, descripcion);
         this.servicios=servicios;
-    }
-    
-    public Paquete(String nombre, float precio, float tasaDescuento) {
-        super(nombre, precio);
-        this.servicios=new ArrayList<>();
-        this.tasaDescuento=tasaDescuento;
-    }
-    
-    public Paquete(String nombre, float precio) {
-        super(nombre, precio);
-        this.servicios=new ArrayList<>();        
-    }
+     }
 
+    
+    //setters y getters
     public float getTasaDescuento() {
         return tasaDescuento;
     }
@@ -43,8 +25,12 @@ public class Paquete extends Producto{
     public void setTasaDescuento(float tasaDescuento) {
         this.tasaDescuento = tasaDescuento;
     }
+
+    public ArrayList<Servicio> getServicios() {
+        return servicios;
+    }
     
-    
+    //equals y hashcode
     @Override
     public int hashCode() {
         int hash = 7;
@@ -64,21 +50,34 @@ public class Paquete extends Producto{
             return false;
         }
         final Paquete other = (Paquete) obj;
-        if (!Objects.equals(this.servicios, other.servicios)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.servicios, other.servicios);
     }
     
+    /**
+     *Este metodo nos permite agregar un servicios a la lista de incluidos con el paquete 
+     * @param servicio Es el servicio que agregaremos
+     * @throws Exception "Servicio ya esta en el paquete" en caso de que el servicio ya este incluido
+     */
     public void agregarServicio(Servicio servicio) throws Exception{
-        if (!servicios.contains(servicio)){
+        if (this.servicios.isEmpty()){
             this.servicios.add(servicio);
+            System.out.println("Servicio agregado con exito");
+            this.calcularPrecio();
+        }
+        else if (!this.servicios.contains(servicio)){
+            this.servicios.add(servicio);
+            System.out.println("Servicio agregado con exito");
             this.calcularPrecio();
         }else{ 
             throw new Exception("Servicio ya esta en paquete");
         }
     }
     
+    /**
+     *Este metodo nos permite remover un servicios de la lista de incluidos con el paquete 
+     * @param servicio Es el servicio que removeremos
+     * @throws Exception "Servicio no esta en el paquete" en caso de que el servicio no este incluido
+     */
     public void quitarServicio(Servicio servicio) throws Exception{
         if (servicios.contains(servicio)){
             this.servicios.remove(servicio);
@@ -89,18 +88,19 @@ public class Paquete extends Producto{
     
     }
     
-    public void calcularPrecio(){
-        double precio=0;
-        for (Servicio servicio:servicios){
-            precio=precio+servicio.getPrecio();
+    /**
+     * Este metodo calcula el precio del paquete sumando el precio de todos los servicios y restandole el porcentaje
+     * establecido por medio de la tasa de descuento
+     */
+    private void calcularPrecio(){
+        float precio=0;
+        for (Servicio servicio:this.servicios){
+            precio=precio+=servicio.getPrecio();
         }
-        super.setPrecio((float)precio-(float)precio*this.tasaDescuento);
-    }
-    
-    public void verPaquetesLista(){
-        
+        this.setPrecio(precio-precio*this.tasaDescuento);
     }
 
+    //toString
     @Override
     public String toString() {
         return "Paquete: \n" + "Nombre: "+this.getNombre()+"\nPrecio: "+this.getPrecio()+"\nServicios:\n" + servicios + "\n";

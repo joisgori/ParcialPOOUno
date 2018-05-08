@@ -25,12 +25,12 @@ public class GestorPisosHabitaciones {
 
     private GestorPisosHabitaciones() {
 
-        this.pisos.add(new Piso("A"));
-        this.pisos.add(new Piso("B"));
-        this.pisos.add(new Piso("C"));
-        this.pisos.add(new Piso("D"));
-        this.pisos.add(new Piso("E"));
-        this.pisos.add(new Piso("F"));
+        GestorPisosHabitaciones.pisos.add(new Piso("A"));
+        GestorPisosHabitaciones.pisos.add(new Piso("B"));
+        GestorPisosHabitaciones.pisos.add(new Piso("C"));
+        GestorPisosHabitaciones.pisos.add(new Piso("D"));
+        GestorPisosHabitaciones.pisos.add(new Piso("E"));
+        GestorPisosHabitaciones.pisos.add(new Piso("F"));
         
 
     }
@@ -40,7 +40,6 @@ public class GestorPisosHabitaciones {
             gestor = new GestorPisosHabitaciones();
 
         }
-        System.out.println("Gestor Instanciado");
         return gestor;
     }
 
@@ -51,17 +50,18 @@ public class GestorPisosHabitaciones {
     }
 
     public void setPisos(ArrayList<Piso> pisos) {
-        this.pisos = pisos;
+        GestorPisosHabitaciones.pisos = pisos;
     }
 
     /**
      * Este metodo deshabilita todas las habitaciones de un piso.
      *
      * @param nivel el nivel en el que se ecuentra
+     * @return 
      * @throws Exception en caso de que ya esten todos deshabilitados
      */
     public boolean deshabilitarPiso(String nivel) throws Exception {
-        for (Piso p : this.pisos) {
+        for (Piso p : GestorPisosHabitaciones.pisos) {
 
             if (p.getNivel().equals(nivel)) {
                 if (p.isEstado()) {
@@ -81,7 +81,7 @@ public class GestorPisosHabitaciones {
     }
 
     public boolean habilitarPiso(String nivel) throws Exception {
-        for (Piso p : this.pisos) {
+        for (Piso p : GestorPisosHabitaciones.pisos) {
             if (p.getNivel().equals(nivel)) {
                 if (!p.isEstado()) {
                     
@@ -103,7 +103,9 @@ public class GestorPisosHabitaciones {
     /**
      * Este metodo desabilita la habitacion.
      *
-     * @param habitacion
+     * @param nivel
+     * @param numero
+     * @return 
      * @throws Exception en caso de que la habitacion este ya habilitada
      */
     public boolean habilitarHabitacion(String nivel, int numero) throws Exception {
@@ -123,7 +125,9 @@ public class GestorPisosHabitaciones {
     /**
      * Este metodo habilita la habitacion
      *
-     * @param habitacion
+     * @param nivel
+     * @param numero
+     * @return 
      * @throws Exception en caso de que la habitacion ya este deshabilitada
      */
     public boolean deshabilitarHabitacion(String nivel, int numero) throws Exception  {
@@ -165,35 +169,20 @@ public class GestorPisosHabitaciones {
                 if (hos2.getFechaLlegada().isAfter(hospedaje.getFechaSalida())) {
                     return true;
                 } else {
-                    if (hos2.getFechaSalida().isBefore(hospedaje.getFechaLlegada())) {
-                        return true;
-                    } else {
-                        return false;
-                    }
+                    return hos2.getFechaSalida().isBefore(hospedaje.getFechaLlegada());
                 }
             }
-            /*if (hos2.getFechaLlegada().isAfter(hospedaje.getFechaSalida())) {
-                return true;
-            }*/
 
             while (it.hasNext()) {
                 hos1 = hos2;
                 hos2 = it.next();
                 if (hos1.getFechaSalida().isBefore(hospedaje.getFechaLlegada()) || hos1.getFechaSalida().equals(hospedaje.getFechaLlegada())) {
-                    if (hos2.getFechaLlegada().isAfter(hospedaje.getFechaSalida()) || hos2.getFechaLlegada().equals(hospedaje.getFechaSalida())) {
-                        return true;
-                    } else {
-                        return false;
-                    }
+                    return hos2.getFechaLlegada().isAfter(hospedaje.getFechaSalida()) || hos2.getFechaLlegada().equals(hospedaje.getFechaSalida());
 
                 }
 
             }
-            if (hos2.getFechaSalida().isBefore(hospedaje.getFechaLlegada())) {
-                return true;
-            } else {
-                return false;
-            }
+            return hos2.getFechaSalida().isBefore(hospedaje.getFechaLlegada());
         } else {
             return false;
         }
@@ -202,7 +191,7 @@ public class GestorPisosHabitaciones {
     public Habitacion getHabitacion(Reservacion reservacion) throws Exception {
         //boolean isSuperior;
         int validador1, validador2;
-        int tamanio = this.pisos.size()-1;
+        int tamanio = GestorPisosHabitaciones.pisos.size()-1;
 
         if (reservacion.getEstancia().isIsSuperior()) {
             validador1 = tamanio - 1;
@@ -214,7 +203,7 @@ public class GestorPisosHabitaciones {
         }
 
         for (int i = validador1; i <= validador2; i++) {
-            Piso p = this.pisos.get(i);
+            Piso p = GestorPisosHabitaciones.pisos.get(i);
             if (p.isEstado()) {
                 for (Habitacion h : p.getHabitaciones()) {
                     if (h.getTipo() == reservacion.getEstancia().getTipo()) {
@@ -232,7 +221,7 @@ public class GestorPisosHabitaciones {
 
     public int calcularNumHabitacionesDisponibles(Hospedaje hospedaje) {
         int cont = 0, validador1, validador2;
-        int tamanio = this.pisos.size() - 1;
+        int tamanio = GestorPisosHabitaciones.pisos.size() - 1;
         Piso p;
         //Habitacion h;
         if (hospedaje.isIsSuperior()) {
@@ -244,7 +233,7 @@ public class GestorPisosHabitaciones {
             validador2 = 0;
         }
         for (int i = validador1; i >= validador2; i--) {
-            p = this.pisos.get(i);
+            p = GestorPisosHabitaciones.pisos.get(i);
             for (Habitacion h : p.getHabitaciones()) {
                 if (h.getTipo() == hospedaje.getTipo()) {
                     if (this.verificarDisp(h, hospedaje)) {
@@ -260,7 +249,7 @@ public class GestorPisosHabitaciones {
     }
     public int getHabitacionesHabilitadas(Hospedaje hospedaje){
         int cont = 0, validador1, validador2;
-        int tamanio = this.pisos.size() - 1;
+        int tamanio = GestorPisosHabitaciones.pisos.size() - 1;
         Piso p;
         //Habitacion h;
         if (hospedaje.isIsSuperior()) {
@@ -272,7 +261,7 @@ public class GestorPisosHabitaciones {
             validador2 = 0;
         }
         for (int i = validador1; i >= validador2; i--) {
-            p = this.pisos.get(i);
+            p = GestorPisosHabitaciones.pisos.get(i);
             for (Habitacion h : p.getHabitaciones()) {
                 if (h.isEstado()) {
                     cont++;
@@ -310,11 +299,11 @@ public class GestorPisosHabitaciones {
     public void agregarPiso(){
         String nivel;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("El ultimo piso es: "+this.pisos.get(this.pisos.size()-1).getNivel());
+        System.out.println("El  ultimo piso es: "+GestorPisosHabitaciones.pisos.get(GestorPisosHabitaciones.pisos.size()-1).getNivel());
         System.out.println("Nivel del nuevo piso: ");
         nivel = scanner.nextLine();
         Piso nuevopiso = new Piso(nivel);
-        this.pisos.add(nuevopiso);
+        GestorPisosHabitaciones.pisos.add(nuevopiso);
     }
 
 }

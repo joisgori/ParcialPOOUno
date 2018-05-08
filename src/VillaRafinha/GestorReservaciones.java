@@ -19,13 +19,13 @@ import java.util.Scanner;
 public class GestorReservaciones {
 
     private ArrayList<Reservacion> reservaciones;
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
     private static GestorReservaciones gestorReservaciones;
     private static int precioBase;
 
     private GestorReservaciones() {
         reservaciones = new ArrayList<>();
-        this.precioBase = 80;
+        GestorReservaciones.precioBase = 80;
     }
 
     public static GestorReservaciones getInstance() {
@@ -103,26 +103,22 @@ public class GestorReservaciones {
     }
 
     public LocalDate pedirFechar() throws Exception {
-        Scanner scanfecha = new Scanner(System.in);
         String fecha;
 
         System.out.println("Ingrese fecha en formato dd/mm/aaaa: ");
-        fecha = scanfecha.nextLine();
+        fecha = scanner.nextLine();
         DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         return LocalDate.parse(fecha, formateador);
     }
 
-    //AGREGANDO FUNCION PARA PEDIR CANTIDAD DE DÍAS ---------------
     public int pedirnum() throws Exception {
         int numdias;
-//Está función está lista para ser usada como recursiva en el gestor de reservaciones, pues con esta misma se validará 
-        //que no puedan pasar de 7 días los días que se pretende hacer una reservación por parte del usuario.
+
         System.out.println("Ingrese cantidad de días en número entero: ");
         numdias = scanner.nextInt();
         return numdias;
     }
-    //------------- yo josué agregué esto
 
     public Tipo pedirTipo() throws Exception {
 

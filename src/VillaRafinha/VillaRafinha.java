@@ -6,6 +6,7 @@
 package VillaRafinha;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,6 +21,7 @@ public class VillaRafinha {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        Scanner scanner = new Scanner(System.in);
         /*LocalDate fecha1 = LocalDate.of(2018, 05, 6);
         LocalDate fecha2 = LocalDate.of(2018, 05, 10);
         LocalDate fecha3 = LocalDate.of(2018, 05, 7);
@@ -30,15 +32,27 @@ public class VillaRafinha {
         Hospedaje hos2 = new Hospedaje(fecha3, fecha4, Tipo.SENCILLA,false);
         System.out.println(ges.verificarDisp(hab,hos2));*/
         
-        Menu menu=Menu.getInstance();
-        menu.mostrar();
-    
+        //Menu menu=Menu.getInstance();
+        //menu.mostrar();
+        GestorProductos.getInstance();
+        GestorProductos.agregarServicio(GestorProductos.crearServicio());
+        GestorProductos.agregarServicio(GestorProductos.crearServicio());
+        //GestorProductos.agregarServicio(GestorProductos.crearServicio());
+        //GestorProductos.verServicios();
+        GestorProductos.agregarPaquete(GestorProductos.crearPaquete());
+        //GestorProductos.agregarPaquete(GestorProductos.crearPaquete());
+        GestorProductos.verPaquetes();
+        //GestorProductos.verPaquetesLista();
         //Servicio servicio1= new Servicio("Piscina", (float) 15.5,"Acceso a piscina semiolimpica bajo techo");
         //Servicio servicio2= new Servicio("Buffet", (float) 12.4,"Desayuno, almuerzo y cena buffet");
         //Servicio servicio3= new Servicio("Bar", (float) 16.7,"Acceso al bar y open bar");
+        //GestorProductos.agregarServicio(servicio3);
+        //GestorProductos.agregarServicio(servicio2);
+        //GestorProductos.agregarServicio(servicio1);
+        //String nombreServ= scanner.nextLine();
+        //System.out.println(GestorProductos.buscarServicio(nombreServ));
         
         //System.out.println(servicio1.toString());
-        //GestorProductos gestorProductos= GestorProductos.getInstance();
         //Paquete paquete1= new Paquete("Premium",(float)59.99);
         //paquete1.agregarServicio(servicio1);
         //paquete1.agregarServicio(servicio2);
