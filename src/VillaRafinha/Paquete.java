@@ -93,17 +93,16 @@ public class Paquete extends Producto{
      * establecido por medio de la tasa de descuento
      */
     private void calcularPrecio(){
-        float precio=0;
-        for (Servicio servicio:this.servicios){
-            precio=precio+=servicio.getPrecio();
-        }
-        this.setPrecio(precio-precio*this.tasaDescuento);
-    }
+        
+        this.servicios.forEach((servicio) -> {
+            this.precio=precio+=servicio.getPrecio();
+        });
+   }
 
     //toString
     @Override
     public String toString() {
-        return "Paquete: \n" + "Nombre: "+this.getNombre()+"\nPrecio: "+this.getPrecio()+"\nServicios:\n" + servicios + "\n";
+        return "Paquete: \n" + "Nombre: "+this.getNombre()+"\nPrecio: "+this.precio+"\nServicios:\n" + servicios + "\n";
     }
     
    

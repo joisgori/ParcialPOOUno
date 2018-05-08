@@ -9,7 +9,11 @@ import java.util.Objects;
 public class Producto {
     
     private String nombre;
-    private float precio;
+
+    /**
+     *
+     */
+    protected float precio;
     private String descripcion;
     private boolean estado;
 
