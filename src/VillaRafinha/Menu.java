@@ -35,7 +35,7 @@ public class Menu {
 
     public void opciones() {
         System.out.println("Ingrese numeros enteros");
-        System.out.println("\n1.Hacer Reservacion\n2.Hacer Check In\n3.Hacer Check Out\n4.Modificaciones\5.Ver reservaciones");
+        System.out.println("\n1.Hacer Reservacion\n2.Hacer Check In\n3.Hacer Check Out\n4.Modificaciones\n5.Ver reservaciones");
     }
 
     public void mostrar() throws Exception {
